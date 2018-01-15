@@ -7,17 +7,17 @@
   
   <title>读java源码之object | You&#39;s Tab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="(1)registerNatives1private static native void registerNatives(); (2)registerNatives123static &amp;#123;    registerNatives();&amp;#125; (3)getClass1public final native Class&amp;lt;?&amp;gt; getClass(); (4)hashCode1p">
+  <meta name="description" content="(1)registerNatives1private static native void registerNatives(); 个人理解是:这里是一个调用C语言写成的源程序Java_java_lang_Object_registerNatives,确切的说是JNINativeMethod函数，里面写明了HashCode,Wait,notify,notify,notifyAll,clone。这里不">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读java源码之object">
 <meta property="og:url" content="http://yoursite.com/2018/01/14/读java源码之object/index.html">
 <meta property="og:site_name" content="You&#39;s Tab">
-<meta property="og:description" content="(1)registerNatives1private static native void registerNatives(); (2)registerNatives123static &amp;#123;    registerNatives();&amp;#125; (3)getClass1public final native Class&amp;lt;?&amp;gt; getClass(); (4)hashCode1p">
-<meta property="og:updated_time" content="2018-01-14T16:44:49.746Z">
+<meta property="og:description" content="(1)registerNatives1private static native void registerNatives(); 个人理解是:这里是一个调用C语言写成的源程序Java_java_lang_Object_registerNatives,确切的说是JNINativeMethod函数，里面写明了HashCode,Wait,notify,notify,notifyAll,clone。这里不">
+<meta property="og:updated_time" content="2018-01-15T06:03:51.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读java源码之object">
-<meta name="twitter:description" content="(1)registerNatives1private static native void registerNatives(); (2)registerNatives123static &amp;#123;    registerNatives();&amp;#125; (3)getClass1public final native Class&amp;lt;?&amp;gt; getClass(); (4)hashCode1p">
+<meta name="twitter:description" content="(1)registerNatives1private static native void registerNatives(); 个人理解是:这里是一个调用C语言写成的源程序Java_java_lang_Object_registerNatives,确切的说是JNINativeMethod函数，里面写明了HashCode,Wait,notify,notify,notifyAll,clone。这里不">
   
     <link rel="alternate" href="/atom.xml" title="You&#39;s Tab" type="application/atom+xml">
   
@@ -95,7 +95,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="1-registerNatives"><a href="#1-registerNatives" class="headerlink" title="(1)registerNatives"></a>(1)registerNatives</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">registerNatives</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<p>个人理解是:这里是一个调用C语言写成的源程序Java_java_lang_Object_registerNatives,确切的说是JNINativeMethod函数，里面写明了HashCode,Wait,notify,notify,notifyAll,clone。这里不包含Object.getClass()。native是Java调用非Java代码的接口。</p>
 <h3 id="2-registerNatives"><a href="#2-registerNatives" class="headerlink" title="(2)registerNatives"></a>(2)registerNatives</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    registerNatives();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>个人理解：这里是调用了registerNatives()方法。在虚拟机的生命周期只调用一次，仅用于初始化。</p>
 <h3 id="3-getClass"><a href="#3-getClass" class="headerlink" title="(3)getClass"></a>(3)getClass</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> Class&lt;?&gt; getClass();</span><br></pre></td></tr></table></figure>
 <h3 id="4-hashCode"><a href="#4-hashCode" class="headerlink" title="(4)hashCode"></a>(4)hashCode</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
 <h3 id="5-equals"><a href="#5-equals" class="headerlink" title="(5)equals"></a>(5)equals</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -110,7 +112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/14/读java源码之object/" data-id="cjcfol58900012074juejjp58" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/14/读java源码之object/" data-id="cjcftjsxx0001bc74c8a9v89a" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -120,6 +122,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/01/15/Java中静态块与静态方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Java中静态块与静态方法
+        
+      </div>
+    </a>
   
   
     <a href="/2018/01/14/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
@@ -143,6 +154,10 @@
       <ul>
         
           <li>
+            <a href="/2018/01/15/Java中静态块与静态方法/">Java中静态块与静态方法</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/14/读java源码之object/">读java源码之object</a>
           </li>
         
@@ -159,7 +174,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -169,7 +184,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -179,7 +194,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 

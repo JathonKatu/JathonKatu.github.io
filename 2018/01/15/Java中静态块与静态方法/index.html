@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java中静态块与静态方法 | You&#39;s Tab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、静态块与静态方法：静态代码块是自动执行的，在项目启动时就执行，静态方法是被调用的时候才执行的，在项目启动时就初始化但不执行，在不创建对象的情况下可以被其他程序调用。 静态方法：如果我们在程序编写的时候需要一个不实例化对象就可以调用的方法，我们就可以使用静态方法，具体实现是在方法钱加上static，如下：1public static void method()&amp;#123;&amp;#125; 二、静态方">
+<meta name="keywords" content="静态块与静态方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java中静态块与静态方法">
+<meta property="og:url" content="http://yoursite.com/2018/01/15/Java中静态块与静态方法/index.html">
+<meta property="og:site_name" content="You&#39;s Tab">
+<meta property="og:description" content="一、静态块与静态方法：静态代码块是自动执行的，在项目启动时就执行，静态方法是被调用的时候才执行的，在项目启动时就初始化但不执行，在不创建对象的情况下可以被其他程序调用。 静态方法：如果我们在程序编写的时候需要一个不实例化对象就可以调用的方法，我们就可以使用静态方法，具体实现是在方法钱加上static，如下：1public static void method()&amp;#123;&amp;#125; 二、静态方">
+<meta property="og:updated_time" content="2018-01-15T06:18:45.201Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java中静态块与静态方法">
+<meta name="twitter:description" content="一、静态块与静态方法：静态代码块是自动执行的，在项目启动时就执行，静态方法是被调用的时候才执行的，在项目启动时就初始化但不执行，在不创建对象的情况下可以被其他程序调用。 静态方法：如果我们在程序编写的时候需要一个不实例化对象就可以调用的方法，我们就可以使用静态方法，具体实现是在方法钱加上static，如下：1public static void method()&amp;#123;&amp;#125; 二、静态方">
+  
+    <link rel="alternate" href="/atom.xml" title="You&#39;s Tab" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">You&#39;s Tab</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Hobby and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Java中静态块与静态方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/15/Java中静态块与静态方法/" class="article-date">
+  <time datetime="2018-01-15T06:07:34.000Z" itemprop="datePublished">2018-01-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java中静态块与静态方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、静态块与静态方法："><a href="#一、静态块与静态方法：" class="headerlink" title="一、静态块与静态方法："></a>一、静态块与静态方法：</h2><p>静态代码块是自动执行的，在项目启动时就执行，<br>静态方法是被调用的时候才执行的，在项目启动时就初始化但不执行，在不创建对象的情况下可以被其他程序调用。</p>
+<p>静态方法：如果我们在程序编写的时候需要一个不实例化对象就可以调用的方法，我们就可以使用静态方法，具体实现是在方法钱加上static，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、静态方法与非静态方法："><a href="#二、静态方法与非静态方法：" class="headerlink" title="二、静态方法与非静态方法："></a>二、静态方法与非静态方法：</h2><h3 id="1、生命周期（Lifecycle）："><a href="#1、生命周期（Lifecycle）：" class="headerlink" title="1、生命周期（Lifecycle）："></a>1、生命周期（Lifecycle）：</h3><p>静态方法（Static Method）与静态成员变量一样，属于类本身，在类装载的时候被装载到内存（Memory），不自动进行销毁，会一直存在于内存中，直到JVM关闭。</p>
+<p>非静态方法（Non-Static Method）又叫实例化方法，属于实例对象，实例化后才会分配内存，必须通过类的实例来引用。不会常驻内存，当实例对象被JVM 回收之后，也跟着消失。 </p>
+<h3 id="2、-在内存中存储位置"><a href="#2、-在内存中存储位置" class="headerlink" title="2、 在内存中存储位置"></a>2、 在内存中存储位置</h3><p>静态方法和静态变量创建后始终使用同一块内存，是连续的。</p>
+<p>非静态方法会存在于内存的多个地方，是离散的。</p>
+<h3 id="3、-效率"><a href="#3、-效率" class="headerlink" title="3、 效率"></a>3、 效率</h3><p> 静态方法的使用效率比非静态方法的效率高。</p>
+<h3 id="4、线程安全"><a href="#4、线程安全" class="headerlink" title="4、线程安全"></a>4、线程安全</h3><p>静态方法是共享代码段，静态变量是共享数据段。既然是“共享”就有并发（Concurrence）的问题。</p>
+<p>非静态方法是针对确定的一个对象的，所以不会存在线程安全的问题。</p>
+<h3 id="5、-使用范围"><a href="#5、-使用范围" class="headerlink" title="5、 使用范围"></a>5、 使用范围</h3><p>静态方法：⒈ 有静态属性的类，一般会定义静态方法。⒉ 没有属性的类，一般会定义静态方法。⒊ 如果一个方法与他所在类的实例对象无关，那么它就应该是静态的。静态方法可以被继承但是不能被覆盖。</p>
+<h3 id="6、-总计"><a href="#6、-总计" class="headerlink" title="6、  总计"></a>6、  总计</h3><p>如果静态方法在系统中定义太多，会占用大量的资源，最后造成内存溢出，所以静态方法不能滥用。如果从线程安全、性能、兼容性上来看，选用实例化方法为宜。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/15/Java中静态块与静态方法/" data-id="cjcftjsxx0000bc74wm20k0d4" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/14/读java源码之object/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">读java源码之object</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/15/Java中静态块与静态方法/">Java中静态块与静态方法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/14/读java源码之object/">读java源码之object</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/14/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 律_Ming<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
