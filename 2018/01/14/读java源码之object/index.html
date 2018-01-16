@@ -8,13 +8,13 @@
   <title>读java源码之object | You&#39;s Tab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="阅读源码只为了更加深刻理解常用类的运用。根据自己的读书经历，发现从原理出发会更感兴趣，如果只是会用和记忆，很快就会忘记。因此，在决定找实习之前重新温习一下Java的源码，希望以后千行bug率能低的离谱好吧。 (1)registerNatives1private static native void registerNatives(); 个人理解是:这里是一个调用C语言写成的源程序Java_java">
-<meta name="keywords" content="Java">
+<meta name="keywords" content="Object源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读java源码之object">
 <meta property="og:url" content="http://yoursite.com/2018/01/14/读java源码之object/index.html">
 <meta property="og:site_name" content="You&#39;s Tab">
 <meta property="og:description" content="阅读源码只为了更加深刻理解常用类的运用。根据自己的读书经历，发现从原理出发会更感兴趣，如果只是会用和记忆，很快就会忘记。因此，在决定找实习之前重新温习一下Java的源码，希望以后千行bug率能低的离谱好吧。 (1)registerNatives1private static native void registerNatives(); 个人理解是:这里是一个调用C语言写成的源程序Java_java">
-<meta property="og:updated_time" content="2018-01-16T06:39:36.081Z">
+<meta property="og:updated_time" content="2018-01-16T07:12:57.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读java源码之object">
 <meta name="twitter:description" content="阅读源码只为了更加深刻理解常用类的运用。根据自己的读书经历，发现从原理出发会更感兴趣，如果只是会用和记忆，很快就会忘记。因此，在决定找实习之前重新温习一下Java的源码，希望以后千行bug率能低的离谱好吧。 (1)registerNatives1private static native void registerNatives(); 个人理解是:这里是一个调用C语言写成的源程序Java_java">
@@ -121,11 +121,12 @@
 <p>个人理解：如果直接调用wait方法，不传入参数，那么超时时间为0。表示没有唤醒的情况下一直等待。</p>
 <p>######在此，个人认为官方提倡的多态是将多种不同形式的参数经过相同方法名但传入参数不同的方法处理后，调用同一个方法。也就是相同方法名不同参数会先进行参数处理，而后调用相同的方法(有的会是在本类中注册的方法，有的则是super的方法)，复用是面向对象的一个特色，减少代码量的同时又不影响效率。</p>
 <h3 id="13-finalize"><a href="#13-finalize" class="headerlink" title="(13)finalize"></a>(13)finalize</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>个人理解：垃圾回收器准备释放内存的时候，会先调用finalize()，但对象不一定会回收，垃圾回收不是析构函数，垃圾回收只与内存有关，垃圾回收和finalize()都是靠不住的，只要JVM没有到快耗尽内存的地步，就不会进行垃圾回收。<br>关键字protected是防止在该类之外定义的代码访问finalize()标识符。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/14/读java源码之object/" data-id="cjch9qo0d0001487422s7vrzh" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/14/读java源码之object/" data-id="cjchazxlq0005xg74jq2pt0ql" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -167,6 +168,10 @@
       <ul>
         
           <li>
+            <a href="/2018/01/16/JAVA_GC/">Java_GC</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/15/Java中静态块与静态方法/">Java中静态块与静态方法</a>
           </li>
         
@@ -187,7 +192,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -197,7 +202,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -207,7 +212,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 

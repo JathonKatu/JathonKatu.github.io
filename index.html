@@ -68,6 +68,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JAVA_GC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/16/JAVA_GC/" class="article-date">
+  <time datetime="2018-01-16T07:10:22.000Z" itemprop="datePublished">2018-01-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/16/JAVA_GC/">Java_GC</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Java的内存分配与回收全部由JVM垃圾回收进程自动完成。与C语言不同，Java开发者不需要自己编写代码实现垃圾回收。<br>程序员可以调用System.gc()和Runtime.gc()来请求JVM启动垃圾回收，但是JVM并不保证这些请求都会执行，启动时间依然取决于堆内存中的Eden区是否可用。</p>
+<p>在运行时，Java的实例被存放在堆内存区域。当一个对象不再被引用时，满足条件就会从堆内存移除。在垃圾回收进程中，这些对象将会从堆内存移除并且内存空间被回收。堆内存以下三个主要区域：  </p>
+<p>###新生代（Young Generation）：)(Eden-s0-s1)</p>
+<p>   #####Eden空间（Eden space，任何实例都通过Eden空间进入运行时内存区域）：当一个实例被创建了，首先会被存储在堆内存年轻代的 Eden 区中。</p>
+<p>   #####S0 Survivor空间：存在时间长的实例将会从Eden空间移动到S0 Survivor空间</p>
+<p>   #####S1 Survivor空间：存在时间更长的实例将会从S0 Survivor空间移动到S1 Survivor空间</p>
+<p>###老年代（Old Generation）：是堆内存中的第二块逻辑区。当垃圾回收器执行 Minor GC 周期时，在 S1 Survivor 区中的存活实例将会被晋升到老年代，而未被引用的对象被标记为回收。</p>
+<p>####永久代（Permanent Generation）包含类、方法等细节的元信息(在Java8中已被移除)<br>死亡的实例（不再被引用）被标记为垃圾回收。根据垃圾回收器选择的不同，要么被标记的实例都会不停地从内存中移除，要么回收过程会在一个单独的进程中完成。</p>
+<p>Java 中的堆也是 GC 收集垃圾的主要区域。GC 分为两种：Minor GC、Full GC ( 或称为 Major GC )。<br>Minor GC 是发生在新生代中的垃圾收集动作，所采用的是复制算法。(当对象在新生代中，经过一次Minor GC如果对象还存活，并且能被新生代内的区域接纳，则使用复制算法将这些仍然存活的对象复制到下一区域，然后清理所使用过的 Eden 以及 s0 区域，并且将这些对象的年龄设置为1，以后对象在 Survivor 区每熬过一次 Minor GC，就将对象的年龄 + 1，当对象的年龄达到某个值时 ( 默认是 15 岁，可以通过参数 -XX:MaxTenuringThreshold 来设定 )，这些对象就会成为老年代。)<br>Full GC 是发生在老年代的垃圾收集动作，所采用的是标记-清除算法。(Full GC 发生的次数不会有 Minor GC 那么频繁，并且做一次 Full GC 要比进行一次 Minor GC 的时间更长)</p>
+<p>碎片整理:一旦实例从堆内存中被删除，其位置就会变空并且可用于未来实例的分配。这些空出的空间将会使整个内存区域碎片化。为了实例的快速分配，需要进行碎片整理。基于垃圾回收器的不同选择，回收的内存区域要么被不停地被整理，要么在一个单独的GC进程中完成。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/16/JAVA_GC/" data-id="cjchazxl90000xg747iavezgu" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Java中静态块与静态方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/15/Java中静态块与静态方法/" class="article-date">
@@ -109,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/15/Java中静态块与静态方法/" data-id="cjch9qo0d00004874vztjpuad" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/15/Java中静态块与静态方法/" data-id="cjchazxln0004xg74043x0jxd" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -174,11 +226,12 @@
 <p>个人理解：如果直接调用wait方法，不传入参数，那么超时时间为0。表示没有唤醒的情况下一直等待。</p>
 <p>######在此，个人认为官方提倡的多态是将多种不同形式的参数经过相同方法名但传入参数不同的方法处理后，调用同一个方法。也就是相同方法名不同参数会先进行参数处理，而后调用相同的方法(有的会是在本类中注册的方法，有的则是super的方法)，复用是面向对象的一个特色，减少代码量的同时又不影响效率。</p>
 <h3 id="13-finalize"><a href="#13-finalize" class="headerlink" title="(13)finalize"></a>(13)finalize</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>个人理解：垃圾回收器准备释放内存的时候，会先调用finalize()，但对象不一定会回收，垃圾回收不是析构函数，垃圾回收只与内存有关，垃圾回收和finalize()都是靠不住的，只要JVM没有到快耗尽内存的地步，就不会进行垃圾回收。<br>关键字protected是防止在该类之外定义的代码访问finalize()标识符。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/14/读java源码之object/" data-id="cjch9qo0d0001487422s7vrzh" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/14/读java源码之object/" data-id="cjchazxlq0005xg74jq2pt0ql" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -225,7 +278,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/14/hello-world/" data-id="cjch9qo0t00044874p8ob1qgg" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/14/hello-world/" data-id="cjchazxlh0001xg74w450ywis" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -248,6 +301,10 @@
       <ul>
         
           <li>
+            <a href="/2018/01/16/JAVA_GC/">Java_GC</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/15/Java中静态块与静态方法/">Java中静态块与静态方法</a>
           </li>
         
@@ -268,7 +325,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -278,7 +335,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -288,7 +345,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
