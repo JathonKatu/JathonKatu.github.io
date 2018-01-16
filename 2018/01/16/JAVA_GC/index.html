@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/16/JAVA_GC/index.html">
 <meta property="og:site_name" content="You&#39;s Tab">
 <meta property="og:description" content="Java的内存分配与回收全部由JVM垃圾回收进程自动完成。与C语言不同，Java开发者不需要自己编写代码实现垃圾回收。程序员可以调用System.gc()和Runtime.gc()来请求JVM启动垃圾回收，但是JVM并不保证这些请求都会执行，启动时间依然取决于堆内存中的Eden区是否可用。 在运行时，Java的实例被存放在堆内存区域。当一个对象不再被引用时，满足条件就会从堆内存移除。在垃圾回收进程">
-<meta property="og:updated_time" content="2018-01-16T07:14:55.852Z">
+<meta property="og:updated_time" content="2018-01-16T07:16:50.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java_GC">
 <meta name="twitter:description" content="Java的内存分配与回收全部由JVM垃圾回收进程自动完成。与C语言不同，Java开发者不需要自己编写代码实现垃圾回收。程序员可以调用System.gc()和Runtime.gc()来请求JVM启动垃圾回收，但是JVM并不保证这些请求都会执行，启动时间依然取决于堆内存中的Eden区是否可用。 在运行时，Java的实例被存放在堆内存区域。当一个对象不再被引用时，满足条件就会从堆内存移除。在垃圾回收进程">
@@ -96,19 +96,14 @@
       
         <p>Java的内存分配与回收全部由JVM垃圾回收进程自动完成。与C语言不同，Java开发者不需要自己编写代码实现垃圾回收。<br>程序员可以调用System.gc()和Runtime.gc()来请求JVM启动垃圾回收，但是JVM并不保证这些请求都会执行，启动时间依然取决于堆内存中的Eden区是否可用。</p>
 <p>在运行时，Java的实例被存放在堆内存区域。当一个对象不再被引用时，满足条件就会从堆内存移除。在垃圾回收进程中，这些对象将会从堆内存移除并且内存空间被回收。堆内存以下三个主要区域：  </p>
-<p>###新生代（Young Generation）：)(Eden-s0-s1)</p>
-<p>   #####Eden空间（Eden space，任何实例都通过Eden空间进入运行时内存区域）：当一个实例被创建了，首先会被存储在堆内存年轻代的 Eden 区中。</p>
-<p>   #####S0 Survivor空间：存在时间长的实例将会从Eden空间移动到S0 Survivor空间</p>
-<p>   #####S1 Survivor空间：存在时间更长的实例将会从S0 Survivor空间移动到S1 Survivor空间</p>
-<p>###老年代（Old Generation）：是堆内存中的第二块逻辑区。当垃圾回收器执行 Minor GC 周期时，在 S1 Survivor 区中的存活实例将会被晋升到老年代，而未被引用的对象被标记为回收。</p>
-<p>####永久代（Permanent Generation）包含类、方法等细节的元信息(在Java8中已被移除)<br>死亡的实例（不再被引用）被标记为垃圾回收。根据垃圾回收器选择的不同，要么被标记的实例都会不停地从内存中移除，要么回收过程会在一个单独的进程中完成。</p>
+<h3 id="新生代（Young-Generation）：-Eden-s0-s1"><a href="#新生代（Young-Generation）：-Eden-s0-s1" class="headerlink" title="新生代（Young Generation）：)(Eden-s0-s1)"></a>新生代（Young Generation）：)(Eden-s0-s1)</h3><h5 id="Eden空间（Eden-space，任何实例都通过Eden空间进入运行时内存区域）：当一个实例被创建了，首先会被存储在堆内存年轻代的-Eden-区中。"><a href="#Eden空间（Eden-space，任何实例都通过Eden空间进入运行时内存区域）：当一个实例被创建了，首先会被存储在堆内存年轻代的-Eden-区中。" class="headerlink" title="Eden空间（Eden space，任何实例都通过Eden空间进入运行时内存区域）：当一个实例被创建了，首先会被存储在堆内存年轻代的 Eden 区中。"></a>Eden空间（Eden space，任何实例都通过Eden空间进入运行时内存区域）：当一个实例被创建了，首先会被存储在堆内存年轻代的 Eden 区中。</h5><h5 id="S0-Survivor空间：存在时间长的实例将会从Eden空间移动到S0-Survivor空间"><a href="#S0-Survivor空间：存在时间长的实例将会从Eden空间移动到S0-Survivor空间" class="headerlink" title="S0 Survivor空间：存在时间长的实例将会从Eden空间移动到S0 Survivor空间"></a>S0 Survivor空间：存在时间长的实例将会从Eden空间移动到S0 Survivor空间</h5><h5 id="S1-Survivor空间：存在时间更长的实例将会从S0-Survivor空间移动到S1-Survivor空间"><a href="#S1-Survivor空间：存在时间更长的实例将会从S0-Survivor空间移动到S1-Survivor空间" class="headerlink" title="S1 Survivor空间：存在时间更长的实例将会从S0 Survivor空间移动到S1 Survivor空间"></a>S1 Survivor空间：存在时间更长的实例将会从S0 Survivor空间移动到S1 Survivor空间</h5><h3 id="老年代（Old-Generation）：是堆内存中的第二块逻辑区。当垃圾回收器执行-Minor-GC-周期时，在-S1-Survivor-区中的存活实例将会被晋升到老年代，而未被引用的对象被标记为回收。"><a href="#老年代（Old-Generation）：是堆内存中的第二块逻辑区。当垃圾回收器执行-Minor-GC-周期时，在-S1-Survivor-区中的存活实例将会被晋升到老年代，而未被引用的对象被标记为回收。" class="headerlink" title="老年代（Old Generation）：是堆内存中的第二块逻辑区。当垃圾回收器执行 Minor GC 周期时，在 S1 Survivor 区中的存活实例将会被晋升到老年代，而未被引用的对象被标记为回收。"></a>老年代（Old Generation）：是堆内存中的第二块逻辑区。当垃圾回收器执行 Minor GC 周期时，在 S1 Survivor 区中的存活实例将会被晋升到老年代，而未被引用的对象被标记为回收。</h3><h4 id="永久代（Permanent-Generation）包含类、方法等细节的元信息-在Java8中已被移除"><a href="#永久代（Permanent-Generation）包含类、方法等细节的元信息-在Java8中已被移除" class="headerlink" title="永久代（Permanent Generation）包含类、方法等细节的元信息(在Java8中已被移除)"></a>永久代（Permanent Generation）包含类、方法等细节的元信息(在Java8中已被移除)</h4><p>死亡的实例（不再被引用）被标记为垃圾回收。根据垃圾回收器选择的不同，要么被标记的实例都会不停地从内存中移除，要么回收过程会在一个单独的进程中完成。</p>
 <p>Java 中的堆也是 GC 收集垃圾的主要区域。GC 分为两种：Minor GC、Full GC ( 或称为 Major GC )。<br>Minor GC 是发生在新生代中的垃圾收集动作，所采用的是复制算法。(当对象在新生代中，经过一次Minor GC如果对象还存活，并且能被新生代内的区域接纳，则使用复制算法将这些仍然存活的对象复制到下一区域，然后清理所使用过的 Eden 以及 s0 区域，并且将这些对象的年龄设置为1，以后对象在 Survivor 区每熬过一次 Minor GC，就将对象的年龄 + 1，当对象的年龄达到某个值时 ( 默认是 15 岁，可以通过参数 -XX:MaxTenuringThreshold 来设定 )，这些对象就会成为老年代。)<br>Full GC 是发生在老年代的垃圾收集动作，所采用的是标记-清除算法。(Full GC 发生的次数不会有 Minor GC 那么频繁，并且做一次 Full GC 要比进行一次 Minor GC 的时间更长)</p>
 <p>碎片整理:一旦实例从堆内存中被删除，其位置就会变空并且可用于未来实例的分配。这些空出的空间将会使整个内存区域碎片化。为了实例的快速分配，需要进行碎片整理。基于垃圾回收器的不同选择，回收的内存区域要么被不停地被整理，要么在一个单独的GC进程中完成。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/16/JAVA_GC/" data-id="cjchazxl90000xg747iavezgu" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/16/JAVA_GC/" data-id="cjchb2liq0000qw749hxxp3xb" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
