@@ -57,7 +57,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -67,6 +67,54 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-入侵检测系统搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/16/入侵检测系统搭建/" class="article-date">
+  <time datetime="2018-01-16T10:43:27.000Z" itemprop="datePublished">2018-01-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/16/入侵检测系统搭建/">入侵检测系统搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>　　通常来说，一个企业或机构准备进军此领域时，往往选择从基于网络的IDS入手，因为网上有很多这方面的开放源代码和资料，实现起来比较容易，并且，基于网络的IDS适应能力强。有了简单网络IDS的开发经验，再向基于主机的IDS、分布式IDS、智能IDS等方面迈进的难度就小了很多。在此，笔者将以基于网络的IDS为例，介绍典型的IDS开发思路。<br>　　根据CIDF规范，我们从功能上将入侵检测系统划分为四个基本部分：数据采集子系统、数据分析子系统、控制台子系统、数据库管理子系统，如附图所示。<br>　　具体实现起来，一般都将数据采集子系统（又称探测器）和数据分析子系统在Linux或Unix平台上实现，我们称之为数据采集分析中心;将控制台子系统在Windows NT或2000上实现，数据库管理子系统基于Access或其他功能更强大的数据库，多跟控制台子系统结合在一起，我们称之为控制管理中心。本文以Linux和Windows NT平台为例介绍数据采集分析中心和控制管理中心的实现。<br>　　可以按照如下步骤构建一个基本的入侵检测系统。</p>
+<h3 id="第一步-获取libpcap和tcpdump"><a href="#第一步-获取libpcap和tcpdump" class="headerlink" title="第一步 获取libpcap和tcpdump"></a>第一步 获取libpcap和tcpdump</h3><p>　　审计踪迹是IDS的数据来源，而数据采集机制是实现IDS的基础，否则，巧妇难为无米之炊，入侵检测就无从谈起。数据采集子系统位于IDS的最底层，其主要目的是从网络环境中获取事件，并向其他部分提供事件。目前比较流行的做法是：使用libpcap和tcpdump，将网卡置于“混杂”模式，捕获某个网段上所有的数据流。<br>　　libpcap是Unix或Linux从内核捕获网络数据包的必备工具，它是独立于系统的API接口，为底层网络监控提供了一个可移植的框架，可用于网络统计收集、安全监控、网络调试等应用。<br>　　tcpdump是用于网络监控的工具，可能是Unix上最著名的sniffer了，它的实现基于libpcap接口，通过应用布尔表达式打印数据包首部，具体执行过滤转换、包获取和包显示等功能。tcpdump可以帮助我们描述系统的正常行为，并最终识别出那些不正常的行为，当然，它只是有益于收集关于某网段上的数据流（网络流类型、连接等）信息，至于分析网络活动是否正常，那是程序员和管理员所要做的工作。<br>　　libpcap和tcpdump在网上广为流传，开发者可以到相关网站下载。</p>
+<h3 id="第二步-构建并配置探测器，实现数据采集功能"><a href="#第二步-构建并配置探测器，实现数据采集功能" class="headerlink" title="第二步 构建并配置探测器，实现数据采集功能"></a>第二步 构建并配置探测器，实现数据采集功能</h3><p>　　1. 应根据自己网络的具体情况，选用合适的软件及硬件设备，如果你的网络数据流量很小，用一般的PC机安装Linux即可，如果所监控的网络流量非常大，则需要用一台性能较高的机器。<br>　　2. 在Linux服务器上开出一个日志分区，用于采集数据的存储。<br>　　3. 创建libpcap库。从网上下载的通常都是libpcap.tar.z的压缩包，所以，应先将其解压缩、解包，然后执行配置脚本，创建适合于自己系统环境的Makefile，再用make命令创建libpcap库。libpcap安装完毕之后，将生成一个libpcap库、三个include文件和一个man页面（即用户手册）。<br>　　4. 创建tcpdump。与创建libpcap的过程一样，先将压缩包解压缩、解包到与libpcap相同的父目录下，然后配置、安装tcpdump。<br>　　如果配置、创建、安装等操作一切正常的话，到这里，系统已经能够收集到网络数据流了。至于如何使用libpcap和tcpdump，还需要参考相关的用户手册。</p>
+<h3 id="第三步-建立数据分析模块"><a href="#第三步-建立数据分析模块" class="headerlink" title="第三步 建立数据分析模块"></a>第三步 建立数据分析模块</h3><p>　　网上有一些开放源代码的数据分析软件包，这给我们构建数据分析模块提供了一定的便利条件，但这些“免费的午餐”一般都有很大的局限性，要开发一个真正功能强大、实用的IDS，通常都需要开发者自己动手动脑设计数据分析模块，而这往往也是整个IDS的工作重点。<br>　　数据分析模块相当于IDS的大脑，它必须具备高度的“智慧”和“判断能力”。所以，在设计此模块之前，开发者需要对各种网络协议、系统漏洞、攻击手法、可疑行为等有一个很清晰、深入的研究，然后制订相应的安全规则库和安全策略，再分别建立滥用检测模型和异常检测模型，让机器模拟自己的分析过程，识别确知特征的攻击和异常行为，最后将分析结果形成报警消息，发送给控制管理中心。<br>　　设计数据分析模块的工作量浩大，并且，考虑到“道高一尺，魔高一丈”的黑客手法日益翻新，所以，这注定是一个没有终点的过程，需要不断地更新、升级、完善。在这里需要特别注意三个问题：<br>　　① 应优化检测模型和算法的设计，确保系统的执行效率；<br>　　② 安全规则的制订要充分考虑包容性和可扩展性，以提高系统的伸缩性；<br>　　③ 报警消息要遵循特定的标准格式，增强其共享与互操作能力，切忌随意制订消息格式的不规范做法。</p>
+<h3 id="第四步-构建控制台子系统"><a href="#第四步-构建控制台子系统" class="headerlink" title="第四步 构建控制台子系统"></a>第四步 构建控制台子系统</h3><p>　　控制台子系统负责向网络管理员汇报各种网络违规行为，并由管理员对一些恶意行为采取行动（如阻断、跟踪等）。由于Linux或Unix平台在支持界面操作方面远不如常用的Windows产品流行，所以，为了把IDS做成一个通用、易用的系统，笔者建议将控制台子系统在Windows系列平台上实现。<br>　　控制台子系统的主要任务有两个：<br>　　① 管理数据采集分析中心，以友好、便于查询的方式显示数据采集分析中心发送过来的警报消息；<br>　　② 根据安全策略进行一系列的响应动作，以阻止非法行为，确保网络的安全。<br>　　控制台子系统的设计重点是：警报信息查询、探测器管理、规则管理及用户管理。<br>　　1．警报信息查询：网络管理员可以使用单一条件或复合条件进行查询，当警报信息数量庞大、来源广泛的时候，系统需要对警报信息按照危险等级进行分类，从而突出显示网络管理员需要的最重要信息。<br>　　2．探测器管理：控制台可以一次管理多个探测器（包括启动、停止、配置、查看运行状态等），查询各个网段的安全状况，针对不同情况制订相应的安全规则。<br>　　3．规则库管理功能：为用户提供一个根据不同网段具体情况灵活配置安全策略的工具，如一次定制可应用于多个探测器、默认安全规则等。<br>　　4．用户管理：对用户权限进行严格的定义，提供口令修改、添加用户、删除用户、用户权限配置等功能，有效保护系统使用的安全性。</p>
+<h3 id="第五步-构建数据库管理子系统"><a href="#第五步-构建数据库管理子系统" class="headerlink" title="第五步 构建数据库管理子系统"></a>第五步 构建数据库管理子系统</h3><p>　　一个好的入侵检测系统不仅仅应当为管理员提供实时、丰富的警报信息，还应详细地记录现场数据，以便于日后需要取证时重建某些网络事件。<br>　　数据库管理子系统的前端程序通常与控制台子系统集成在一起，用Access或其他数据库存储警报信息和其他数据。该模块的数据来源有两个：<br>　　① 数据分析子系统发来的报警信息及其他重要信息；<br>　　② 管理员经过条件查询后对查询结果处理所得的数据，如生成的本地文件、格式报表等。<br>　　第六步 联调，一个基本的IDS搭建完毕<br>　　以上几步完成之后，一个IDS的最基本框架已被实现。但要使这个IDS顺利地运转起来，还需要保持各个部分之间安全、顺畅地通信和交互，这就是联调工作所要解决的问题。<br>　　首先，要实现数据采集分析中心和控制管理中心之间的通信，二者之间是双向的通信。控制管理中心显示、整理数据采集分析中心发送过来的分析结果及其他信息，数据采集分析中心接收控制管理中心发来的配置、管理等命令。注意确保这二者之间通信的安全性，最好对通信数据流进行加密操作，以防止被窃听或篡改。同时，控制管理中心的控制台子系统和数据库子系统之间也有大量的交互操作，如警报信息查询、网络事件重建等。<br>　　联调通过之后，一个基本的IDS就搭建完毕。后面要做的就是不断完善各部分功能，尤其是提高系统的检测能力。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/16/入侵检测系统搭建/" data-id="cjchivqen0006lw74fxk8vcoc" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入侵检测系统/">入侵检测系统</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-入侵检测" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -97,9 +145,9 @@
         <p>什么是入侵检测<br>   入侵检测(Intrusion Detection )是对入侵行为的检测。它通过收集和分析计算机网络或计算机系统中若于关键点的信息，检查网络或系统中是否存在违反安全策略的行为和被攻击的迹象。入侵检测作为一种积极主动的安全防护技术，提供了对内部攻击、外部攻击和误操作的实时保护，在网络系统受到危害之前拦截和响应入侵入侵检测技术虽然也能够对网络攻击进行识另拼作出反应，但其侧重点还是在于发现，而不能代替防火墙系统执行整个网络的访问控制策略。<br>     入侵检测系统（intrusion Detection System ,IDS）是对计算机和网络资源的恶意使用为进行识别的系统；它的目的是监测和发现可能存在的攻击行为，包括来自系统外部的入侵行为和来自内部用户的非授权行为，并且采取相应的防护手段。</p>
 <p>入侵检测系统的分类</p>
 <p>一：按检测分析方法分类</p>
-<p>1：异常检测<br>   基于异常的入侵检测方法主要来源于这样的思想，任何人的正常行为都是有一定的规律的，并且可以通过分析这些行为的日志信息型总结出这些规律，而入侵和滥用行为规则通常和正常的行为存在严重的差异，通过检查这些差异就可以判断是否为入侵。总之，一场检测基于这样的假设和前提：用户活动是有规律的，而且这种规律是可以通过数据有效的描述和反映；入侵时异常活动的子集和用户的正常活动有着可以描述的明显的区别。<br>   异常监测系统首先经过一个学习阶段，总结正常的行为的轮廓成为自己的先验知识，系统运行时将信息采集子系统获得并预处理后的数据与正常行为模式比较，如果差异不超出预设阀值，则认为是正常的，出现较大差异即超过阀值则判定为入侵。<br>   <img src="/2018/01/16/入侵检测/../入侵检测/ruqinjiance1.png" alt=""></p>
+<p>1：异常检测<br>   基于异常的入侵检测方法主要来源于这样的思想，任何人的正常行为都是有一定的规律的，并且可以通过分析这些行为的日志信息型总结出这些规律，而入侵和滥用行为规则通常和正常的行为存在严重的差异，通过检查这些差异就可以判断是否为入侵。总之，一场检测基于这样的假设和前提：用户活动是有规律的，而且这种规律是可以通过数据有效的描述和反映；入侵时异常活动的子集和用户的正常活动有着可以描述的明显的区别。<br>   异常监测系统首先经过一个学习阶段，总结正常的行为的轮廓成为自己的先验知识，系统运行时将信息采集子系统获得并预处理后的数据与正常行为模式比较，如果差异不超出预设阀值，则认为是正常的，出现较大差异即超过阀值则判定为入侵。<br>   <img src="/2018/01/16/入侵检测/../入侵检测/ruqinjiance1.png" alt="异常检测"></p>
 <p>   异常检测系统有如下特点：<br>      1)：检测的效率取决于用户轮过的完备性和监控的频率，因为不需要对每种入侵行为进行定义，而能有效检测未知的入侵，因此也称为一个研究热点<br>      2)：系统能针对用户行为的改变进行自我调整和优化，但随着检测模型的逐步精确，异常检测会消耗更多的系统资源</p>
-<p>2：误用检测<br>   又称为基于特征的检测，基于误用的入侵检测系统通过使用某种模式或者信号标示表示攻击，进而发现同类型的攻击，其实现过程是：先收集非正常操作的行为特征，系统就认为这种行为是入侵，系统处理过程如同：<br>   <img src="/2018/01/16/入侵检测/../入侵检测/ruqinjiance2.png" alt=""></p>
+<p>2：误用检测<br>   又称为基于特征的检测，基于误用的入侵检测系统通过使用某种模式或者信号标示表示攻击，进而发现同类型的攻击，其实现过程是：先收集非正常操作的行为特征，系统就认为这种行为是入侵，系统处理过程如同：<br>   <img src="/2018/01/16/入侵检测/../入侵检测/ruqinjiance2.png" alt="误用检测"></p>
 <p>这里写图片描述<br>   这种方法可以检测到许多甚至是全部已知的攻击行为，如果入侵特征与正常的用户行为能匹配，则系统会发生误报，如果没有特征能与某种新的攻击行为匹配，则系统会发生漏报。<br>   特点：采用特征匹配模式能明显降低错报率，但漏报率随之增加，攻击特征的细微变化，会使得滥用检测无能为力。</p>
 <p>二：按数据源分为</p>
 <p>1：基于主机的入侵检测<br>   基于主机的入侵检测是入侵检测的最初期形式，这种入侵检测系统通常运行在被检测的主机或者服务器上，实时检测检测系统的运行，通常从主机的审计记录和日志文件中获得所需的主要数据源，并辅之以主机上的其他信息，在此基础上完成检测攻击行为的任务。特别的，从主机入侵检测技术中还可以单独分离出基于应用的入侵检测模型，这是特别针对于某个特定任务的应用程序而设计的入侵检测技术，采用的输入数据源是应用程序的日志信息。<br>   基于主机的入侵检测悉尼型来源主要包括：<br>      1）：系统信息，几乎所有的操作系统都提供一组命令，获得本机当前激活的进程的状态信息，他们直接检查内核程序的内存信息。<br>      2）：记账，通常指由操作系统或操作员所执行的特定操作，记录计算机资源的使用情况，例如CPU占用时间，内存，硬盘，网络使用情况。在计算机未普及之前，记账是为了向用户收费的。<br>       3）：系统日志，可分为操作系统日志和应用程序日志两部分。操作系统日志从不同方面记录了系统中发生的事情，对于入侵检测而言，具备重要的价值，当一个进程终止时，系统内核为每个进程在进程日志文件中写入一条记录。<br>       4）：C2安全审计，记录所有可能与安全性有关的发生在系统上的事情。</p>
@@ -130,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/16/入侵检测/" data-id="cjchibgha00058074kt14quwc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/16/入侵检测/" data-id="cjchivqek0005lw740595uq8f" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入侵检测/">入侵检测</a></li></ul>
@@ -177,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/16/JAVA_GC/" data-id="cjchibggr0000807456v8is89" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/16/JAVA_GC/" data-id="cjchivqe00000lw74xoxu9sa8" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -230,7 +278,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/15/Java中静态块与静态方法/" data-id="cjchibgh70004807421g78yfs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/15/Java中静态块与静态方法/" data-id="cjchivqeg0004lw74xlt64hsv" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -300,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/14/读java源码之object/" data-id="cjchibghc00068074fj5gdpsk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/14/读java源码之object/" data-id="cjchivqet000alw748plvgqsy" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -347,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/14/hello-world/" data-id="cjchibgh1000180745bwaaic1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/14/hello-world/" data-id="cjchivqe90001lw74h8eefy6m" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -365,9 +413,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/01/16/入侵检测系统搭建/">入侵检测系统搭建</a>
+          </li>
         
           <li>
             <a href="/2018/01/16/入侵检测/">入侵检测</a>
@@ -385,10 +437,6 @@
             <a href="/2018/01/14/读java源码之object/">读java源码之object</a>
           </li>
         
-          <li>
-            <a href="/2018/01/14/hello-world/">Hello World</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -396,9 +444,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -406,9 +454,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -418,7 +466,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测系统/">入侵检测系统</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
