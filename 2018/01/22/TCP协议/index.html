@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>TCP协议的三次握手四次挥手 | You&#39;s Tab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="阅读whuslei的博客有感简单来说个人理解的TCP就是：三次握手：Client端：“嘿，老哥，我想跟你说个事”Server端：“行，我兜着，你说吧。”Client端：“那我就说了啊。”Client端向Server端吐槽省略一万字。。。。 四次挥手：Client端：“哎呀，老哥，跟你讲话太开心了，但今天兄弟有点事，下次再聊可以吗。”Server端：“行呀，随时欢迎呀，但是你后面有几条短讯还卡在路上">
+<meta name="keywords" content="TCP&#x2F;IP协议">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP协议的三次握手四次挥手">
+<meta property="og:url" content="http://yoursite.com/2018/01/22/TCP协议/index.html">
+<meta property="og:site_name" content="You&#39;s Tab">
+<meta property="og:description" content="阅读whuslei的博客有感简单来说个人理解的TCP就是：三次握手：Client端：“嘿，老哥，我想跟你说个事”Server端：“行，我兜着，你说吧。”Client端：“那我就说了啊。”Client端向Server端吐槽省略一万字。。。。 四次挥手：Client端：“哎呀，老哥，跟你讲话太开心了，但今天兄弟有点事，下次再聊可以吗。”Server端：“行呀，随时欢迎呀，但是你后面有几条短讯还卡在路上">
+<meta property="og:image" content="http://yoursite.com/2018/01/22/TCP协议/1.gif">
+<meta property="og:image" content="http://yoursite.com/2018/01/22/TCP协议/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/22/TCP协议/3.gif">
+<meta property="og:image" content="http://yoursite.com/2018/01/22/TCP协议/4.gif">
+<meta property="og:updated_time" content="2018-01-22T04:21:15.486Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TCP协议的三次握手四次挥手">
+<meta name="twitter:description" content="阅读whuslei的博客有感简单来说个人理解的TCP就是：三次握手：Client端：“嘿，老哥，我想跟你说个事”Server端：“行，我兜着，你说吧。”Client端：“那我就说了啊。”Client端向Server端吐槽省略一万字。。。。 四次挥手：Client端：“哎呀，老哥，跟你讲话太开心了，但今天兄弟有点事，下次再聊可以吗。”Server端：“行呀，随时欢迎呀，但是你后面有几条短讯还卡在路上">
+<meta name="twitter:image" content="http://yoursite.com/2018/01/22/TCP协议/1.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="You&#39;s Tab" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">You&#39;s Tab</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Hobby and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-TCP协议" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/22/TCP协议/" class="article-date">
+  <time datetime="2018-01-22T04:10:11.000Z" itemprop="datePublished">2018-01-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TCP协议的三次握手四次挥手
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>阅读<a href="http://blog.csdn.net/whuslei/article/details/6667471" target="_blank" rel="noopener">whuslei</a>的博客有感<br>简单来说个人理解的TCP就是：<br>三次握手：<br>Client端：“嘿，老哥，我想跟你说个事”<br>Server端：“行，我兜着，你说吧。”<br>Client端：“那我就说了啊。”<br>Client端向Server端吐槽省略一万字。。。。</p>
+<p>四次挥手：<br>Client端：“哎呀，老哥，跟你讲话太开心了，但今天兄弟有点事，下次再聊可以吗。”<br>Server端：“行呀，随时欢迎呀，但是你后面有几条短讯还卡在路上，你先别关机行吗，等我接完。”<br>……过了一段时间，所有短讯都收到后……<br>Server端：“老哥，你说的话我都看完了啊，你可以去办事了，改天聊。”<br>Client端：“行，我下了啊，改天聊。”</p>
+<p>以下是我阅读：<a href="http://blog.csdn.net/whuslei/article/details/6667471" target="_blank" rel="noopener">whuslei</a>的博客原文<br>建立TCP需要三次握手才能建立，而断开连接则需要四次握手。整个过程如下图所示：<br><img src="/2018/01/22/TCP协议/../TCP协议/1.gif" alt="TCP协议过程"></p>
+<p>首先Client端发送连接请求报文，Server段接受连接后回复ACK报文，并为这次连接分配资源。Client端接收到ACK报文后也向Server段发生ACK报文，并分配资源，这样TCP连接就建立了。</p>
+<p>那如何断开连接呢？简单的过程如下：<br><img src="/2018/01/22/TCP协议/../TCP协议/2.png" alt="如何断开连接"><br>【注意】中断连接端可以是Client端，也可以是Server端。</p>
+<p>假设Client端发起中断连接请求，也就是发送FIN报文。Server端接到FIN报文后，意思是说”我Client端没有数据要发给你了”，但是如果你还有数据没有发送完成，则不必急着关闭Socket，可以继续发送数据。所以你先发送ACK，”告诉Client端，你的请求我收到了，但是我还没准备好，请继续你等我的消息”。这个时候Client端就进入FIN_WAIT状态，继续等待Server端的FIN报文。当Server端确定数据已发送完成，则向Client端发送FIN报文，”告诉Client端，好了，我这边数据发完了，准备好关闭连接了”。Client端收到FIN报文后，”就知道可以关闭连接了，但是他还是不相信网络，怕Server端不知道要关闭，所以发送ACK后进入TIME_WAIT状态，如果Server端没有收到ACK则可以重传。“，Server端收到ACK后，”就知道可以断开连接了”。Client端等待了2MSL后依然没有收到回复，则证明Server端已正常关闭，那好，我Client端也可以关闭连接了。Ok，TCP连接就这样关闭了！</p>
+<p>整个过程Client端所经历的状态如下：<br><img src="/2018/01/22/TCP协议/../TCP协议/3.gif" alt="Client端所经历"></p>
+<p>而Server端所经历的过程如下：<br><img src="/2018/01/22/TCP协议/../TCP协议/4.gif" alt="Server端所经历"></p>
+<p>【注意】 在TIME_WAIT状态中，如果TCP client端最后一次发送的ACK丢失了，它将重新发送。TIME_WAIT状态中所需要的时间是依赖于实现方法的。典型的值为30秒、1分钟和2分钟。等待之后连接正式关闭，并且所有的资源(包括端口号)都被释放。</p>
+<p>【问题1】为什么连接的时候是三次握手，关闭的时候却是四次握手？<br>答：因为当Server端收到Client端的SYN连接请求报文后，可以直接发送SYN+ACK报文。其中ACK报文是用来应答的，SYN报文是用来同步的。但是关闭连接时，当Server端收到FIN报文时，很可能并不会立即关闭SOCKET，所以只能先回复一个ACK报文，告诉Client端，”你发的FIN报文我收到了”。只有等到我Server端所有的报文都发送完了，我才能发送FIN报文，因此不能一起发送。故需要四步握手。</p>
+<p>【问题2】为什么TIME_WAIT状态需要经过2MSL(最大报文段生存时间)才能返回到CLOSE状态？</p>
+<p>答：虽然按道理，四个报文都发送完毕，我们可以直接进入CLOSE状态了，但是我们必须假象网络是不可靠的，有可以最后一个ACK丢失。所以TIME_WAIT状态就是用来重发可能丢失的ACK报文。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/22/TCP协议/" data-id="cjcppgo5100051474n2u9wz3p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS/">CS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/16/入侵检测系统搭建/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">入侵检测系统搭建</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/22/TCP协议/">TCP协议的三次握手四次挥手</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/16/入侵检测系统搭建/">入侵检测系统搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/16/入侵检测/">入侵检测</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/16/JAVA_GC/">Java_GC</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/15/Java中静态块与静态方法/">Java中静态块与静态方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 律_Ming<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
