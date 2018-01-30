@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/01/22/TCP协议/2.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/22/TCP协议/3.gif">
 <meta property="og:image" content="http://yoursite.com/2018/01/22/TCP协议/4.gif">
-<meta property="og:updated_time" content="2018-01-22T04:21:15.486Z">
+<meta property="og:updated_time" content="2018-01-30T16:21:14.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP协议的三次握手四次挥手">
 <meta name="twitter:description" content="阅读whuslei的博客有感简单来说个人理解的TCP就是：三次握手：Client端：“嘿，老哥，我想跟你说个事”Server端：“行，我兜着，你说吧。”Client端：“那我就说了啊。”Client端向Server端吐槽省略一万字。。。。 四次挥手：Client端：“哎呀，老哥，跟你讲话太开心了，但今天兄弟有点事，下次再聊可以吗。”Server端：“行呀，随时欢迎呀，但是你后面有几条短讯还卡在路上">
@@ -101,6 +101,7 @@
       
         <p>阅读<a href="http://blog.csdn.net/whuslei/article/details/6667471" target="_blank" rel="noopener">whuslei</a>的博客有感<br>简单来说个人理解的TCP就是：<br>三次握手：<br>Client端：“嘿，老哥，我想跟你说个事”<br>Server端：“行，我兜着，你说吧。”<br>Client端：“那我就说了啊。”<br>Client端向Server端吐槽省略一万字。。。。</p>
 <p>四次挥手：<br>Client端：“哎呀，老哥，跟你讲话太开心了，但今天兄弟有点事，下次再聊可以吗。”<br>Server端：“行呀，随时欢迎呀，但是你后面有几条短讯还卡在路上，你先别关机行吗，等我接完。”<br>……过了一段时间，所有短讯都收到后……<br>Server端：“老哥，你说的话我都看完了啊，你可以去办事了，改天聊。”<br>Client端：“行，我下了啊，改天聊。”</p>
+<p>三次是保证双方互相明确对方能收能发的最低值。<br>理论上讲不论握手多少次都不能确认一条信道是“可靠”的，但通过3次握手可以至少确认它是“可用”的，再往上加握手次数不过是提高“它是可用的”这个结论的可信程度。</p>
 <p>以下是我阅读：<a href="http://blog.csdn.net/whuslei/article/details/6667471" target="_blank" rel="noopener">whuslei</a>的博客原文<br>建立TCP需要三次握手才能建立，而断开连接则需要四次握手。整个过程如下图所示：<br><img src="/2018/01/22/TCP协议/../TCP协议/1.gif" alt="TCP协议过程"></p>
 <p>首先Client端发送连接请求报文，Server段接受连接后回复ACK报文，并为这次连接分配资源。Client端接收到ACK报文后也向Server段发生ACK报文，并分配资源，这样TCP连接就建立了。</p>
 <p>那如何断开连接呢？简单的过程如下：<br><img src="/2018/01/22/TCP协议/../TCP协议/2.png" alt="如何断开连接"><br>【注意】中断连接端可以是Client端，也可以是Server端。</p>
@@ -115,7 +116,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/22/TCP协议/" data-id="cjcukkctb000urc74n6ygyu2m" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/22/TCP协议/" data-id="cjd1up4qd0005mc74x37zmk1p" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS/">CS</a></li></ul>
