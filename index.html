@@ -68,6 +68,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-pythonClassLibrary" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/22/pythonClassLibrary/" class="article-date">
+  <time datetime="2018-02-21T16:17:13.000Z" itemprop="datePublished">2018-02-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/22/pythonClassLibrary/">pythonClassLibray</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法"><a href="#因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法" class="headerlink" title="因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法"></a>因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法</h5><h6 id="大概有-numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法"><a href="#大概有-numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法" class="headerlink" title="大概有 numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法"></a>大概有 numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法</h6><h3 id="一、numpy"><a href="#一、numpy" class="headerlink" title="一、numpy"></a>一、numpy</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<p>建立一个对角矩阵，矩阵的秩为x<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e = np.eye(x)</span><br></pre></td></tr></table></figure></p>
+<p>建立一个零矩阵，矩阵的秩为x<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">z = np.zero(x)</span><br></pre></td></tr></table></figure></p>
+<p>查看矩阵或数组的维数（出现(3,)的情况则为一维数组，一行3列）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">np.shape(z)</span><br><span class="line">z.shape</span><br><span class="line"><span class="comment">##(两种写法都可以)</span></span><br><span class="line">z.shape[<span class="number">1</span>] <span class="comment">##这里是查询矩阵第一维的维数</span></span><br></pre></td></tr></table></figure></p>
+<p>返回两个数之间的数字<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.arange(start,end,step) <span class="comment">##step默认为1，且取start不取end</span></span><br></pre></td></tr></table></figure></p>
+<p>返回两个数组的点积（如果是二维数组或者矩阵则返回矩阵积）</p>
+<pre><code class="Python">
+</code></pre>
+<h3 id="二、pandas"><a href="#二、pandas" class="headerlink" title="二、pandas"></a>二、pandas</h3><h3 id="三、matplotlib"><a href="#三、matplotlib" class="headerlink" title="三、matplotlib"></a>三、matplotlib</h3><h3 id="四、tensorflow"><a href="#四、tensorflow" class="headerlink" title="四、tensorflow"></a>四、tensorflow</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/22/pythonClassLibrary/" data-id="cjdxba13q0006q474vrmsxojc" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-神经网络" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/02/神经网络/" class="article-date">
@@ -101,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/02/神经网络/" data-id="cjdk2hipa000i1s74r9ld5gjc" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/02/神经网络/" data-id="cjdxba145000iq474vcdh7vyf" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/神经网络/">神经网络</a></li></ul>
@@ -165,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/25/sqlmap手册/" data-id="cjdk2hiou000a1s7402na9e5i" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/25/sqlmap手册/" data-id="cjdxba13z000bq474fbgga3qj" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kali/">kali</a></li></ul>
@@ -286,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/24/Python基础/" data-id="cjdk2hiod00011s74h8m9hb5f" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/24/Python基础/" data-id="cjdxba13m0004q4746u6lsln1" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -341,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/22/TCP协议/" data-id="cjdk2hior00061s74no3kq847" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/22/TCP协议/" data-id="cjdxba13o0005q474wge9hqey" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS/">CS</a></li></ul>
@@ -389,7 +439,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/16/入侵检测系统搭建/" data-id="cjdk2hip3000f1s74mp51c13l" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/16/入侵检测系统搭建/" data-id="cjdxba15l0013q474hceomtgj" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入侵检测/">入侵检测</a></li></ul>
@@ -463,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/16/入侵检测/" data-id="cjdk2hiox000b1s74i5ngf8j7" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/16/入侵检测/" data-id="cjdxba143000gq474n3xudny2" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入侵检测/">入侵检测</a></li></ul>
@@ -510,7 +560,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/16/JAVA_GC/" data-id="cjdk2hio600001s74a0lfmdbc" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/16/JAVA_GC/" data-id="cjdxba13g0001q474w8dmrwt6" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -563,7 +613,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/15/Java中静态块与静态方法/" data-id="cjdk2hiol00041s744o65nqf6" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/15/Java中静态块与静态方法/" data-id="cjdxba1390000q4741q70i9w7" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -633,7 +683,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/14/读java源码之object/" data-id="cjdk2hipe000l1s748s2rmsfo" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/14/读java源码之object/" data-id="cjdxba14u0010q47478ahlqy1" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -645,52 +695,12 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/14/hello-world/" class="article-date">
-  <time datetime="2018-01-14T07:38:18.478Z" itemprop="datePublished">2018-01-14</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/14/hello-world/" data-id="cjdk2hioo00051s74bcnteiky" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
+  </nav>
 
 </section>
         
@@ -701,6 +711,10 @@
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/02/22/pythonClassLibrary/">pythonClassLibray</a>
+          </li>
         
           <li>
             <a href="/2018/02/02/神经网络/">神经网络</a>
@@ -718,10 +732,6 @@
             <a href="/2018/01/22/TCP协议/">TCP协议的三次握手四次挥手</a>
           </li>
         
-          <li>
-            <a href="/2018/01/16/入侵检测系统搭建/">入侵检测系统搭建</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -731,7 +741,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
@@ -741,7 +751,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -751,7 +761,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 

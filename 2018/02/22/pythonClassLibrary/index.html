@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>pythonClassLibray | You&#39;s Tab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法大概有 numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法一、numpy1import numpy as np 建立一个对角矩阵，矩阵的秩为x1e = np.eye(x) 建立一个零矩阵，矩阵的秩为x1z">
+<meta name="keywords" content="python三方库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pythonClassLibray">
+<meta property="og:url" content="http://yoursite.com/2018/02/22/pythonClassLibrary/index.html">
+<meta property="og:site_name" content="You&#39;s Tab">
+<meta property="og:description" content="因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法大概有 numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法一、numpy1import numpy as np 建立一个对角矩阵，矩阵的秩为x1e = np.eye(x) 建立一个零矩阵，矩阵的秩为x1z">
+<meta property="og:updated_time" content="2018-02-21T16:46:35.971Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pythonClassLibray">
+<meta name="twitter:description" content="因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法大概有 numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法一、numpy1import numpy as np 建立一个对角矩阵，矩阵的秩为x1e = np.eye(x) 建立一个零矩阵，矩阵的秩为x1z">
+  
+    <link rel="alternate" href="/atom.xml" title="You&#39;s Tab" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">You&#39;s Tab</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Hobby and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-pythonClassLibrary" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/22/pythonClassLibrary/" class="article-date">
+  <time datetime="2018-02-21T16:17:13.000Z" itemprop="datePublished">2018-02-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      pythonClassLibray
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法"><a href="#因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法" class="headerlink" title="因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法"></a>因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法</h5><h6 id="大概有-numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法"><a href="#大概有-numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法" class="headerlink" title="大概有 numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法"></a>大概有 numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法</h6><h3 id="一、numpy"><a href="#一、numpy" class="headerlink" title="一、numpy"></a>一、numpy</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<p>建立一个对角矩阵，矩阵的秩为x<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e = np.eye(x)</span><br></pre></td></tr></table></figure></p>
+<p>建立一个零矩阵，矩阵的秩为x<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">z = np.zero(x)</span><br></pre></td></tr></table></figure></p>
+<p>查看矩阵或数组的维数（出现(3,)的情况则为一维数组，一行3列）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">np.shape(z)</span><br><span class="line">z.shape</span><br><span class="line"><span class="comment">##(两种写法都可以)</span></span><br><span class="line">z.shape[<span class="number">1</span>] <span class="comment">##这里是查询矩阵第一维的维数</span></span><br></pre></td></tr></table></figure></p>
+<p>返回两个数之间的数字<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.arange(start,end,step) <span class="comment">##step默认为1，且取start不取end</span></span><br></pre></td></tr></table></figure></p>
+<p>返回两个数组的点积（如果是二维数组或者矩阵则返回矩阵积）</p>
+<pre><code class="Python">
+</code></pre>
+<h3 id="二、pandas"><a href="#二、pandas" class="headerlink" title="二、pandas"></a>二、pandas</h3><h3 id="三、matplotlib"><a href="#三、matplotlib" class="headerlink" title="三、matplotlib"></a>三、matplotlib</h3><h3 id="四、tensorflow"><a href="#四、tensorflow" class="headerlink" title="四、tensorflow"></a>四、tensorflow</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/22/pythonClassLibrary/" data-id="cjdxba13q0006q474vrmsxojc" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/02/神经网络/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">神经网络</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/02/22/pythonClassLibrary/">pythonClassLibray</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/02/神经网络/">神经网络</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/25/sqlmap手册/">sqlmap手册</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/24/Python基础/">Python基础</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/22/TCP协议/">TCP协议的三次握手四次挥手</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 律_Ming<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
