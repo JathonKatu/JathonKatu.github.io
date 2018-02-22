@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/22/pythonClassLibrary/index.html">
 <meta property="og:site_name" content="You&#39;s Tab">
 <meta property="og:description" content="因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法大概有 numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法后期如果这个笔记过长，会将各个模块独立一、numpy#######有些可能零矩阵和对角矩阵的相乘没有意义，这里只提供一个思路和笔记，不计较结果1i">
-<meta property="og:updated_time" content="2018-02-22T09:59:09.217Z">
+<meta property="og:updated_time" content="2018-02-22T10:51:16.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pythonClassLibray">
 <meta name="twitter:description" content="因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法大概有 numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法后期如果这个笔记过长，会将各个模块独立一、numpy#######有些可能零矩阵和对角矩阵的相乘没有意义，这里只提供一个思路和笔记，不计较结果1i">
@@ -96,7 +96,7 @@
       
         <h5 id="因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法"><a href="#因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法" class="headerlink" title="因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法"></a>因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法</h5><h6 id="大概有-numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法"><a href="#大概有-numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法" class="headerlink" title="大概有 numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法"></a>大概有 numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法</h6><h6 id="后期如果这个笔记过长，会将各个模块独立"><a href="#后期如果这个笔记过长，会将各个模块独立" class="headerlink" title="后期如果这个笔记过长，会将各个模块独立"></a>后期如果这个笔记过长，会将各个模块独立</h6><h3 id="一、numpy"><a href="#一、numpy" class="headerlink" title="一、numpy"></a>一、numpy</h3><p>#######有些可能零矩阵和对角矩阵的相乘没有意义，这里只提供一个思路和笔记，不计较结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure></p>
 <p>建立一个对角矩阵，矩阵的秩为x<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e = np.eye(x)</span><br></pre></td></tr></table></figure></p>
-<p>建立一个零矩阵，矩阵的秩为x<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">z = np.zero(x)</span><br></pre></td></tr></table></figure></p>
+<p>建立一个零矩阵<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">z = np.zero(x) <span class="comment">##矩阵的秩为x</span></span><br><span class="line">z = np.zero([x,y])<span class="comment">##矩阵为x行y列</span></span><br></pre></td></tr></table></figure></p>
 <p>查看矩阵或数组的维数(出现(3,)的情况则为一维数组，一行3列)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">np.shape(z)</span><br><span class="line">z.shape</span><br><span class="line"><span class="comment">##(两种写法都可以)</span></span><br><span class="line">z.shape[<span class="number">1</span>] <span class="comment">##这里是查询矩阵第一维的维数</span></span><br></pre></td></tr></table></figure></p>
 <p>改变矩阵或者数组的维数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">z.reshape(x,y)</span><br><span class="line">np.reshape(z,[x,y])</span><br><span class="line"><span class="comment">## x,y可以为任何数字但必须符合以下两种情况：</span></span><br><span class="line">    <span class="comment">## 1.当x为-1时，y可以不写。此时：若不写y则默认生成1行z.size列。若填写y，则生成y列 z.size / y 行，这里z.size % y = 0</span></span><br><span class="line">    <span class="comment">## 2.当x不为-1时，x * y = z.size</span></span><br></pre></td></tr></table></figure></p>
 <p>返回两个数之间的数字<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.arange(start,end,step) <span class="comment">##step默认为1，start默认为0，且取start不取end</span></span><br></pre></td></tr></table></figure></p>
@@ -114,7 +114,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/22/pythonClassLibrary/" data-id="cjdyc5xnh000aps74r8v9tgdi" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/02/22/pythonClassLibrary/" data-id="cjdye0q7u000aok74uyaeo5of" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
