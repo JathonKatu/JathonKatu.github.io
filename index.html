@@ -94,57 +94,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="pass"><a href="#pass" class="headerlink" title="pass"></a>pass</h3><p>什么也不做</p>
+        <p>这个文档是Python函数的学习过程<br><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014316784721058975e02b46cc45cb836bb0827607738d000" target="_blank" rel="noopener">廖雪峰的教程中</a>，是从abs(求绝对值函数)入手的函数调用</p>
+<h3 id="pass"><a href="#pass" class="headerlink" title="pass"></a>pass</h3><p>什么也不做</p>
 <h3 id="del"><a href="#del" class="headerlink" title="del"></a>del</h3><p>删除一个变量，但是并不会删除在内存中的存储<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">print(a)</span><br><span class="line">first = a[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">del</span> a[<span class="number">0</span>]</span><br><span class="line">print(a[<span class="number">0</span>])</span><br><span class="line">print(len(a))</span><br><span class="line">print(first)</span><br><span class="line"><span class="string">"""结果</span></span><br><span class="line"><span class="string">    [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="string">    2</span></span><br><span class="line"><span class="string">    4</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/06/python一些语句/" data-id="cjeggyoir0006z0746x0n6f64" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python函数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/06/python函数/" class="article-date">
-  <time datetime="2018-03-06T02:07:33.000Z" itemprop="datePublished">2018-03-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/毕设/">毕设</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/06/python函数/">python函数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这个文档是Python函数的学习过程<br><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014316784721058975e02b46cc45cb836bb0827607738d000" target="_blank" rel="noopener">廖雪峰的教程中</a>，是从abs(求绝对值函数)入手的函数调用<br>abs函数的调用结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">abs(<span class="number">-100</span>)  <span class="comment">##结果## 100</span></span><br><span class="line">abs(<span class="number">20</span>)    <span class="comment">##结果## 20</span></span><br><span class="line">abs(<span class="number">12.34</span>) <span class="comment">##结果## 12.34</span></span><br><span class="line">abs(<span class="number">0</span>)     <span class="comment">##结果## 0</span></span><br><span class="line">也就是说，abs函数不会改变数值的精度，可以理解为只是简单的做了一个正负判断，并且如果是负数就*(<span class="number">-1</span>)即可</span><br></pre></td></tr></table></figure></p>
+<p>abs函数的调用结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">abs(<span class="number">-100</span>)  <span class="comment">##结果## 100</span></span><br><span class="line">abs(<span class="number">20</span>)    <span class="comment">##结果## 20</span></span><br><span class="line">abs(<span class="number">12.34</span>) <span class="comment">##结果## 12.34</span></span><br><span class="line">abs(<span class="number">0</span>)     <span class="comment">##结果## 0</span></span><br><span class="line">也就是说，abs函数不会改变数值的精度，可以理解为只是简单的做了一个正负判断，并且如果是负数就*(<span class="number">-1</span>)即可</span><br></pre></td></tr></table></figure></p>
 <p>type()</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/06/python函数/" data-id="cjeggyoir0005z074os1dithc" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/06/python一些语句/" data-id="cjeghkvvd000amc74nvp0t9cp" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -202,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/02/22/pythonClassLibrary/" data-id="cjeggyoih0001z074chbaj4dn" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/02/22/pythonClassLibrary/" data-id="cjeghkvvo000gmc74rf7wiqz7" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
@@ -247,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/02/02/神经网络/" data-id="cjeggyokx0012z074eqcnh2f9" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/02/02/神经网络/" data-id="cjeghkvw4000smc742n8r3awd" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/神经网络/">神经网络</a></li></ul>
@@ -311,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/25/sqlmap手册/" data-id="cjeggyoj7000jz074n3n2iwt7" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/25/sqlmap手册/" data-id="cjeghkvvj000bmc74xxw6jf7f" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kali/">kali</a></li></ul>
@@ -388,11 +347,11 @@
 <p>Python有一个input()：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s = input(<span class="string">'birth: '</span>)</span><br><span class="line">birth = int(s)</span><br><span class="line"><span class="keyword">if</span> birth &lt; <span class="number">2000</span>:</span><br><span class="line">    print(<span class="string">'00前'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'00后'</span>)</span><br></pre></td></tr></table></figure></p>
 <h3 id="循环："><a href="#循环：" class="headerlink" title="循环："></a>循环：</h3><p>这里的循环与java不同在于<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]:</span><br><span class="line">或者</span><br><span class="line">names = [ana,con,da]</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">或者</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">101</span>)</span><br><span class="line">都是可行的，前两个遍历数组，第三个则是一个运行条件</span><br><span class="line">range(start, stop[, step])：start为开始，stop为结束，step为步长（默认为<span class="number">1</span>）</span><br><span class="line">如range(<span class="number">0</span>,<span class="number">5</span>)等价于range(<span class="number">0</span>,<span class="number">5</span>,<span class="number">1</span>)，结果是[<span class="number">0</span>，<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>]</span><br><span class="line">range(<span class="number">101</span>)则是<span class="number">0</span><span class="number">-100</span>且以<span class="number">1</span>为步长</span><br></pre></td></tr></table></figure></p>
 <h3 id="break和continue"><a href="#break和continue" class="headerlink" title="break和continue"></a>break和continue</h3><p>这里break和continue与java中相同，不赘述</p>
-<h3 id="dict和set"><a href="#dict和set" class="headerlink" title="dict和set"></a>dict和set</h3><p>Python内置了字典：dict的支持，dict全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储，具有极快的查找速度。dict同一键值只能创建一次，如果创建多次会只记住最后一个值。<br>这里的dict和json相似。key：value<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = &#123;<span class="string">'Michael'</span>: <span class="number">95</span>, <span class="string">'Bob'</span>: <span class="number">75</span>, <span class="string">'Tracy'</span>: <span class="number">85</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'Michael'</span>]</span><br><span class="line"><span class="number">95</span></span><br></pre></td></tr></table></figure></p>
-<p>可以用in来判断指定的key是否在字典中。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Thomas'</span> <span class="keyword">in</span> d</span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="dict和set"><a href="#dict和set" class="headerlink" title="dict和set"></a>dict和set</h3><p>Python内置了字典：dict的支持，dict全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储，具有极快的查找速度。dict同一键值只能创建一次，如果创建多次会只记住最后一个值。这里，字典是支持嵌套的，也就是说value可以是一个数列或元组。字典的键值是”只读”的，所以不能对键和值分别进行初始化。<br>这里的dict和json相似。key：value<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = &#123;<span class="string">'Michael'</span>: <span class="number">95</span>, <span class="string">'Bob'</span>: <span class="number">75</span>, <span class="string">'Tracy'</span>: <span class="number">85</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'Michael'</span>]</span><br><span class="line"><span class="number">95</span></span><br></pre></td></tr></table></figure></p>
+<p>可以用key in dict来判断指定的key是否在字典中。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Thomas'</span> <span class="keyword">in</span> d</span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure></p>
 <p>dict提供的get()方法，如果key不存在，可以返回None，或者自己指定的value：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">'Thomas'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.get(<span class="string">'Thomas'</span>, <span class="number">-1</span>)</span><br><span class="line"><span class="number">-1</span></span><br></pre></td></tr></table></figure></p>
 <p>要删除一个key，用pop(key)方法，对应的value也会从dict中删除：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.pop(<span class="string">'Bob'</span>)</span><br><span class="line"><span class="number">75</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d</span><br><span class="line">&#123;<span class="string">'Michael'</span>: <span class="number">95</span>, <span class="string">'Tracy'</span>: <span class="number">85</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> dict[<span class="string">'Bob'</span>] <span class="comment">## 删除字典中的键'Bob'</span></span><br><span class="line">dict.clear() <span class="comment">## 清空字典</span></span><br><span class="line"><span class="keyword">del</span> dict <span class="comment">##删除字典</span></span><br></pre></td></tr></table></figure>
+<p>dict的一些其他相关指令<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> dict[<span class="string">'Bob'</span>] <span class="comment">## 删除字典中的键'Bob'</span></span><br><span class="line">dict.clear() <span class="comment">## 清空字典</span></span><br><span class="line"><span class="keyword">del</span> dict <span class="comment">##删除字典</span></span><br><span class="line">str(dict) <span class="comment">##输出dict，以可以打印的字符串表示</span></span><br><span class="line">dict.copy() <span class="comment">##潜复制</span></span><br></pre></td></tr></table></figure></p>
 <h6 id="dict内部存放的顺序和key放入的顺序是没有关系的。"><a href="#dict内部存放的顺序和key放入的顺序是没有关系的。" class="headerlink" title="dict内部存放的顺序和key放入的顺序是没有关系的。"></a>dict内部存放的顺序和key放入的顺序是没有关系的。</h6><h6 id="和list比较，dict有以下几个特点："><a href="#和list比较，dict有以下几个特点：" class="headerlink" title="和list比较，dict有以下几个特点："></a>和list比较，dict有以下几个特点：</h6><p>查找和插入的速度极快，不会随着key的增加而变慢；<br>需要占用大量的内存，内存浪费多。</p>
 <h6 id="而list相反："><a href="#而list相反：" class="headerlink" title="而list相反："></a>而list相反：</h6><p>查找和插入的时间随着元素的增加而增加；<br>占用空间小，浪费内存很少。<br>所以，dict是用空间来换取时间的一种方法。</p>
 <h4 id="set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。"><a href="#set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。" class="headerlink" title="set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。"></a>set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = set([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s</span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = set([<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s</span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
@@ -433,7 +392,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/24/Python基础/" data-id="cjeggyohp0000z074r8rsm4o4" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/24/Python基础/" data-id="cjeghkvv80006mc74d31ll4ab" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -488,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/22/TCP协议/" data-id="cjeggyok2000xz074684y8mvn" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/22/TCP协议/" data-id="cjeghkvv10004mc74055pn6oe" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS/">CS</a></li></ul>
@@ -536,7 +495,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测系统搭建/" data-id="cjeggyokx0011z074qzqetkke" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测系统搭建/" data-id="cjeghkvvw000lmc74al96g9gi" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入侵检测/">入侵检测</a></li></ul>
@@ -610,7 +569,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测/" data-id="cjeggyoj7000gz0745bvgp49v" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测/" data-id="cjeghkvvr000hmc74qip4f5b8" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入侵检测/">入侵检测</a></li></ul>
@@ -657,7 +616,60 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/16/JAVA_GC/" data-id="cjeggyoj7000az074h2nw40dm" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/16/JAVA_GC/" data-id="cjeghkvut0001mc74ktf78ltu" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java中静态块与静态方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/15/Java中静态块与静态方法/" class="article-date">
+  <time datetime="2018-01-15T06:07:34.000Z" itemprop="datePublished">2018-01-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/15/Java中静态块与静态方法/">Java中静态块与静态方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、静态块与静态方法："><a href="#一、静态块与静态方法：" class="headerlink" title="一、静态块与静态方法："></a>一、静态块与静态方法：</h2><p>静态代码块是自动执行的，在项目启动时就执行，<br>静态方法是被调用的时候才执行的，在项目启动时就初始化但不执行，在不创建对象的情况下可以被其他程序调用。</p>
+<p>静态方法：如果我们在程序编写的时候需要一个不实例化对象就可以调用的方法，我们就可以使用静态方法，具体实现是在方法钱加上static，如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、静态方法与非静态方法："><a href="#二、静态方法与非静态方法：" class="headerlink" title="二、静态方法与非静态方法："></a>二、静态方法与非静态方法：</h2><h3 id="1、生命周期（Lifecycle）："><a href="#1、生命周期（Lifecycle）：" class="headerlink" title="1、生命周期（Lifecycle）："></a>1、生命周期（Lifecycle）：</h3><p>静态方法（Static Method）与静态成员变量一样，属于类本身，在类装载的时候被装载到内存（Memory），不自动进行销毁，会一直存在于内存中，直到JVM关闭。</p>
+<p>非静态方法（Non-Static Method）又叫实例化方法，属于实例对象，实例化后才会分配内存，必须通过类的实例来引用。不会常驻内存，当实例对象被JVM 回收之后，也跟着消失。 </p>
+<h3 id="2、-在内存中存储位置"><a href="#2、-在内存中存储位置" class="headerlink" title="2、 在内存中存储位置"></a>2、 在内存中存储位置</h3><p>静态方法和静态变量创建后始终使用同一块内存，是连续的。</p>
+<p>非静态方法会存在于内存的多个地方，是离散的。</p>
+<h3 id="3、-效率"><a href="#3、-效率" class="headerlink" title="3、 效率"></a>3、 效率</h3><p> 静态方法的使用效率比非静态方法的效率高。</p>
+<h3 id="4、线程安全"><a href="#4、线程安全" class="headerlink" title="4、线程安全"></a>4、线程安全</h3><p>静态方法是共享代码段，静态变量是共享数据段。既然是“共享”就有并发（Concurrence）的问题。</p>
+<p>非静态方法是针对确定的一个对象的，所以不会存在线程安全的问题。</p>
+<h3 id="5、-使用范围"><a href="#5、-使用范围" class="headerlink" title="5、 使用范围"></a>5、 使用范围</h3><p>静态方法：⒈ 有静态属性的类，一般会定义静态方法。⒉ 没有属性的类，一般会定义静态方法。⒊ 如果一个方法与他所在类的实例对象无关，那么它就应该是静态的。静态方法可以被继承但是不能被覆盖。</p>
+<h3 id="6、-总计"><a href="#6、-总计" class="headerlink" title="6、  总计"></a>6、  总计</h3><p>如果静态方法在系统中定义太多，会占用大量的资源，最后造成内存溢出，所以静态方法不能滥用。如果从线程安全、性能、兼容性上来看，选用实例化方法为宜。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jathonkatu.github.io/2018/01/15/Java中静态块与静态方法/" data-id="cjeghkvuk0000mc74ohcy76zg" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -691,10 +703,6 @@
           </li>
         
           <li>
-            <a href="/2018/03/06/python函数/">python函数</a>
-          </li>
-        
-          <li>
             <a href="/2018/02/22/pythonClassLibrary/">pythonClassLibray</a>
           </li>
         
@@ -706,6 +714,10 @@
             <a href="/2018/01/25/sqlmap手册/">sqlmap手册</a>
           </li>
         
+          <li>
+            <a href="/2018/01/24/Python基础/">Python基础</a>
+          </li>
+        
       </ul>
     </div>
   </div>
@@ -715,7 +727,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
@@ -725,7 +737,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">6</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -735,7 +747,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
