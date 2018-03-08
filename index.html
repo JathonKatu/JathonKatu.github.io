@@ -95,7 +95,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>这个文档是Python函数的学习过程,这里我主要用的是<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">廖雪峰的教程</a>，以<a href="http://www.runoob.com/python3/python3-tutorial.html" target="_blank" rel="noopener">菜鸟教程|python</a>做辅导参考。<br><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014316784721058975e02b46cc45cb836bb0827607738d000" target="_blank" rel="noopener">廖雪峰的教程中</a>。</p>
-<h5 id="函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”："><a href="#函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”：" class="headerlink" title="函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”："></a>函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jueduizhi(-1) ## 1</span><br></pre></td></tr></table></figure>
+<h5 id="函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”："><a href="#函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”：" class="headerlink" title="函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”："></a>函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”：</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jueduizhi = abs</span><br><span class="line">jueduizhi(<span class="number">-1</span>) <span class="comment">## 1</span></span><br></pre></td></tr></table></figure>
 <h6 id="pass"><a href="#pass" class="headerlink" title="pass"></a>pass</h6><p>pass是空语句，是为了保持程序结构的完整性。<br>pass 不做任何事情，一般用做占位语句</p>
 <h6 id="del"><a href="#del" class="headerlink" title="del"></a>del</h6><p>删除一个变量，但是并不会删除在内存中的存储<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">print(a)</span><br><span class="line">first = a[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">del</span> a[<span class="number">0</span>]</span><br><span class="line">print(a[<span class="number">0</span>])</span><br><span class="line">print(len(a))</span><br><span class="line">print(first)</span><br><span class="line"><span class="string">"""结果</span></span><br><span class="line"><span class="string">    [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="string">    2</span></span><br><span class="line"><span class="string">    4</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure></p>
 <h6 id="abs函数的调用结果"><a href="#abs函数的调用结果" class="headerlink" title="abs函数的调用结果"></a>abs函数的调用结果</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">abs(<span class="number">-100</span>)  <span class="comment">##结果## 100</span></span><br><span class="line">abs(<span class="number">20</span>)    <span class="comment">##结果## 20</span></span><br><span class="line">abs(<span class="number">12.34</span>) <span class="comment">##结果## 12.34</span></span><br><span class="line">abs(<span class="number">0</span>)     <span class="comment">##结果## 0</span></span><br><span class="line">也就是说，abs函数不会改变数值的精度，可以理解为只是简单的做了一个正负判断，并且如果是负数就*(<span class="number">-1</span>)即可</span><br></pre></td></tr></table></figure>
@@ -111,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/06/Python基础(二)/" data-id="cjehvtc9u0005f074pwro22sk" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/06/Python基础(二)/" data-id="cjehvvd4d00050c74hmz4grcr" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -169,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/02/22/PythonClassLibrary/" data-id="cjehvtc9j0001f07458vi9bxf" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/02/22/PythonClassLibrary/" data-id="cjehvvd4000010c74qvtmx0vc" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -214,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/02/02/神经网络/" data-id="cjehvtcao000of074nk1rmka8" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/02/02/神经网络/" data-id="cjehvvd5j000o0c74x0p8eaqo" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/神经网络/">神经网络</a></li></ul>
@@ -278,7 +278,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/25/sqlmap手册/" data-id="cjehvtcac000ff0742z4jkib6" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/25/sqlmap手册/" data-id="cjehvvd4z000f0c74p11wlnk1" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kali/">kali</a></li></ul>
@@ -401,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/24/Python基础/" data-id="cjehvtc9w0006f074gs2nyqkl" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/24/Python基础/" data-id="cjehvvd4f00060c74bi522x5x" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -456,7 +456,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/22/TCP协议/" data-id="cjehvtca2000af074692a803n" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/22/TCP协议/" data-id="cjehvvd4k000a0c74bmauzdn4" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS/">CS</a></li></ul>
@@ -504,7 +504,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测系统搭建/" data-id="cjehvtcak000lf074ga824mso" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测系统搭建/" data-id="cjehvvd5f000l0c74mh33sruc" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入侵检测/">入侵检测</a></li></ul>
@@ -578,7 +578,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测/" data-id="cjehvtcag000hf074n9wfo2r9" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测/" data-id="cjehvvd58000h0c74wk2x8blq" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入侵检测/">入侵检测</a></li></ul>
@@ -625,7 +625,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/16/JAVA_GC/" data-id="cjehvtc980000f074rudlyrpu" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/16/JAVA_GC/" data-id="cjehvvd3q00000c74g1s41oem" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -678,7 +678,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/15/Java中静态块与静态方法/" data-id="cjehvtc9q0004f0749zjp9kbv" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/15/Java中静态块与静态方法/" data-id="cjehvvd4800040c74m6w9c55t" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
