@@ -103,7 +103,7 @@
 <h6 id="max-min"><a href="#max-min" class="headerlink" title="max() min()"></a>max() min()</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##这里max和min是可以传入数组和元组的</span></span><br><span class="line">max(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>) <span class="comment">## 5</span></span><br><span class="line">min(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>) <span class="comment">## 1</span></span><br></pre></td></tr></table></figure>
 <h6 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int() <span class="comment">## 这里取整floor()</span></span><br><span class="line">float() <span class="comment">##float(1) ##结果: 1.0</span></span><br><span class="line">str()</span><br><span class="line">bool() <span class="comment">## 这里传入0,'',False和不传参数为False，其他为true(即使传"False"也是true")</span></span><br></pre></td></tr></table></figure>
 <h5 id="函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”："><a href="#函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”：" class="headerlink" title="函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”："></a>函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”：</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jueduizhi = abs</span><br><span class="line">jueduizhi(<span class="number">-1</span>) <span class="comment">## 1</span></span><br></pre></td></tr></table></figure>
-<h6 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h6><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">jueduizhi</span><span class="params">(x)</span>:</span></span><br><span class="line"><span class="keyword">if</span> x &gt; <span class="number">0</span> :</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> -x <span class="comment">## 这里备注一下，做过以下实验：</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">    def jueduizhi(x):</span></span><br><span class="line"><span class="string">    if x &gt; 0 :</span></span><br><span class="line"><span class="string">    return x</span></span><br><span class="line"><span class="string">    return -x</span></span><br><span class="line"><span class="string">    def jueduizhi2(x):</span></span><br><span class="line"><span class="string">    if x &gt; 0 :</span></span><br><span class="line"><span class="string">    return x</span></span><br><span class="line"><span class="string">    else:</span></span><br><span class="line"><span class="string">    return -x</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment">## 但是实验证明有else和没有else的区别并不大，两者没有绝对的说哪个比较快，实验证明：有else比没有else快：有else比没有else慢：有没有都一样快=1：1：1（接近值），因此代码风格还是以项目总体风格为主</span></span><br><span class="line">定义函数的时候，可以像这样定义：</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a,b=<span class="number">2</span>,*c)</span></span></span><br><span class="line">    ## 这里a是一个等待传入参数，若只传入1个参数，则b=2，若传入两个参数，则b为新值。而这里的c，则是一个不定长的元组，如果不传入参数，当做一个空元组传入。这是python比之java方便的地方，但个人认为这也是java比之python规范的地方。</span><br></pre></td></tr></table></figure>
+<h6 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">jueduizhi</span><span class="params">(x)</span>:</span></span><br><span class="line"><span class="keyword">if</span> x &gt; <span class="number">0</span> :</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> -x <span class="comment">## 这里备注一下，做过以下实验：</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">    def jueduizhi(x):</span></span><br><span class="line"><span class="string">    if x &gt; 0 :</span></span><br><span class="line"><span class="string">    return x</span></span><br><span class="line"><span class="string">    return -x</span></span><br><span class="line"><span class="string">    def jueduizhi2(x):</span></span><br><span class="line"><span class="string">    if x &gt; 0 :</span></span><br><span class="line"><span class="string">    return x</span></span><br><span class="line"><span class="string">    else:</span></span><br><span class="line"><span class="string">    return -x</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment">## 但是实验证明有else和没有else的区别并不大，两者没有绝对的说哪个比较快，实验证明：有else比没有else快：有else比没有else慢：有没有都一样快=1：1：1（接近值），因此代码风格还是以项目总体风格为主</span></span><br><span class="line">定义函数的时候，可以像这样定义：</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a,b=<span class="number">2</span>,*c)</span>:</span></span><br><span class="line">    <span class="comment">## 这里a是一个等待传入参数，若只传入1个参数，则b=2，若传入两个参数，则b为新值。而这里的c，则是一个不定长的元组，如果不传入参数，当做一个空元组传入,如果想把一个数组或者元组传入到c中，可以如下运行：</span></span><br><span class="line">    <span class="comment"># L = [1,2,3,4,5]</span></span><br><span class="line">    <span class="comment"># func(1,2,*L) ## 这时候，L数组就会拆解成len(L)个单独的参数传入，形成一个新的C元组</span></span><br><span class="line">    <span class="comment"># 如果这里传入的时候是func(1,2,L)，那么结果会是传入一个([1,2,3,4,5],)</span></span><br><span class="line">    <span class="comment"># 这是python比之java方便的地方，但个人认为这也是java比之python规范的地方。</span></span><br><span class="line">而如果c前是**，那么传入的是字典(dict):</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a,b=<span class="number">2</span>,**c)</span>:</span></span><br><span class="line">    <span class="comment">## func(1,2,name='you',age=22,sex='F')</span></span><br><span class="line">    <span class="comment">## 这时候，C是这样的：&#123;'name':'you','age':'22','sex':'F'&#125;</span></span><br><span class="line">而没有特殊说明的情况下，参数是没有指定类型的：</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(L)</span>:</span></span><br><span class="line">    <span class="comment">## 这时候，给L传入一个数组也是可行的</span></span><br></pre></td></tr></table></figure>
 <p>自定义函数的时候，可以进行参数的检验，即用isinstance()</p>
 <h6 id="pass"><a href="#pass" class="headerlink" title="pass"></a>pass</h6><p>pass是空语句，是为了保持程序结构的完整性。<br>pass 不做任何事情，一般用做占位语句,在不知道要写什么的时候先让程序跑起来可以用pass占位<br>什么也不做的函数</p>
 <h6 id="del"><a href="#del" class="headerlink" title="del"></a>del</h6><p>删除一个变量，但是并不会删除在内存中的存储<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">print(a)</span><br><span class="line">first = a[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">del</span> a[<span class="number">0</span>]</span><br><span class="line">print(a[<span class="number">0</span>])</span><br><span class="line">print(len(a))</span><br><span class="line">print(first)</span><br><span class="line"><span class="string">"""结果</span></span><br><span class="line"><span class="string">    [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="string">    2</span></span><br><span class="line"><span class="string">    4</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure></p>
@@ -115,7 +115,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/06/Python基础(二)/" data-id="cjem5cv8r0000q8741jweiy62" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/06/Python基础(二)/" data-id="cjem67bym0001b074cmrql9wn" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -173,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/02/22/PythonClassLibrary/" data-id="cjem5cv9w000bq8741ly05ogv" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/02/22/PythonClassLibrary/" data-id="cjem67byy0005b074r4ro5h9l" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -218,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/02/02/神经网络/" data-id="cjem5cvcg0013q87478sqsdc4" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/02/02/神经网络/" data-id="cjem67bzt000pb074es1at1v2" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/神经网络/">神经网络</a></li></ul>
@@ -282,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/25/sqlmap手册/" data-id="cjem5cvcd0012q8740uinviu7" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/25/sqlmap手册/" data-id="cjem67bzf000fb074cap3urjj" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kali/">kali</a></li></ul>
@@ -405,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/24/Python基础/" data-id="cjem5cva6000hq8747li3hvr2" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/24/Python基础/" data-id="cjem67bz00006b0747zlrzjet" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -460,7 +460,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/22/TCP协议/" data-id="cjem5cv9q0006q87493iawlgy" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/22/TCP协议/" data-id="cjem67bz4000ab0746nz0vz2a" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS/">CS</a></li></ul>
@@ -508,7 +508,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测系统搭建/" data-id="cjem5cva3000fq8744y9ui89j" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测系统搭建/" data-id="cjem67bzp000mb0745uxdi9n2" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入侵检测/">入侵检测</a></li></ul>
@@ -582,7 +582,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测/" data-id="cjem5cv9u000aq8749r9jlyyh" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测/" data-id="cjem67bzj000ib074rixt8plh" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入侵检测/">入侵检测</a></li></ul>
@@ -629,7 +629,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/16/JAVA_GC/" data-id="cjem5cv9e0001q874zg2wd2fm" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/16/JAVA_GC/" data-id="cjem67byd0000b074fvtjyg2e" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -682,7 +682,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/15/Java中静态块与静态方法/" data-id="cjem5cv9m0004q874dria3zhn" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/15/Java中静态块与静态方法/" data-id="cjem67byu0004b074tp4oyqdi" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
