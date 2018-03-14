@@ -57,7 +57,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jathonkatu.github.io"></form>
@@ -105,14 +105,12 @@
 <h5 id="函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”："><a href="#函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”：" class="headerlink" title="函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”："></a>函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”：</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jueduizhi = abs</span><br><span class="line">jueduizhi(<span class="number">-1</span>) <span class="comment">## 1</span></span><br></pre></td></tr></table></figure>
 <h6 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">jueduizhi</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> x &gt; <span class="number">0</span> :</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> -x <span class="comment">## 这里备注一下，做过以下实验：</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        def jueduizhi(x):</span></span><br><span class="line"><span class="string">        if x &gt; 0 :</span></span><br><span class="line"><span class="string">        return x</span></span><br><span class="line"><span class="string">        return -x</span></span><br><span class="line"><span class="string">        def jueduizhi2(x):</span></span><br><span class="line"><span class="string">        if x &gt; 0 :</span></span><br><span class="line"><span class="string">        return x</span></span><br><span class="line"><span class="string">        else:</span></span><br><span class="line"><span class="string">        return -x</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment">## 但是实验证明有else和没有else的区别并不大，两者没有绝对的说哪个比较快，实验证明：有else比没有else快：有else比没有else慢：有没有都一样快=1：1：1（接近值），因此代码风格还是以项目总体风格为主</span></span><br><span class="line">可变参数：</span><br><span class="line">    关键字参数：    </span><br><span class="line">        定义函数的时候，可以像这样定义：</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a,b=<span class="number">2</span>,*c)</span>:</span></span><br><span class="line">            <span class="comment">## 这里a是一个等待传入参数，若只传入1个参数，则b=2，若传入两个参数，则b为新值。而这里的c，则是一个不定长的元组，如果不传入参数，当做一个空元组传入,如果想把一个数组或者元组传入到c中，可以如下运行：</span></span><br><span class="line">            <span class="comment"># L = [1,2,3,4,5]</span></span><br><span class="line">            <span class="comment"># func(1,2,*L) ## 这时候，L数组就会拆解成len(L)个单独的参数传入，形成一个新的C元组</span></span><br><span class="line">            <span class="comment"># 如果这里传入的时候是func(1,2,L)，那么结果会是传入一个([1,2,3,4,5],)</span></span><br><span class="line">        而如果c前是**，那么传入的是字典(dict):</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a,b=<span class="number">2</span>,**c)</span>:</span></span><br><span class="line">            <span class="comment">## func(1,2,name='you',age=22,sex='F')</span></span><br><span class="line">            <span class="comment">## 这时候，C是这样的：&#123;'name':'you','age':'22','sex':'F'&#125;</span></span><br><span class="line">        而没有特殊说明的情况下，参数是没有指定类型的：</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(L)</span>:</span></span><br><span class="line">            <span class="comment">## 这时候，给L传入一个数组也是可行的</span></span><br><span class="line">        <span class="comment"># 以上三点传参方式是python比之java方便的地方，但个人认为这也是java比之python规范的地方。</span></span><br><span class="line">    命名关键字参数：    </span><br><span class="line">        如果要限制关键字参数的名字，就可以用命名关键字参数，例如，只接收city和job作为关键字参数。这种方式定义的函数如下：</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">person</span><span class="params">(name, age, *, city, job)</span>:</span></span><br><span class="line">            print(name, age, city, job)</span><br><span class="line">        如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符*了：</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">person</span><span class="params">(name, age, *args, city, job)</span>:</span></span><br><span class="line">            print(name, age, args, city, job)</span><br></pre></td></tr></table></figure>
 <h4 id="在Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是请注意，参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。"><a href="#在Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是请注意，参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。" class="headerlink" title="在Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是请注意，参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。"></a>在Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是请注意，参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。</h4><p>自定义函数的时候，可以进行参数的检验，即用isinstance()</p>
-<h6 id="递归："><a href="#递归：" class="headerlink" title="递归："></a>递归：</h6><pre><code>递归是函数调用函数本身，要注意的是，每一次递归是进栈，每一次return是出栈，而如果递归的次数过多，可能会导致溢出报错。所以要采用尾递归。尾递归就是，return的时候不返回任何表达式，只返回函数。
-例如:
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> x == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">return</span> x * func(x<span class="number">-1</span>)</span><br><span class="line"><span class="comment">## 在x过大的时候会栈溢出报错，而尾递归则不会报错，尾递归做法如下：</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(n)</span>:</span></span><br><span class="line"><span class="keyword">return</span> func(n, <span class="number">1</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(num, product)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> num == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> product</span><br><span class="line">    <span class="keyword">return</span> func(num - <span class="number">1</span>, num * product)</span><br><span class="line"><span class="comment">## 结果保存在product中，从而保证了不会出现栈溢出的情况。</span></span><br></pre></td></tr></table></figure>
+<h6 id="递归："><a href="#递归：" class="headerlink" title="递归："></a>递归：</h6><p>递归是函数调用函数本身，要注意的是，每一次递归是进栈，每一次return是出栈，而如果递归的次数过多，可能会导致溢出报错。所以要采用尾递归。尾递归就是，return的时候不返回任何表达式，只返回函数。<br>例如:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> x == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">return</span> x * func(x<span class="number">-1</span>)</span><br><span class="line"><span class="comment">## 在x过大的时候会栈溢出报错，而尾递归则不会报错，尾递归做法如下：</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(n)</span>:</span></span><br><span class="line"><span class="keyword">return</span> func(n, <span class="number">1</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(num, product)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> num == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> product</span><br><span class="line">    <span class="keyword">return</span> func(num - <span class="number">1</span>, num * product)</span><br><span class="line"><span class="comment">## 结果保存在product中，从而保证了不会出现栈溢出的情况。</span></span><br></pre></td></tr></table></figure></p>
 <h6 id="pass"><a href="#pass" class="headerlink" title="pass"></a>pass</h6><p>pass是空语句，是为了保持程序结构的完整性。<br>pass 不做任何事情，一般用做占位语句,在不知道要写什么的时候先让程序跑起来可以用pass占位<br>什么也不做的函数</p>
 <h6 id="del"><a href="#del" class="headerlink" title="del"></a>del</h6><p>删除一个变量，但是并不会删除在内存中的存储<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">print(a)</span><br><span class="line">first = a[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">del</span> a[<span class="number">0</span>]</span><br><span class="line">print(a[<span class="number">0</span>])</span><br><span class="line">print(len(a))</span><br><span class="line">print(first)</span><br><span class="line"><span class="string">"""结果</span></span><br><span class="line"><span class="string">    [1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="string">    2</span></span><br><span class="line"><span class="string">    4</span></span><br><span class="line"><span class="string">    1</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure></p>
 <h6 id="切片索引"><a href="#切片索引" class="headerlink" title="切片索引"></a>切片索引</h6><pre><code>这里的切片索引与matlab里的相似
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,………………,<span class="number">99</span>]</span><br><span class="line">此时你想获取数组中的前<span class="number">3</span>个数字，有以下三种方法</span><br><span class="line"><span class="number">1</span>):</span><br><span class="line">L[<span class="number">0</span>],L[<span class="number">1</span>],L[<span class="number">2</span>] <span class="comment">##笨办法</span></span><br><span class="line"><span class="number">2</span>):</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">    L[i]</span><br><span class="line"><span class="number">3</span>):</span><br><span class="line">L[<span class="number">0</span>:<span class="number">3</span>] <span class="comment">## 这里是指：从0开始，到3但不包含3</span></span><br><span class="line">L[:<span class="number">3</span>]<span class="comment">## 如果是从0开始还可以这么写 </span></span><br><span class="line">L[<span class="number">-2</span>:<span class="number">-1</span>]<span class="comment">## 98 ## 这里同样支持倒数的索引</span></span><br><span class="line">L[:]<span class="comment">## 这是整个L数组</span></span><br><span class="line">L[::<span class="number">2</span>]<span class="comment">## 这是值，整个L数组，以2为步长。(即每两个数取第二个数)，这里的结果是100以下所有偶数</span></span><br><span class="line"><span class="comment">## 以上，也可以用于字符串</span></span><br></pre></td></tr></table></figure>
-<p>#####迭代<br>    Python的迭代比C和java强的在于，Python不仅可以迭代有下标的list和tuple，更加可以迭代没有下标的诸如：dict，str。(这里dict的存储方式和list不同，可能迭代的结果顺序会与预期所想不同)<br>    通过以下方法可以判断是否可以迭代:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterable</span><br><span class="line">isinstance(AnyObject, Iterable) <span class="comment">## 用Java的思想理解就是，因为是继承了Iterable的类，所以是可以被迭代的</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h5><p>Python的迭代比C和java强的在于，Python不仅可以迭代有下标的list和tuple，更加可以迭代没有下标的诸如：dict，str。(这里dict的存储方式和list不同，可能迭代的结果顺序会与预期所想不同)<br>通过以下方法可以判断是否可以迭代:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Iterable</span><br><span class="line">isinstance(AnyObject, Iterable) <span class="comment">## 用Java的思想理解就是，因为是继承了Iterable的类，所以是可以被迭代的</span></span><br></pre></td></tr></table></figure></p>
 <h6 id="Python内置的enumerate函数可以把一个list变成索引-元素对"><a href="#Python内置的enumerate函数可以把一个list变成索引-元素对" class="headerlink" title="Python内置的enumerate函数可以把一个list变成索引-元素对"></a>Python内置的enumerate函数可以把一个list变成索引-元素对</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i, value <span class="keyword">in</span> enumerate([<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>]):</span><br><span class="line">    print(i, value)</span><br><span class="line"><span class="comment">## 结果：0 A</span></span><br><span class="line"><span class="comment">##       1 B</span></span><br><span class="line"><span class="comment">##       2 C</span></span><br></pre></td></tr></table></figure>
 <h6 id="迭代器iter"><a href="#迭代器iter" class="headerlink" title="迭代器iter()"></a>迭代器iter()</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>] <span class="comment">## 迭代器不只可以用在数组上</span></span><br><span class="line">it = iter(list) <span class="comment">## 创建迭代器对象</span></span><br><span class="line">print(it) <span class="comment">##&lt;list_iterator object at 0x0000006719BE5550&gt; 打印的是在内存空间中的地址</span></span><br><span class="line">print(next(it)) <span class="comment">## 1</span></span><br><span class="line">print(next(it)) <span class="comment">## 2</span></span><br></pre></td></tr></table></figure>
 <p>for和iter的联合使用：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">it = iter(list)    <span class="comment"># 创建迭代器对象</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> it:</span><br><span class="line">    <span class="keyword">print</span> (x, end = <span class="string">" "</span>) <span class="comment">## 1 2 3 4 (注意4后面还有空格)</span></span><br></pre></td></tr></table></figure></p>
@@ -122,7 +120,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/06/Python基础(二)/" data-id="cjem824c10005zk74b9egslby" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/06/Python基础(二)/" data-id="cjeqshkl80000ao74wpll7jdk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -180,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/02/22/PythonClassLibrary/" data-id="cjem824bw0004zk745hxj2cjv" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/02/22/PythonClassLibrary/" data-id="cjeqshkma0006ao740fiw3bwh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -219,13 +217,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="人工智能、机器学习、深度学习"><a href="#人工智能、机器学习、深度学习" class="headerlink" title="人工智能、机器学习、深度学习"></a>人工智能、机器学习、深度学习</h3><p>机器学习是实现人工智能的主要方式：人类基于机器学习和海量数据，逐步实现人工智能，其中深度学习是机器学习的一个分支。<br><img src="/2018/02/02/神经网络/../神经网络/rgjqsd.png" alt="人工智能、机器学习、深度学习"><br>人在一秒钟内做的决定，都可以由机器实现。而机器在一秒钟内，可以做成千上万个人在同时间内做的决定。</p>
-<p>神经网络是将我们所知的一种特征，转换成另一种代表特征(计算机能识别的)，再转换成一种特征。<br>将数据传入到黑盒中，处理成计算机能识别的特征，再经过处理，转换成人类需要的特征。<br><img src="/2018/02/02/神经网络/../神经网络/szwlhh.png" alt="神经网络黑盒图"></p>
+<p>神经网络是将我们所知的一种特征，转换成另一种代表特征(计算机能识别的)，再转换成一种特征。<br>将数据传入到黑盒中，处理成计算机能识别的特征，再经过处理，转换成人类需要的特征。<br><img src="/2018/02/02/神经网络/../神经网络/szwlhh.png" alt="神经网络黑盒图"><br>单层感知器–&gt;BP神经网络–&gt;深度置信网络<br>单层感知器–&gt;Hopfield神经网络–&gt;玻尔兹曼机–&gt;受限玻尔兹曼机–&gt;深度置信网络</p>
 <h3 id="一、机器学习"><a href="#一、机器学习" class="headerlink" title="一、机器学习"></a>一、机器学习</h3><h5 id="算法分类一："><a href="#算法分类一：" class="headerlink" title="算法分类一："></a>算法分类一：</h5><h6 id="1-有监督学习（给出了Y）"><a href="#1-有监督学习（给出了Y）" class="headerlink" title="1.有监督学习（给出了Y）"></a>1.有监督学习（给出了Y）</h6><p><img src="/2018/02/02/神经网络/../神经网络/yjdxx.png" alt="有监督学习图"></p>
 <h6 id="2-无监督学习（聚类）"><a href="#2-无监督学习（聚类）" class="headerlink" title="2.无监督学习（聚类）"></a>2.无监督学习（聚类）</h6><h6 id="3-半监督学习（根据数据量加强学习精确程度）"><a href="#3-半监督学习（根据数据量加强学习精确程度）" class="headerlink" title="3.半监督学习（根据数据量加强学习精确程度）"></a>3.半监督学习（根据数据量加强学习精确程度）</h6><h5 id="算法分类二："><a href="#算法分类二：" class="headerlink" title="算法分类二："></a>算法分类二：</h5><h6 id="1-分类与回归"><a href="#1-分类与回归" class="headerlink" title="1.分类与回归"></a>1.分类与回归</h6><h6 id="2-聚类"><a href="#2-聚类" class="headerlink" title="2.聚类"></a>2.聚类</h6><h6 id="3-标注"><a href="#3-标注" class="headerlink" title="3.标注"></a>3.标注</h6><h5 id="算法分类三："><a href="#算法分类三：" class="headerlink" title="算法分类三："></a>算法分类三：</h5><h6 id="1-生成模型"><a href="#1-生成模型" class="headerlink" title="1.生成模型"></a>1.生成模型</h6><h6 id="2-判别模型"><a href="#2-判别模型" class="headerlink" title="2.判别模型"></a>2.判别模型</h6><h5 id="训练模型："><a href="#训练模型：" class="headerlink" title="训练模型："></a>训练模型：</h5><h6 id="定义模型"><a href="#定义模型" class="headerlink" title="定义模型"></a>定义模型</h6><h6 id="定义损失函数"><a href="#定义损失函数" class="headerlink" title="定义损失函数"></a>定义损失函数</h6><h6 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h6><h5 id="模型评估："><a href="#模型评估：" class="headerlink" title="模型评估："></a>模型评估：</h5><h6 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h6><h6 id="效果评估"><a href="#效果评估" class="headerlink" title="效果评估"></a>效果评估</h6>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/02/02/神经网络/" data-id="cjem824cy000ozk746w1w5z3w" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/02/02/神经网络/" data-id="cjeqshkn7000pao74481bc2h5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/神经网络/">神经网络</a></li></ul>
@@ -289,7 +287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/25/sqlmap手册/" data-id="cjem824ce000bzk74utbtw3wl" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/25/sqlmap手册/" data-id="cjeqshkmj000cao743r93dlu9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kali/">kali</a></li></ul>
@@ -412,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/24/Python基础/" data-id="cjem824c40006zk741p7e02ai" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/24/Python基础/" data-id="cjeqshkmg000bao74yi7fslrv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -467,7 +465,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/22/TCP协议/" data-id="cjem824c9000azk746hwci4vo" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/22/TCP协议/" data-id="cjeqshkmt000iao74ppuzsmul" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS/">CS</a></li></ul>
@@ -515,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测系统搭建/" data-id="cjem824cu000lzk744rv9whar" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测系统搭建/" data-id="cjeqshknc000sao74cmu0xko0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入侵检测/">入侵检测</a></li></ul>
@@ -589,7 +587,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测/" data-id="cjem824cp000hzk74ybwv5h2z" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/16/入侵检测/" data-id="cjeqshkmy000nao74q5dohqjz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入侵检测/">入侵检测</a></li></ul>
@@ -636,7 +634,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/16/JAVA_GC/" data-id="cjem824be0000zk74qnf6s9c2" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/16/JAVA_GC/" data-id="cjeqshkm80005ao746kg6mglj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -689,7 +687,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/15/Java中静态块与静态方法/" data-id="cjem824bp0001zk74hzbw5t43" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/15/Java中静态块与静态方法/" data-id="cjeqshkmd0009ao74pbrcmu7l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -705,7 +703,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -714,7 +712,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -745,7 +743,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
     </div>
@@ -755,7 +753,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li></ul>
     </div>
