@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://jathonkatu.github.io/2018/02/22/PythonClassLibrary/index.html">
 <meta property="og:site_name" content="You&#39;s Tab">
 <meta property="og:description" content="因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法大概有 numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法后期如果这个笔记过长，会将各个模块独立一、numpy有些可能零矩阵和对角矩阵的相乘没有意义，这里只提供一个思路和笔记，不计较结果1import n">
-<meta property="og:updated_time" content="2018-03-08T01:14:26.594Z">
+<meta property="og:updated_time" content="2018-03-15T04:48:59.060Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PythonClassLibray">
 <meta name="twitter:description" content="因为毕设的原因，要用到一些python的三方库，所以这记录下在学习的过程中使用到和学习到的Python库的用法大概有 numpy，pandas，matplotlib，tensorflow等，毕设实际使用库以毕设为准，这里只记录学习过程中涉及的库的使用方法后期如果这个笔记过长，会将各个模块独立一、numpy有些可能零矩阵和对角矩阵的相乘没有意义，这里只提供一个思路和笔记，不计较结果1import n">
@@ -59,7 +59,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jathonkatu.github.io"></form>
@@ -100,21 +100,24 @@
 <p>查看矩阵或数组的维数(出现(3,)的情况则为一维数组，一行3列)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">np.shape(z)</span><br><span class="line">z.shape</span><br><span class="line"><span class="comment">##(两种写法都可以)</span></span><br><span class="line">z.shape[<span class="number">1</span>] <span class="comment">##这里是查询矩阵第一维的维数</span></span><br></pre></td></tr></table></figure></p>
 <p>改变矩阵或者数组的维数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">z.reshape(x,y)</span><br><span class="line">np.reshape(z,[x,y])</span><br><span class="line"><span class="comment">## x,y可以为任何数字但必须符合以下两种情况：</span></span><br><span class="line">    <span class="comment">## 1.当x为-1时，y可以不写。此时：若不写y则默认生成1行z.size列。若填写y，则生成y列 z.size / y 行，这里z.size % y = 0</span></span><br><span class="line">    <span class="comment">## 2.当x不为-1时，x * y = z.size</span></span><br></pre></td></tr></table></figure></p>
 <p>返回两个数之间的数字<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.arange(start,end,step) <span class="comment">##step默认为1，start默认为0，且取start不取end</span></span><br></pre></td></tr></table></figure></p>
+<p>返回两个数之间的数字<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.linspace(start, end, num=<span class="number">50</span>, endpoint=<span class="keyword">True</span>, retstep=<span class="keyword">False</span>, dtype=<span class="keyword">None</span>) <span class="comment">##start和end必须自己填写，num默认是50，endpoint表示end是否包含在这个数列里面，retstep表示是否显示每两个数之间的步长，dtype是每个数字的格式，默认是none，可以写int</span></span><br></pre></td></tr></table></figure></p>
 <p>返回两个数组的点积（如果是二维数组或者矩阵则返回矩阵积）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.dot(e,z)</span><br><span class="line">e.dot(z)</span><br></pre></td></tr></table></figure></p>
 <p>返回判断语句<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">np..where(condition[, x, y])<span class="comment">##[]内为可选参数，这里[]在实际运用中是不需要填写的，这里condition,x,y必须array_like，也就是维度相同</span></span><br><span class="line">a=<span class="number">12</span></span><br><span class="line">np.where(a&lt;<span class="number">0</span>)<span class="comment">##(array([], dtype=int64),)</span></span><br><span class="line">a=<span class="number">12</span></span><br><span class="line">np.where(a&gt;=<span class="number">0</span>)<span class="comment">##(array([0], dtype=int64),)</span></span><br><span class="line">np.where(a&gt;=<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>)<span class="comment">##array(1)</span></span><br></pre></td></tr></table></figure></p>
 <p>数据矢量化(可以接受两个一维数组生成两个二维矩阵)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">x =np.arange(<span class="number">4</span>) <span class="comment">##array([0,1, 2, 3])</span></span><br><span class="line">y =np.arange(<span class="number">5</span>) <span class="comment">##array([0,1, 2, 3, 4])</span></span><br><span class="line">X , Y = np.meshgrid(xnums, ynums)</span><br><span class="line"><span class="comment">## X = array([[0, 1, 2, 3],</span></span><br><span class="line"><span class="comment">##           [0, 1, 2, 3],</span></span><br><span class="line"><span class="comment">##           [0, 1, 2, 3],</span></span><br><span class="line"><span class="comment">##           [0, 1, 2, 3],</span></span><br><span class="line"><span class="comment">##           [0, 1, 2, 3]])</span></span><br><span class="line"><span class="comment">## Y = array([[0, 0, 0, 0],</span></span><br><span class="line"><span class="comment">##           [1, 1, 1, 1],</span></span><br><span class="line"><span class="comment">##           [2, 2, 2, 2],</span></span><br><span class="line"><span class="comment">##           [3, 3, 3, 3],</span></span><br><span class="line"><span class="comment">##           [4, 4, 4, 4]])</span></span><br><span class="line"><span class="comment">##  X的行向量为x，Y列向量为y</span></span><br><span class="line"><span class="comment">##  X为有len(y)行的矩阵</span></span><br><span class="line"><span class="comment">##  Y为有len(x)列的矩阵</span></span><br></pre></td></tr></table></figure></p>
 <p>多维数组降为一维<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">np.ravel()<span class="comment">##返回的是视图(view)，对视图所做的修改会影响(reflects)原是矩阵</span></span><br><span class="line">np.flatten()<span class="comment">##返回的是拷贝(copy)的矩阵，对拷贝所做的修改不会影响(reflects)原是矩阵</span></span><br><span class="line"><span class="comment">##两者默认是行优先，如果要改成列优先可以在方法的参数中加'F'，即np.ravel('F')和np.flatten('F')</span></span><br></pre></td></tr></table></figure></p>
 <p>矩阵转秩<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.array(矩阵).T</span><br></pre></td></tr></table></figure></p>
+<p>返回数组中每个数字的正负<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">np.sign(array)</span><br><span class="line"><span class="comment">## 以-1和1返回，正数返回1，负数返回-1，并且返回的数组的size=array的size</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="二、pandas"><a href="#二、pandas" class="headerlink" title="二、pandas"></a>二、pandas</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
 <p>读取一个csv文件(这里可以用在kdd99的数据集上)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">file = url</span><br><span class="line">df = pd.read_csv(file, header = <span class="keyword">None</span>)</span><br></pre></td></tr></table></figure></p>
 <h3 id="三、matplotlib"><a href="#三、matplotlib" class="headerlink" title="三、matplotlib"></a>三、matplotlib</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br></pre></td></tr></table></figure>
 <p>绘制散点图<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(x, y, [ color = <span class="string">'red'</span> | c = <span class="string">'r'</span> ], marker = <span class="string">'o'</span>[，label = <span class="string">'label'</span>])<span class="comment">##x,y可以是一个点的坐标，也可以是一组点的坐标（）此时x,y为向量</span></span><br><span class="line">plt.xlabel()<span class="comment">##设置x坐标轴的标签</span></span><br><span class="line">plt.ylabel()<span class="comment">##设置y坐标轴的标签</span></span><br><span class="line">plt.legend(handles = [l1, l2,], labels = [<span class="string">'a'</span>, <span class="string">'b'</span>], loc = <span class="string">'best'</span>)<span class="comment">##设置图例:li,l2为折线，a，b为标签名，这里loc是设计图例显示的位置:</span></span><br><span class="line">    <span class="comment">##'best'         : 0, (only implemented for axes legends)(自适应方式)</span></span><br><span class="line">    <span class="comment">##'upper right'  : 1,</span></span><br><span class="line">    <span class="comment">##'upper left'   : 2,</span></span><br><span class="line">    <span class="comment">##'lower left'   : 3,</span></span><br><span class="line">    <span class="comment">##'lower right'  : 4,</span></span><br><span class="line">    <span class="comment">##'right'        : 5,</span></span><br><span class="line">    <span class="comment">##'center left'  : 6,</span></span><br><span class="line">    <span class="comment">##'center right' : 7,</span></span><br><span class="line">    <span class="comment">##'lower center' : 8,</span></span><br><span class="line">    <span class="comment">##'upper center' : 9,</span></span><br><span class="line">    <span class="comment">##'center'       : 10,</span></span><br><span class="line">plt.clf()<span class="comment">##清空画布</span></span><br><span class="line">plt.title()<span class="comment">##散点图标题</span></span><br><span class="line">plt.plot(x, y, marker)<span class="comment">##绘制线条或标记的轴。x,y是一个可变长度参数。marker与前面的marker一样。</span></span><br><span class="line">plt.show()<span class="comment">##显示所画的图</span></span><br></pre></td></tr></table></figure></p>
+<p>绘制一张图<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.figure()<span class="comment">##最后要接一个plt.show()</span></span><br></pre></td></tr></table></figure></p>
 <p>在绘图的过程中如果出现乱码，因为matplotlib不兼容中文，可以将中文改成英文或采用以下方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.font_manager <span class="keyword">as</span> fm<span class="comment">##这一句和为导入matplotlib指定字体的方法</span></span><br><span class="line">myfont = fm.FontProperties(fname = <span class="string">'C:/Windows/Fonts/msyh.ttc'</span><span class="comment">##这一句和为指定字体文件的位置</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.clf()  <span class="comment"># 清空画布</span></span><br><span class="line">plt.plot([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</span><br><span class="line">plt.xlabel(<span class="string">"横轴"</span>, fontproperties = myfont)<span class="comment">##这里加了fontproperties属性</span></span><br><span class="line">plt.ylabel(<span class="string">"纵轴"</span>, fontproperties = myfont)<span class="comment">##这里加了fontproperties属性</span></span><br><span class="line">plt.title(<span class="string">"mytitle"</span>, fontproperties = myfont)<span class="comment">##这里加了fontproperties属性</span></span><br><span class="line">plt.legend(loc = <span class="string">'upper left'</span>, prop = myfont)<span class="comment">##这里加了prop属性</span></span><br><span class="line"></span><br><span class="line">plt.contourf(x,y,Z,[alpha,] cmap = cmap)<span class="comment">##绘制三维等高线图</span></span><br><span class="line">plt.contour(x,y,Z,[alpha，]cmap = cmap)<span class="comment">##绘制三维等高线图</span></span><br><span class="line"><span class="comment">##其中x，y为一维数组，z为二维数组</span></span><br><span class="line"><span class="comment">##两者的区别是，contourf会进行填充，而contour不会。</span></span><br><span class="line">plt.xlim(x.min(), x.max())</span><br><span class="line">plt.ylim(y.min(), y.max())</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
 <h3 id="四、tensorflow"><a href="#四、tensorflow" class="headerlink" title="四、tensorflow"></a>四、tensorflow</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/02/22/PythonClassLibrary/" data-id="cjeqt5khm0001i074gikuuewm" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/02/22/PythonClassLibrary/" data-id="cjes1bp3r0005qc74yckkdevp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -126,7 +129,7 @@
 <nav id="article-nav">
   
     <a href="/2018/03/06/Python基础(二)/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           Python的基础(二)
@@ -136,7 +139,7 @@
   
   
     <a href="/2018/02/02/神经网络/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">神经网络</div>
     </a>
   
@@ -151,9 +154,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/15/JupyterNotebook快捷键/">JupyterNotebook快捷键</a>
+          </li>
         
           <li>
             <a href="/2018/03/06/Python基础(二)/">Python的基础(二)</a>
@@ -171,10 +178,6 @@
             <a href="/2018/01/25/sqlmap手册/">sqlmap手册</a>
           </li>
         
-          <li>
-            <a href="/2018/01/24/Python基础/">Python基础</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -182,9 +185,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
@@ -192,9 +195,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -204,7 +207,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
