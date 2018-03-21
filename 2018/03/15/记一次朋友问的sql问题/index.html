@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://jathonkatu.github.io/2018/03/15/记一次朋友问的sql问题/4.png">
 <meta property="og:image" content="https://jathonkatu.github.io/2018/03/15/记一次朋友问的sql问题/jg3.png">
 <meta property="og:image" content="https://jathonkatu.github.io/2018/03/15/记一次朋友问的sql问题/jg4.png">
-<meta property="og:updated_time" content="2018-03-19T02:42:00.997Z">
+<meta property="og:updated_time" content="2018-03-21T01:05:57.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次朋友问的sql问题">
 <meta name="twitter:description" content="这里的第二题（一开始我的做法如下：）1234select student.sno,sname,SUM(isnull(score,0))from student,scwhere student.sno=sc.snogroup by student.sno,sname 但是结果却是这样的 后来经过查询和交流，最终得出结果（mssql：）123456789SELECTstudent.sno,studen">
@@ -84,7 +84,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Study/">Study</a>
+    <a class="article-category-link" href="/categories/Exchange/">Exchange</a>
   </div>
 
   </div>
@@ -110,14 +110,14 @@
 <p>可以看出差别，ifnull和isnull两者是一样的作用，但ifnull在mssql中不支持，而isnull在mysql中也不支持</p>
 <p>还有就是，在mssql中，groupby必须将sname也加进去，并且指明sno的出处</p>
 <p>感觉微软的坑还是挺多的呀（或者说mysql比较方便，但方便带来的，或许就是不规范而出现错误）</p>
-<h6 id="2018-03-19更新："><a href="#2018-03-19更新：" class="headerlink" title="2018-03-19更新："></a>2018-03-19更新：</h6><p>。。。这里因为第三题没有数据，所以不做<br><img src="/2018/03/15/记一次朋友问的sql问题/../记一次朋友问的sql问题/4.png" alt="问题"><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--现在到年底的日期--</span></span><br><span class="line"><span class="keyword">declare</span> @today DATETIME = <span class="keyword">GETDATE</span>()</span><br><span class="line"><span class="keyword">declare</span> @lastday DATETIME = (<span class="keyword">SELECT</span>  <span class="keyword">dateadd</span>(ms,<span class="number">-3</span>,<span class="keyword">DATEADD</span>(yy,<span class="keyword">DATEDIFF</span>(yy,<span class="number">0</span>,<span class="keyword">getdate</span>())+<span class="number">1</span>,  <span class="number">0</span>)))</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">convert</span>(<span class="built_in">date</span>,<span class="keyword">dateadd</span>(<span class="keyword">day</span>,<span class="built_in">number</span>,@today+<span class="number">1</span>),<span class="number">111</span>) <span class="keyword">as</span> <span class="string">'日期'</span></span><br><span class="line"> <span class="keyword">from</span> master.dbo.spt_values  <span class="keyword">where</span> <span class="keyword">type</span> =<span class="string">'P'</span></span><br><span class="line"><span class="keyword">and</span> <span class="built_in">number</span> &lt;=<span class="keyword">DATEDIFF</span>(<span class="keyword">day</span>, @today+<span class="number">1</span>,   @lastday)</span><br></pre></td></tr></table></figure></p>
+<h6 id="2018-03-19更新："><a href="#2018-03-19更新：" class="headerlink" title="2018-03-19更新："></a>2018-03-19更新：</h6><p>。。。这里因为第三题没有数据，所以不做（不过感觉应该不会太难吧，，where IN?  呵呵=-=<br><img src="/2018/03/15/记一次朋友问的sql问题/../记一次朋友问的sql问题/4.png" alt="问题"><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--现在到年底的日期--</span></span><br><span class="line"><span class="keyword">declare</span> @today DATETIME = <span class="keyword">GETDATE</span>()</span><br><span class="line"><span class="keyword">declare</span> @lastday DATETIME = (<span class="keyword">SELECT</span>  <span class="keyword">dateadd</span>(ms,<span class="number">-3</span>,<span class="keyword">DATEADD</span>(yy,<span class="keyword">DATEDIFF</span>(yy,<span class="number">0</span>,<span class="keyword">getdate</span>())+<span class="number">1</span>,  <span class="number">0</span>)))</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">convert</span>(<span class="built_in">date</span>,<span class="keyword">dateadd</span>(<span class="keyword">day</span>,<span class="built_in">number</span>,@today+<span class="number">1</span>),<span class="number">111</span>) <span class="keyword">as</span> <span class="string">'日期'</span></span><br><span class="line"> <span class="keyword">from</span> master.dbo.spt_values  <span class="keyword">where</span> <span class="keyword">type</span> =<span class="string">'P'</span></span><br><span class="line"><span class="keyword">and</span> <span class="built_in">number</span> &lt;=<span class="keyword">DATEDIFF</span>(<span class="keyword">day</span>, @today+<span class="number">1</span>,   @lastday)</span><br></pre></td></tr></table></figure></p>
 <p><img src="/2018/03/15/记一次朋友问的sql问题/../记一次朋友问的sql问题/jg3.png" alt="结果"><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--直接查询--</span></span><br><span class="line"><span class="keyword">declare</span> @a <span class="keyword">nvarchar</span>(<span class="number">20</span>) = <span class="string">'，89578，3256，1，'</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">len</span>(<span class="keyword">replace</span>(@a,<span class="string">'，'</span>,<span class="string">'--'</span>))-<span class="keyword">len</span>(@a)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--创建方法--</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">function</span> strcount(@<span class="keyword">str</span> <span class="built_in">varchar</span>(<span class="number">50</span>),@sub <span class="built_in">varchar</span>(<span class="number">50</span>))</span><br><span class="line"><span class="keyword">returns</span> <span class="built_in">int</span></span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">declare</span> @pos <span class="built_in">int</span>,@n <span class="built_in">int</span></span><br><span class="line">	<span class="keyword">select</span> @n=<span class="number">0</span>, @pos=<span class="keyword">charindex</span>(@sub,@<span class="keyword">str</span>)</span><br><span class="line">	<span class="keyword">while</span>(@pos&lt;&gt;<span class="number">0</span>)</span><br><span class="line">	<span class="keyword">begin</span></span><br><span class="line">		<span class="keyword">select</span> @<span class="keyword">str</span>=<span class="keyword">right</span>(@<span class="keyword">str</span>,<span class="keyword">len</span>(@<span class="keyword">str</span>)-@pos),@pos=<span class="keyword">charindex</span>(@sub,@<span class="keyword">str</span>),@n=@n+<span class="number">1</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line">	<span class="keyword">return</span>(@n)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">go</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> dbo.strcount(<span class="string">'，89578，3256，1，'</span>,<span class="string">'，'</span>)</span><br></pre></td></tr></table></figure></p>
 <p><img src="/2018/03/15/记一次朋友问的sql问题/../记一次朋友问的sql问题/jg4.png" alt="结果"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/记一次朋友问的sql问题/" data-id="cjexml53b0012kg74g2ot5bzc" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/15/记一次朋友问的sql问题/" data-id="cjf0e3t44001204749scj6mbu" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
@@ -159,6 +159,10 @@
       <ul>
         
           <li>
+            <a href="/2018/03/21/记一个V2EX上看到的问题18-03-21/">记一个V2EX上看到的问题18-03-21</a>
+          </li>
+        
+          <li>
             <a href="/2018/03/18/linux-unpack/">linux-unpack</a>
           </li>
         
@@ -174,10 +178,6 @@
             <a href="/2018/03/15/神经网络/">神经网络</a>
           </li>
         
-          <li>
-            <a href="/2018/03/15/JupyterNotebook快捷键/">JupyterNotebook快捷键</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -187,7 +187,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
@@ -197,7 +197,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">7</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Exchange/">Exchange</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -207,7 +207,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
