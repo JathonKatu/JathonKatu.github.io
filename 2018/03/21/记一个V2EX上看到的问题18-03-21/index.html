@@ -7,17 +7,17 @@
   
   <title>记一个V2EX上看到的问题18-03-21 | You&#39;s Tab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在刷V2EX的时候看到了一个初学者可能会想不明白的问题（当然我自己也是初学者）觉得，是一个不错的例子，所以这里列出来，供大家交流（其实是给自己记录一下思路）原例子">
+  <meta name="description" content="在刷V2EX的时候看到了一个初学者可能会想不明白的问题（当然我自己也算是个初学者）觉得，是一个不错的例子，所以这里列出来，供大家交流（其实是给自己记录一下思路）原例子这里，题目是： Python 列表操作 a[:10] = [x for x in range(100)] 实际上发生了什么？后面的 90 个元素怎么处理的？1234567&amp;gt;&amp;gt;&amp;gt; a = list() &amp;gt;&amp;gt;">
 <meta name="keywords" content="V2EX_Exchange">
 <meta property="og:type" content="article">
 <meta property="og:title" content="记一个V2EX上看到的问题18-03-21">
 <meta property="og:url" content="https://jathonkatu.github.io/2018/03/21/记一个V2EX上看到的问题18-03-21/index.html">
 <meta property="og:site_name" content="You&#39;s Tab">
-<meta property="og:description" content="在刷V2EX的时候看到了一个初学者可能会想不明白的问题（当然我自己也是初学者）觉得，是一个不错的例子，所以这里列出来，供大家交流（其实是给自己记录一下思路）原例子">
-<meta property="og:updated_time" content="2018-03-21T01:08:46.859Z">
+<meta property="og:description" content="在刷V2EX的时候看到了一个初学者可能会想不明白的问题（当然我自己也算是个初学者）觉得，是一个不错的例子，所以这里列出来，供大家交流（其实是给自己记录一下思路）原例子这里，题目是： Python 列表操作 a[:10] = [x for x in range(100)] 实际上发生了什么？后面的 90 个元素怎么处理的？1234567&amp;gt;&amp;gt;&amp;gt; a = list() &amp;gt;&amp;gt;">
+<meta property="og:updated_time" content="2018-03-21T12:11:13.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一个V2EX上看到的问题18-03-21">
-<meta name="twitter:description" content="在刷V2EX的时候看到了一个初学者可能会想不明白的问题（当然我自己也是初学者）觉得，是一个不错的例子，所以这里列出来，供大家交流（其实是给自己记录一下思路）原例子">
+<meta name="twitter:description" content="在刷V2EX的时候看到了一个初学者可能会想不明白的问题（当然我自己也算是个初学者）觉得，是一个不错的例子，所以这里列出来，供大家交流（其实是给自己记录一下思路）原例子这里，题目是： Python 列表操作 a[:10] = [x for x in range(100)] 实际上发生了什么？后面的 90 个元素怎么处理的？1234567&amp;gt;&amp;gt;&amp;gt; a = list() &amp;gt;&amp;gt;">
   
     <link rel="alternate" href="/atom.xml" title="You&#39;s Tab" type="application/atom+xml">
   
@@ -59,7 +59,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jathonkatu.github.io"></form>
@@ -94,12 +94,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在刷V2EX的时候看到了一个初学者可能会想不明白的问题（当然我自己也是初学者）<br>觉得，是一个不错的例子，所以这里列出来，供大家交流（其实是给自己记录一下思路）<br><a href="https://www.v2ex.com/t/200476" target="_blank" rel="noopener">原例子</a></p>
+        <p>在刷V2EX的时候看到了一个初学者可能会想不明白的问题（当然我自己也算是个初学者）<br>觉得，是一个不错的例子，所以这里列出来，供大家交流（其实是给自己记录一下思路）<br><a href="https://www.v2ex.com/t/200476" target="_blank" rel="noopener">原例子</a><br>这里，题目是：</p>
+<h4 id="Python-列表操作-a-10-x-for-x-in-range-100-实际上发生了什么？后面的-90-个元素怎么处理的？"><a href="#Python-列表操作-a-10-x-for-x-in-range-100-实际上发生了什么？后面的-90-个元素怎么处理的？" class="headerlink" title="Python 列表操作 a[:10] = [x for x in range(100)] 实际上发生了什么？后面的 90 个元素怎么处理的？"></a>Python 列表操作 a[:10] = [x for x in range(100)] 实际上发生了什么？后面的 90 个元素怎么处理的？</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = list() </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [chr(_) <span class="keyword">for</span> _ <span class="keyword">in</span> range(ord(<span class="string">'a'</span>), ord(<span class="string">'z'</span>)+<span class="number">1</span>)] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a </span><br><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>, <span class="string">'h'</span>, <span class="string">'i'</span>, <span class="string">'j'</span>, <span class="string">'k'</span>, <span class="string">'l'</span>, <span class="string">'m'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>, <span class="string">'p'</span>, <span class="string">'q'</span>, <span class="string">'r'</span>, <span class="string">'s'</span>, <span class="string">'t'</span>, <span class="string">'u'</span>, <span class="string">'v'</span>, <span class="string">'w'</span>, <span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[:<span class="number">10</span>] = [x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">100</span>)] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a </span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>, <span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">24</span>, <span class="number">25</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">28</span>, <span class="number">29</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">32</span>, <span class="number">33</span>, <span class="number">34</span>, <span class="number">35</span>, <span class="number">36</span>, <span class="number">37</span>, <span class="number">38</span>, <span class="number">39</span>, <span class="number">40</span>, <span class="number">41</span>, <span class="number">42</span>, <span class="number">43</span>, <span class="number">44</span>, <span class="number">45</span>, <span class="number">46</span>, <span class="number">47</span>, <span class="number">48</span>, <span class="number">49</span>, <span class="number">50</span>, <span class="number">51</span>, <span class="number">52</span>, <span class="number">53</span>, <span class="number">54</span>, <span class="number">55</span>, <span class="number">56</span>, <span class="number">57</span>, <span class="number">58</span>, <span class="number">59</span>, <span class="number">60</span>, <span class="number">61</span>, <span class="number">62</span>, <span class="number">63</span>, <span class="number">64</span>, <span class="number">65</span>, <span class="number">66</span>, <span class="number">67</span>, <span class="number">68</span>, <span class="number">69</span>, <span class="number">70</span>, <span class="number">71</span>, <span class="number">72</span>, <span class="number">73</span>, <span class="number">74</span>, <span class="number">75</span>, <span class="number">76</span>, <span class="number">77</span>, <span class="number">78</span>, <span class="number">79</span>, <span class="number">80</span>, <span class="number">81</span>, <span class="number">82</span>, <span class="number">83</span>, <span class="number">84</span>, <span class="number">85</span>, <span class="number">86</span>, <span class="number">87</span>, <span class="number">88</span>, <span class="number">89</span>, <span class="number">90</span>, <span class="number">91</span>, <span class="number">92</span>, <span class="number">93</span>, <span class="number">94</span>, <span class="number">95</span>, <span class="number">96</span>, <span class="number">97</span>, <span class="number">98</span>, <span class="number">99</span>, <span class="string">'k'</span>, <span class="string">'l'</span>, <span class="string">'m'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>, <span class="string">'p'</span>, <span class="string">'q'</span>, <span class="string">'r'</span>, <span class="string">'s'</span>, <span class="string">'t'</span>, <span class="string">'u'</span>, <span class="string">'v'</span>, <span class="string">'w'</span>, <span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>]</span><br></pre></td></tr></table></figure>
+<p>这里，如果用过matlab的同学就很好理解了。<br>那么，我们来分析，他做了什么。：<br>    首先，创建一个a列表<br>    接着将[a~z]赋值给a<br>    输出a ## 可以看出此时的a是二十六个英文字母的列表<br>    这时候，a[:10] = [x for x in range(100)]，我们先分析右半部分，返回的是一个[0~99]的列表。那么困扰我们的问题就出在右半部分了。a[:10]是matlab和python中都出现过的切片(<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431756919644a792ee4ead724ef7afab3f7f771b04f5000" target="_blank" rel="noopener">这里插播廖雪峰的切片教程</a>)，可以看出，意思是对a列表的第一个元素到第十个元素的操作，这里是将前十个元素进行了删除，[然后再在列表的头部插入100个元素]|[或者是新建一个列表，将100个元素插入，然后再append进alist，最后将这个列表命名为a。]|[或者是将新列表copy进去的同时，a原有元素后移（链表思路）]<br>    这个问题，交给以后将python内存机制搞清楚的我吧，但大体思路逃不过这三个了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/21/记一个V2EX上看到的问题18-03-21/" data-id="cjf0e3t41000z0474s4ras76a" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/21/记一个V2EX上看到的问题18-03-21/" data-id="cjf11s54e000pk4741pch3jak" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -112,7 +114,7 @@
   
   
     <a href="/2018/03/18/linux-unpack/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">linux-unpack</div>
     </a>
   
@@ -127,7 +129,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -158,7 +160,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
     </div>
@@ -168,7 +170,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Exchange/">Exchange</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">7</span></li></ul>
     </div>
