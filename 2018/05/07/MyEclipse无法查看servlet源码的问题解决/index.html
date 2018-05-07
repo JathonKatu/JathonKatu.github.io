@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>MyEclipse无法查看servlet源码的问题解决 | You&#39;s Tab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="好久没有写博文啦~中间忙了很久的毕设，学了一段时间的tensorflow和pythontensorflow因为是看官方文档和论文，所以笔记都在代码上，等毕业了就把源码分享上来（源码已经分享给我的小伙伴，小伙伴已经上传到他的私密库，因为我没有私密库。。。。。）言归正传，昨天终于把毕设弄完了，今天想起来要摸一摸java了，不然本来就不好找工作，不复习可能更加难找。（没有工作经验的应届生全是泪~~~）结">
+<meta name="keywords" content="MyEclipse">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyEclipse无法查看servlet源码的问题解决">
+<meta property="og:url" content="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/index.html">
+<meta property="og:site_name" content="You&#39;s Tab">
+<meta property="og:description" content="好久没有写博文啦~中间忙了很久的毕设，学了一段时间的tensorflow和pythontensorflow因为是看官方文档和论文，所以笔记都在代码上，等毕业了就把源码分享上来（源码已经分享给我的小伙伴，小伙伴已经上传到他的私密库，因为我没有私密库。。。。。）言归正传，昨天终于把毕设弄完了，今天想起来要摸一摸java了，不然本来就不好找工作，不复习可能更加难找。（没有工作经验的应届生全是泪~~~）结">
+<meta property="og:image" content="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/zkhs.png">
+<meta property="og:image" content="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/ghyh.png">
+<meta property="og:image" content="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/zsmq.jpg">
+<meta property="og:image" content="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/zzda.png">
+<meta property="og:image" content="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/jg.png">
+<meta property="og:updated_time" content="2018-05-07T05:51:01.182Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MyEclipse无法查看servlet源码的问题解决">
+<meta name="twitter:description" content="好久没有写博文啦~中间忙了很久的毕设，学了一段时间的tensorflow和pythontensorflow因为是看官方文档和论文，所以笔记都在代码上，等毕业了就把源码分享上来（源码已经分享给我的小伙伴，小伙伴已经上传到他的私密库，因为我没有私密库。。。。。）言归正传，昨天终于把毕设弄完了，今天想起来要摸一摸java了，不然本来就不好找工作，不复习可能更加难找。（没有工作经验的应届生全是泪~~~）结">
+<meta name="twitter:image" content="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/zkhs.png">
+  
+    <link rel="alternate" href="/atom.xml" title="You&#39;s Tab" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">You&#39;s Tab</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Hobby and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jathonkatu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-MyEclipse无法查看servlet源码的问题解决" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/" class="article-date">
+  <time datetime="2018-05-07T05:09:09.000Z" itemprop="datePublished">2018-05-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MyEclipse无法查看servlet源码的问题解决
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>好久没有写博文啦~<br>中间忙了很久的毕设，学了一段时间的tensorflow和python<br>tensorflow因为是看官方文档和论文，所以笔记都在代码上，等毕业了就把源码分享上来（源码已经分享给我的小伙伴，小伙伴已经上传到他的私密库，因为我没有私密库。。。。。）<br>言归正传，昨天终于把毕设弄完了，今天想起来要摸一摸java了，不然本来就不好找工作，不复习可能更加难找。（没有工作经验的应届生全是泪~~~）结过，一早上都在整怎么看源码。。。。（不是效率低下，是坑太多了）<br>————–分隔符</p>
+<p>今天，在复习servlet的时候，想看一看源码，第一是发现点开始没有源代码的界面。<a href="https://blog.csdn.net/m0_38039437/article/details/75082888" target="_blank" rel="noopener">一开始的解决方式</a><br>后来发现无论怎么导入都没有用，于是我尝试导入另一个版本的Tomcat，和src包。<br>结果很容易想到（不然怎么浪费一早上）<br>在折腾了好多次之后，发现，Myeclipse 2013 Professional的servlet源码的指向地址好像被锁定了（无论你添加的zip文件在那个地址，他最后显示的地址都是Myeclipse自带的包地址）<br>于是我找隔壁宿舍的同学要来了他的2016（因为之前老师给的2013没有出问题，而且2016也没多大变化，界面也稍微不习惯，就没有换，现在看来是个错误。。。）<br>中间还出现了双jdk的问题(1.7和1.8)以及32bit和64bit的问题（仍然是课上的jdk是32bit，但我不知道，因为我的电脑我都是装的64bit，只有这一个老师给的东西是32bit），然后卸载重装myeclipse 2016<br>接下来就是破解<br>问题来了！<br>在2016指定了src文件后并没有能改变结果。<br><img src="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/../MyEclipse无法查看servlet源码的问题解决/zkhs.png" alt="Java EE 6.0 Generic"><br>没错，罪魁祸首就是他！原来是他的问题！用了myeclipse自带的JavaEE包！（包里有毒！）<br>于是我采用了<a href="https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.42/bin/apache-tomcat-7.0.42.zip" target="_blank" rel="noopener">自己所用的Tomcat</a>的api作为servlet的.class<img src="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/../MyEclipse无法查看servlet源码的问题解决/ghyh.png" alt="更换以后"><br>紧接着，将<a href="https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.42/src/apache-tomcat-7.0.42-src.zip" target="_blank" rel="noopener">从官网上下载的对应的src文件</a>载入进去。<br>结果是，The file is not on classpath！！不是报错，是整个页面只有一个红色×号和这句话，以及一大片空白。<br><img src="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/../MyEclipse无法查看servlet源码的问题解决/zsmq.jpg" alt=""><br>是你逼我的！内事不决，问，百，度！<br><a href="https://blog.csdn.net/yhzhaohy/article/details/52470732" target="_blank" rel="noopener">百度出来的博客</a><br>emmmmmmmu，还是有问题！<br>就在千钧一发之际！我的小伙伴叫我去吃饭了。<br>当然，这饭吃的，很不舒服，我的心里，有个问题，一直在萦绕：我是谁，我在哪，要干嘛。。（不对，是刚刚的问题到底在哪。。。）<br>一口橙汁下肚，灵机一动。（每个项目有个文件叫.setting！），橙汁都没来得及喝完就回宿舍开电脑。。。<br><img src="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/../MyEclipse无法查看servlet源码的问题解决/zzda.png" alt="真像只有一个！"><br>至此，<img src="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/../MyEclipse无法查看servlet源码的问题解决/jg.png" alt="美滋滋">我要沉浸到学习的海洋里面了~</p>
+<h6 id="真是一次有-keng-趣-duo-的问题解决过程啊"><a href="#真是一次有-keng-趣-duo-的问题解决过程啊" class="headerlink" title="真是一次有(keng)趣(duo)的问题解决过程啊."></a>真是一次有(keng)趣(duo)的问题解决过程啊.</h6><h3 id="奉劝大家不要用MyEclipse-2013-Professional-麻烦很多。IDEA我用过，但毕竟作为一个Myeclipse用的多的人来说，还是Myeclipse习惯一些（就是要破解）。还有就是，不用装双环境，新的JDK向下兼容！1-8的JDK有1-7的内容（当然现在1-9出好长一段时间了，新特性还是要了解一下的。）"><a href="#奉劝大家不要用MyEclipse-2013-Professional-麻烦很多。IDEA我用过，但毕竟作为一个Myeclipse用的多的人来说，还是Myeclipse习惯一些（就是要破解）。还有就是，不用装双环境，新的JDK向下兼容！1-8的JDK有1-7的内容（当然现在1-9出好长一段时间了，新特性还是要了解一下的。）" class="headerlink" title="奉劝大家不要用MyEclipse 2013 Professional,麻烦很多。IDEA我用过，但毕竟作为一个Myeclipse用的多的人来说，还是Myeclipse习惯一些（就是要破解）。还有就是，不用装双环境，新的JDK向下兼容！1.8的JDK有1.7的内容（当然现在1.9出好长一段时间了，新特性还是要了解一下的。）"></a>奉劝大家不要用MyEclipse 2013 Professional,麻烦很多。IDEA我用过，但毕竟作为一个Myeclipse用的多的人来说，还是Myeclipse习惯一些（就是要破解）。还有就是，不用装双环境，新的JDK向下兼容！1.8的JDK有1.7的内容（当然现在1.9出好长一段时间了，新特性还是要了解一下的。）</h3><p>看源码是一个好习惯，可以更加深入了解一个类。<br>for JathonKatu</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/" data-id="cjgvtw15h0004p474ck7xb6xh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/21/记一个V2EX上看到的问题18-03-21/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">记一个V2EX上看到的问题18-03-21</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/">MyEclipse无法查看servlet源码的问题解决</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/21/记一个V2EX上看到的问题18-03-21/">记一个V2EX上看到的问题18-03-21</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/18/linux-unpack/">linux-unpack</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/15/记一次朋友问的sql问题/">记一次朋友问的sql问题</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/15/单层感知器代码/">单层感知器代码</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Exchange/">Exchange</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 律_Ming<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
