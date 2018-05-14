@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Servlet学习过程 | You&#39;s Tab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这里记录Servlet学习过程中遇到的一些觉得容易遗漏的知识点。 1.重定向和转发的区别重定向1234response.sendRedirect(&quot;/定向映射或者地址&quot;);//这个是封装好的方法，推荐或者response.setStatus(302);//告诉客户端重定向新的资源response.setHeader(&quot;location&quot;, &quot;/itheima/ServletReqResDemo8&quot;">
+<meta name="keywords" content="Servlet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Servlet学习过程">
+<meta property="og:url" content="https://jathonkatu.github.io/2018/05/13/Servlet学习过程/index.html">
+<meta property="og:site_name" content="You&#39;s Tab">
+<meta property="og:description" content="这里记录Servlet学习过程中遇到的一些觉得容易遗漏的知识点。 1.重定向和转发的区别重定向1234response.sendRedirect(&quot;/定向映射或者地址&quot;);//这个是封装好的方法，推荐或者response.setStatus(302);//告诉客户端重定向新的资源response.setHeader(&quot;location&quot;, &quot;/itheima/ServletReqResDemo8&quot;">
+<meta property="og:updated_time" content="2018-05-14T15:37:34.554Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Servlet学习过程">
+<meta name="twitter:description" content="这里记录Servlet学习过程中遇到的一些觉得容易遗漏的知识点。 1.重定向和转发的区别重定向1234response.sendRedirect(&quot;/定向映射或者地址&quot;);//这个是封装好的方法，推荐或者response.setStatus(302);//告诉客户端重定向新的资源response.setHeader(&quot;location&quot;, &quot;/itheima/ServletReqResDemo8&quot;">
+  
+    <link rel="alternate" href="/atom.xml" title="You&#39;s Tab" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">You&#39;s Tab</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Hobby and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jathonkatu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Servlet学习过程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/13/Servlet学习过程/" class="article-date">
+  <time datetime="2018-05-13T14:44:43.000Z" itemprop="datePublished">2018-05-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Servlet学习过程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这里记录Servlet学习过程中遇到的一些觉得容易遗漏的知识点。</p>
+<h4 id="1-重定向和转发的区别"><a href="#1-重定向和转发的区别" class="headerlink" title="1.重定向和转发的区别"></a>1.重定向和转发的区别</h4><h5 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"/定向映射或者地址"</span>);<span class="comment">//这个是封装好的方法，推荐</span></span><br><span class="line">或者</span><br><span class="line">response.setStatus(<span class="number">302</span>);<span class="comment">//告诉客户端重定向新的资源</span></span><br><span class="line">response.setHeader(<span class="string">"location"</span>, <span class="string">"/itheima/ServletReqResDemo8"</span>);</span><br></pre></td></tr></table></figure>
+<p>上述是重定向是先将当前页面运行完，再执行下一页面，并且这一次请求的参数会丢失。(一次request)</p>
+<h6 id="重定向response由客户端执行，客户端执行两次请求，地址栏会发生变化，不能传递数据，可以跳转到其他应用。"><a href="#重定向response由客户端执行，客户端执行两次请求，地址栏会发生变化，不能传递数据，可以跳转到其他应用。" class="headerlink" title="重定向response由客户端执行，客户端执行两次请求，地址栏会发生变化，不能传递数据，可以跳转到其他应用。"></a>重定向response由客户端执行，客户端执行两次请求，地址栏会发生变化，不能传递数据，可以跳转到其他应用。</h6><h5 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestDispatcher(<span class="string">"/定向映射或者地址"</span>).forward(request,response);</span><br></pre></td></tr></table></figure>
+<p>上述是请求转发是运行到请求转发的代码后，先运行下一页面，再回到这一页面接着运行，从代码可以看出，request和response还要转发到下一个地址，参数不会丢失。</p>
+<h6 id="转发request由服务器执行，客户端只进行一次请求，地址栏不变，转发能够传递数据，不能跳转到其他应用。"><a href="#转发request由服务器执行，客户端只进行一次请求，地址栏不变，转发能够传递数据，不能跳转到其他应用。" class="headerlink" title="转发request由服务器执行，客户端只进行一次请求，地址栏不变，转发能够传递数据，不能跳转到其他应用。"></a>转发request由服务器执行，客户端只进行一次请求，地址栏不变，转发能够传递数据，不能跳转到其他应用。</h6><h4 id="2、response（服务器端对客户端的响应）两个输出流"><a href="#2、response（服务器端对客户端的响应）两个输出流" class="headerlink" title="2、response（服务器端对客户端的响应）两个输出流"></a>2、response（服务器端对客户端的响应）两个输出流</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ServletOutputStream <span class="title">getOuputStream</span><span class="params">()</span> <span class="comment">//输出二进制数据</span></span></span><br></pre></td></tr></table></figure>
+<p>和<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">PrintWrite <span class="title">getWrite</span><span class="params">()</span>  <span class="comment">//得到文本数据</span></span></span><br></pre></td></tr></table></figure></p>
+<p>两个方法相互排斥，在调用了一个方法后就不能调用另一个方法，如果同时调用了两个方法就会抛出异常。<br>Servlet程序向ServletOutputStream或PrintWriter对象中写入的数据将被Servlet引擎从response里面获取，Servlet引擎将这些数据当做响应消息正文，然后与各个响应状态行和响应头组合后输出到客户端。<br>Servlet的service方法结束后，Servlet引擎将检查getWrite或getOutputStream方法返回的输出流对象是否已经调用过close方法，如过没有Servlet引擎将调用close方法关闭该输出流对象。</p>
+<h4 id="3-request"><a href="#3-request" class="headerlink" title="3.request"></a>3.request</h4><h5 id="请求包含"><a href="#请求包含" class="headerlink" title="请求包含"></a>请求包含</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> request.getRequestDispatcher(<span class="string">"/映射地址"</span>).include(request, response);</span><br></pre></td></tr></table></figure>
+<p>这里请求包含和请求转发相似，唯一不同的是，请求转发是访问两个资源，而请求包含则是将两个资源合并一起访问。</p>
+<h5 id="解决表单method是Get时传值乱码"><a href="#解决表单method是Get时传值乱码" class="headerlink" title="解决表单method是Get时传值乱码"></a>解决表单method是Get时传值乱码</h5><p>下面这串代码只能解决post方式的乱码问题，而遇到get乱码问题并不能解决。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure></p>
+<h6 id="解决方式如下"><a href="#解决方式如下" class="headerlink" title="解决方式如下"></a>解决方式如下</h6><p>由于解决方式十分复杂，一个字段要进行一次下面的这个操作，所以表单method确保用post方式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">字段名：username</span><br><span class="line">String username = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">username = <span class="keyword">new</span> String(username.getBytes(<span class="string">"IOS-8895-1"</span>),<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jathonkatu.github.io/2018/05/13/Servlet学习过程/" data-id="cjh6f0bj1000hic74racajq5c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MyEclipse无法查看servlet源码的问题解决</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/13/Servlet学习过程/">Servlet学习过程</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/">MyEclipse无法查看servlet源码的问题解决</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/21/记一个V2EX上看到的问题18-03-21/">记一个V2EX上看到的问题18-03-21</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/18/linux-unpack/">linux-unpack</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/15/记一次朋友问的sql问题/">记一次朋友问的sql问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Exchange/">Exchange</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 律_Ming<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
