@@ -7,17 +7,17 @@
   
   <title>Servlet学习过程 | You&#39;s Tab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里记录Servlet学习过程中遇到的一些觉得容易遗漏的知识点。 1.重定向和转发的区别重定向1234response.sendRedirect(&quot;/定向映射或者地址&quot;);//这个是封装好的方法，推荐或者response.setStatus(302);//告诉客户端重定向新的资源response.setHeader(&quot;location&quot;, &quot;/itheima/ServletReqResDemo8&quot;">
+  <meta name="description" content="这里记录Servlet学习过程中遇到的一些觉得容易遗漏的知识点。序列化-内存中的数据（全景图，类似于树图）转换成二进制写进磁盘。反序列化-磁盘中的二进制数据读到内存。JAVABean文件不可序列化的时候，要让它实现Serializable接口序列化存盘的一种过程叫钝化（搁置）–在内存溢出或者服务器重启的时候发生(tomcat里的.ser文件)在上面的问题解决后，.ser文件会被序列化后删除，这个过">
 <meta name="keywords" content="Servlet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Servlet学习过程">
 <meta property="og:url" content="https://jathonkatu.github.io/2018/05/13/Servlet学习过程/index.html">
 <meta property="og:site_name" content="You&#39;s Tab">
-<meta property="og:description" content="这里记录Servlet学习过程中遇到的一些觉得容易遗漏的知识点。 1.重定向和转发的区别重定向1234response.sendRedirect(&quot;/定向映射或者地址&quot;);//这个是封装好的方法，推荐或者response.setStatus(302);//告诉客户端重定向新的资源response.setHeader(&quot;location&quot;, &quot;/itheima/ServletReqResDemo8&quot;">
-<meta property="og:updated_time" content="2018-05-14T15:37:34.554Z">
+<meta property="og:description" content="这里记录Servlet学习过程中遇到的一些觉得容易遗漏的知识点。序列化-内存中的数据（全景图，类似于树图）转换成二进制写进磁盘。反序列化-磁盘中的二进制数据读到内存。JAVABean文件不可序列化的时候，要让它实现Serializable接口序列化存盘的一种过程叫钝化（搁置）–在内存溢出或者服务器重启的时候发生(tomcat里的.ser文件)在上面的问题解决后，.ser文件会被序列化后删除，这个过">
+<meta property="og:updated_time" content="2018-05-17T06:53:55.432Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet学习过程">
-<meta name="twitter:description" content="这里记录Servlet学习过程中遇到的一些觉得容易遗漏的知识点。 1.重定向和转发的区别重定向1234response.sendRedirect(&quot;/定向映射或者地址&quot;);//这个是封装好的方法，推荐或者response.setStatus(302);//告诉客户端重定向新的资源response.setHeader(&quot;location&quot;, &quot;/itheima/ServletReqResDemo8&quot;">
+<meta name="twitter:description" content="这里记录Servlet学习过程中遇到的一些觉得容易遗漏的知识点。序列化-内存中的数据（全景图，类似于树图）转换成二进制写进磁盘。反序列化-磁盘中的二进制数据读到内存。JAVABean文件不可序列化的时候，要让它实现Serializable接口序列化存盘的一种过程叫钝化（搁置）–在内存溢出或者服务器重启的时候发生(tomcat里的.ser文件)在上面的问题解决后，.ser文件会被序列化后删除，这个过">
   
     <link rel="alternate" href="/atom.xml" title="You&#39;s Tab" type="application/atom+xml">
   
@@ -57,9 +57,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jathonkatu.github.io"></form>
@@ -94,23 +94,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这里记录Servlet学习过程中遇到的一些觉得容易遗漏的知识点。</p>
+        <p>这里记录Servlet学习过程中遇到的一些觉得容易遗漏的知识点。<br>序列化-内存中的数据（全景图，类似于树图）转换成二进制写进磁盘。<br>反序列化-磁盘中的二进制数据读到内存。<br>JAVABean文件不可序列化的时候，要让它实现Serializable接口<br>序列化存盘的一种过程叫钝化（搁置）–在内存溢出或者服务器重启的时候发生(tomcat里的.ser文件)<br>在上面的问题解决后，.ser文件会被序列化后删除，这个过程叫活化（激活）</p>
+<h3 id="Servlet做三件事"><a href="#Servlet做三件事" class="headerlink" title="Servlet做三件事"></a>Servlet做三件事</h3><p>获取表单数据，调用业务逻辑，分发转向。在MVC中，jsp和html为view，servlet为control，JAVABean为Model。</p>
 <h4 id="1-重定向和转发的区别"><a href="#1-重定向和转发的区别" class="headerlink" title="1.重定向和转发的区别"></a>1.重定向和转发的区别</h4><h5 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"/定向映射或者地址"</span>);<span class="comment">//这个是封装好的方法，推荐</span></span><br><span class="line">或者</span><br><span class="line">response.setStatus(<span class="number">302</span>);<span class="comment">//告诉客户端重定向新的资源</span></span><br><span class="line">response.setHeader(<span class="string">"location"</span>, <span class="string">"/itheima/ServletReqResDemo8"</span>);</span><br></pre></td></tr></table></figure>
 <p>上述是重定向是先将当前页面运行完，再执行下一页面，并且这一次请求的参数会丢失。(一次request)</p>
 <h6 id="重定向response由客户端执行，客户端执行两次请求，地址栏会发生变化，不能传递数据，可以跳转到其他应用。"><a href="#重定向response由客户端执行，客户端执行两次请求，地址栏会发生变化，不能传递数据，可以跳转到其他应用。" class="headerlink" title="重定向response由客户端执行，客户端执行两次请求，地址栏会发生变化，不能传递数据，可以跳转到其他应用。"></a>重定向response由客户端执行，客户端执行两次请求，地址栏会发生变化，不能传递数据，可以跳转到其他应用。</h6><h5 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestDispatcher(<span class="string">"/定向映射或者地址"</span>).forward(request,response);</span><br></pre></td></tr></table></figure>
 <p>上述是请求转发是运行到请求转发的代码后，先运行下一页面，再回到这一页面接着运行，从代码可以看出，request和response还要转发到下一个地址，参数不会丢失。</p>
-<h6 id="转发request由服务器执行，客户端只进行一次请求，地址栏不变，转发能够传递数据，不能跳转到其他应用。"><a href="#转发request由服务器执行，客户端只进行一次请求，地址栏不变，转发能够传递数据，不能跳转到其他应用。" class="headerlink" title="转发request由服务器执行，客户端只进行一次请求，地址栏不变，转发能够传递数据，不能跳转到其他应用。"></a>转发request由服务器执行，客户端只进行一次请求，地址栏不变，转发能够传递数据，不能跳转到其他应用。</h6><h4 id="2、response（服务器端对客户端的响应）两个输出流"><a href="#2、response（服务器端对客户端的响应）两个输出流" class="headerlink" title="2、response（服务器端对客户端的响应）两个输出流"></a>2、response（服务器端对客户端的响应）两个输出流</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ServletOutputStream <span class="title">getOuputStream</span><span class="params">()</span> <span class="comment">//输出二进制数据</span></span></span><br></pre></td></tr></table></figure>
+<h6 id="转发request由服务器执行，客户端只进行一次请求，地址栏不变，转发能够传递数据，不能跳转到其他应用。"><a href="#转发request由服务器执行，客户端只进行一次请求，地址栏不变，转发能够传递数据，不能跳转到其他应用。" class="headerlink" title="转发request由服务器执行，客户端只进行一次请求，地址栏不变，转发能够传递数据，不能跳转到其他应用。"></a>转发request由服务器执行，客户端只进行一次请求，地址栏不变，转发能够传递数据，不能跳转到其他应用。</h6><h4 id="2、response（服务器端对客户端的响应）的两个输出流"><a href="#2、response（服务器端对客户端的响应）的两个输出流" class="headerlink" title="2、response（服务器端对客户端的响应）的两个输出流"></a>2、response（服务器端对客户端的响应）的两个输出流</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ServletOutputStream <span class="title">getOuputStream</span><span class="params">()</span> <span class="comment">//输出二进制数据</span></span></span><br></pre></td></tr></table></figure>
 <p>和<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">PrintWrite <span class="title">getWrite</span><span class="params">()</span>  <span class="comment">//得到文本数据</span></span></span><br></pre></td></tr></table></figure></p>
 <p>两个方法相互排斥，在调用了一个方法后就不能调用另一个方法，如果同时调用了两个方法就会抛出异常。<br>Servlet程序向ServletOutputStream或PrintWriter对象中写入的数据将被Servlet引擎从response里面获取，Servlet引擎将这些数据当做响应消息正文，然后与各个响应状态行和响应头组合后输出到客户端。<br>Servlet的service方法结束后，Servlet引擎将检查getWrite或getOutputStream方法返回的输出流对象是否已经调用过close方法，如过没有Servlet引擎将调用close方法关闭该输出流对象。</p>
 <h4 id="3-request"><a href="#3-request" class="headerlink" title="3.request"></a>3.request</h4><h5 id="请求包含"><a href="#请求包含" class="headerlink" title="请求包含"></a>请求包含</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> request.getRequestDispatcher(<span class="string">"/映射地址"</span>).include(request, response);</span><br></pre></td></tr></table></figure>
 <p>这里请求包含和请求转发相似，唯一不同的是，请求转发是访问两个资源，而请求包含则是将两个资源合并一起访问。</p>
 <h5 id="解决表单method是Get时传值乱码"><a href="#解决表单method是Get时传值乱码" class="headerlink" title="解决表单method是Get时传值乱码"></a>解决表单method是Get时传值乱码</h5><p>下面这串代码只能解决post方式的乱码问题，而遇到get乱码问题并不能解决。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure></p>
 <h6 id="解决方式如下"><a href="#解决方式如下" class="headerlink" title="解决方式如下"></a>解决方式如下</h6><p>由于解决方式十分复杂，一个字段要进行一次下面的这个操作，所以表单method确保用post方式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">字段名：username</span><br><span class="line">String username = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">username = <span class="keyword">new</span> String(username.getBytes(<span class="string">"IOS-8895-1"</span>),<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure></p>
-
+<h6 id="getContextPath"><a href="#getContextPath" class="headerlink" title="getContextPath"></a>getContextPath</h6><p>用于返回应用名</p>
+<h6 id="setAttribute-getAttribute"><a href="#setAttribute-getAttribute" class="headerlink" title="setAttribute/getAttribute"></a>setAttribute/getAttribute</h6><p>保存/获取表单以外的元素</p>
+<h6 id="getSession"><a href="#getSession" class="headerlink" title="getSession"></a>getSession</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HttpSession request.getSession()</span><br></pre></td></tr></table></figure>
+<p>执行原理<br>1、获取名为JSESSIONID的cookie值<br>2、没有这个值，就创建一个HttpSession对象，分配第一个唯一的SessionID，并向客户端写一个JSESSIONID=sessionID的cookie。<br>3、如果有，那么获取Cookie值，从服务器中找到这个id对应的对象：<br>找到了继续服务<br>找不到进入第二步<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HttpSession request.getSession(<span class="keyword">boolean</span> create)</span><br><span class="line"><span class="comment">//create=true时，功能与getSession一样。</span></span><br><span class="line"><span class="comment">//create=false时，与getSession相似，不同的是，如果找不到对应SessionID的值，就返回null（不创建新的Session，只是查询）</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="4-Session会话"><a href="#4-Session会话" class="headerlink" title="4.Session会话"></a>4.Session会话</h4><p>用户打开浏览器-访问服务器的web资源（单个或多个）-关闭浏览器（一个完整的会话过程，可以类比于打电话，只要两个人都不挂就继续，一方挂断就结束。）会话用于保持各个客户端自己的数据。<br>当浏览器第一次访问资源时候就创建Session，应用运行时，在存活时间内。到达存活时间或Session.invalidate()时候自动销毁。<br>Session是服务器端技术，利用这个技术，服务器在运行时可以为一个用户的浏览器创建一个其独享的HttpSession对象，由于Session为用户浏览器独享，所以用户在访问服务器的web资源时，可以把各自的数据放在各自的Session中，当用户再去访问服务器中其他web资源时，其他web资源再从用户各自的session中取出数据为用户服务。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Session常用方法：</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setAttribute</span><span class="params">(String name,Object value)</span></span>;</span><br><span class="line"><span class="function">Object <span class="title">getAttribute</span><span class="params">(String name)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeAttribute</span><span class="params">(String name)</span></span>;</span><br><span class="line"><span class="function">HttpSession <span class="title">getId</span><span class="params">()</span></span>;<span class="comment">//返回Sessionid</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setMaxInactiveInterval</span><span class="params">(<span class="keyword">int</span> second)</span></span>;<span class="comment">//设置存活时间，默认30分钟</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">invalidate</span><span class="params">()</span><span class="comment">//销毁session</span></span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">session的有效时间也可以在web.xml中设置</span><br><span class="line">    <span class="tag">&lt;<span class="name">session-config</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 设置session有效时间，单位是分钟 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">session-timeout</span>&gt;</span>1<span class="tag">&lt;/<span class="name">session-timeout</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">session-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Session依赖于Cookie，如果禁止Cookie则Session功能会同样禁用。（）<br>解决方案：<br>1、提示不要禁用Cookie（一般会提示网络连接超时）<br>2、URL重写，对网站的所有地址都重写<br><a href="http://url---&gt;httpL//url;JSESSIONID=sessionID" target="_blank" rel="noopener">http://url---&gt;httpL//url;JSESSIONID=sessionID</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">request.getSession();</span><br><span class="line">request.encodeURL(String url);</span><br><span class="line"><span class="comment">//看浏览器有没有发送Cookie的请求头，没有就重写URL，有不重写,且不能刷新</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="5-Cookie"><a href="#5-Cookie" class="headerlink" title="5.Cookie"></a>5.Cookie</h4><p>Cookies是客户端技术，程序把每一个用户的数据以Cookies的形式写给用户各自的浏览器。当用户使用浏览器再去访问服务器中的web资源时，就会带着各自的数据去。这样，web资源处理的就是用户各自的数据了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response.addCookie()</span><br><span class="line">request.getCookie()</span><br></pre></td></tr></table></figure></p>
+<p>Cookie是键值对<name,value>（name不能唯一区分cookie，还要看path，value只能存英文。）<br>一个浏览器每个站点最多存放20个Cookie,一个浏览器最多存放300个Cookie，每个Cookie限制大小为4KB。默认的Cookie是Session级别的，即结束访问就删除。如果要存在磁盘上，则需要MaxAge设置值：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> cookie.setMaxAge(second);<span class="comment">//设置Cookie最大生存时间时间</span></span><br><span class="line"><span class="comment">//0则立即删除,-1则浏览器关闭时候删除</span></span><br><span class="line"><span class="keyword">int</span> cookie.getMaxAge();<span class="comment">//获取存在时间</span></span><br></pre></td></tr></table></figure></name,value></p>
+<p>path默认值是Cookie对应的访问路径：url:<a href="http://localhost:8080/Study/Cookie/CookieDemo1则path为/Study/Cookie。如果另一个应用映射路径/Study/Cookie/aaa/CookieDemo2也能访问到这个Cookie，但如果映射路径是/Study/CookieDemo2则无法访问，这时候就要手动设置path值：" target="_blank" rel="noopener">http://localhost:8080/Study/Cookie/CookieDemo1则path为/Study/Cookie。如果另一个应用映射路径/Study/Cookie/aaa/CookieDemo2也能访问到这个Cookie，但如果映射路径是/Study/CookieDemo2则无法访问，这时候就要手动设置path值：</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cookie.setPath(<span class="string">"/Study"</span>);</span><br><span class="line"><span class="comment">//这时候只要是Study应用下的所有资源都能访问Cookie</span></span><br><span class="line">cookie.setPath(request.getContextPath());<span class="comment">//与上面的一样，但自动获取的不容易出错</span></span><br><span class="line">cookie.setPath(<span class="string">"/"</span>);<span class="comment">//"/"代表当前应用下的目录名称，和上面两个一样，但更简便，推荐</span></span><br></pre></td></tr></table></figure></p>
+<h6 id="删除的时候最好设置路径，不然可能会删错"><a href="#删除的时候最好设置路径，不然可能会删错" class="headerlink" title="删除的时候最好设置路径，不然可能会删错"></a>删除的时候最好设置路径，不然可能会删错</h6><h6 id="Session是服务器端的技术，可以存储对象。Cookie是客户端技术，只能存储字符串。"><a href="#Session是服务器端的技术，可以存储对象。Cookie是客户端技术，只能存储字符串。" class="headerlink" title="Session是服务器端的技术，可以存储对象。Cookie是客户端技术，只能存储字符串。"></a>Session是服务器端的技术，可以存储对象。Cookie是客户端技术，只能存储字符串。</h6>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/13/Servlet学习过程/" data-id="cjh6f0bj1000hic74racajq5c" class="article-share-link">Share</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/13/Servlet学习过程/" data-id="cjhez69on000e7o74nujrwi1g" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -121,9 +132,18 @@
     
 <nav id="article-nav">
   
+    <a href="/2018/05/17/jsp复习阶段/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          jsp复习阶段
+        
+      </div>
+    </a>
+  
   
     <a href="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Viejo</strong>
       <div class="article-nav-title">MyEclipse无法查看servlet源码的问题解决</div>
     </a>
   
@@ -138,9 +158,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Posts recientes</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/05/20/JavaWebMVC/">JavaWebMVC</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/17/jsp复习阶段/">jsp复习阶段</a>
+          </li>
         
           <li>
             <a href="/2018/05/13/Servlet学习过程/">Servlet学习过程</a>
@@ -154,14 +182,6 @@
             <a href="/2018/03/21/记一个V2EX上看到的问题18-03-21/">记一个V2EX上看到的问题18-03-21</a>
           </li>
         
-          <li>
-            <a href="/2018/03/18/linux-unpack/">linux-unpack</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/15/记一次朋友问的sql问题/">记一次朋友问的sql问题</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -169,9 +189,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archivos</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
@@ -179,9 +199,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Categorías</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Exchange/">Exchange</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">7</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Exchange/">Exchange</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -191,7 +211,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -205,7 +225,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 律_Ming<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

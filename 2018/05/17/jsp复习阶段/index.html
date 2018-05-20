@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>jsp复习阶段 | You&#39;s Tab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JSP全程是JAVA Server Pages(java开发的服务器端页面)。JSP是Sun公司定义的一种用于动态开发Web资源的技术，JSP实质上就是Servlet(最后会编译成Servlet文件)。JSP在MVC结构中属于View层。Servlet适合编写Java逻辑代码（处理逻辑）。JSP适合编写动态内容，但不适合编写Java逻辑代码（显示数据）。 JSP页面第一次被访问的时候，实际上是进行">
+<meta name="keywords" content="JSP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jsp复习阶段">
+<meta property="og:url" content="https://jathonkatu.github.io/2018/05/17/jsp复习阶段/index.html">
+<meta property="og:site_name" content="You&#39;s Tab">
+<meta property="og:description" content="JSP全程是JAVA Server Pages(java开发的服务器端页面)。JSP是Sun公司定义的一种用于动态开发Web资源的技术，JSP实质上就是Servlet(最后会编译成Servlet文件)。JSP在MVC结构中属于View层。Servlet适合编写Java逻辑代码（处理逻辑）。JSP适合编写动态内容，但不适合编写Java逻辑代码（显示数据）。 JSP页面第一次被访问的时候，实际上是进行">
+<meta property="og:updated_time" content="2018-05-20T08:36:34.246Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jsp复习阶段">
+<meta name="twitter:description" content="JSP全程是JAVA Server Pages(java开发的服务器端页面)。JSP是Sun公司定义的一种用于动态开发Web资源的技术，JSP实质上就是Servlet(最后会编译成Servlet文件)。JSP在MVC结构中属于View层。Servlet适合编写Java逻辑代码（处理逻辑）。JSP适合编写动态内容，但不适合编写Java逻辑代码（显示数据）。 JSP页面第一次被访问的时候，实际上是进行">
+  
+    <link rel="alternate" href="/atom.xml" title="You&#39;s Tab" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">You&#39;s Tab</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Hobby and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jathonkatu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-jsp复习阶段" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/17/jsp复习阶段/" class="article-date">
+  <time datetime="2018-05-17T06:55:22.000Z" itemprop="datePublished">2018-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jsp复习阶段
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JSP全程是JAVA Server Pages(java开发的服务器端页面)。JSP是Sun公司定义的一种用于动态开发Web资源的技术，JSP实质上就是Servlet(最后会编译成Servlet文件)。<br>JSP在MVC结构中属于View层。<br>Servlet适合编写Java逻辑代码（处理逻辑）。JSP适合编写动态内容，但不适合编写Java逻辑代码（显示数据）。</p>
+<p>JSP页面第一次被访问的时候，实际上是进行了：<br>访问：index.jsp-转译-&gt;index_jsp.java-编译-&gt;index_jsp.class最终服务器执行并返回结果。（如果不是第一次访问，那么直接执行index_jsp.class，如果已经生成index_jsp.class，再次访问被修改过jsp文件，则会重新进行以上步骤。）</p>
+<p>JSP继承于HttpJspBase，而HttpJspBase又继承于HttpServlet，并且重写了里面的方法（空的，抽象的，最终还是要在index_jsp.class中重写）。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PrintWrite out = response.getWrite();</span><br><span class="line">out.write();<span class="comment">//jsp用这个方法，将所有html标签和内容输出。</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="JSP的基本语法"><a href="#JSP的基本语法" class="headerlink" title="JSP的基本语法"></a>JSP的基本语法</h3><h5 id="1-JSP模板元素："><a href="#1-JSP模板元素：" class="headerlink" title="1.JSP模板元素："></a>1.JSP模板元素：</h5><p>网页的静态内容，如html标签和文本。</p>
+<h5 id="2-JSP的脚本"><a href="#2-JSP的脚本" class="headerlink" title="2.JSP的脚本"></a>2.JSP的脚本</h5><p>小脚本：&lt;% java代码 %&gt;<br>表达式：&lt;%= 变量名或者计算公式 %&gt;<br>声明：&lt;%! %&gt; ## 用于定义全局成员和静态代码块</p>
+<h5 id="3-JSP注释"><a href="#3-JSP注释" class="headerlink" title="3.JSP注释"></a>3.JSP注释</h5><p>JSP注释:&lt;%– 注释内容 –%&gt; ## 在审查元素或者源代码中看不到的，安全<br>网页注释：<!-- 注释内容 --> ## 在审查元素或者源代码可以看到的，不安全</p>
+<h5 id="4-3个指令"><a href="#4-3个指令" class="headerlink" title="4.3个指令"></a>4.3个指令</h5><p>并不直接产生认可可见的输出，而只是告诉引擎如何处理JSP页面中的其余部分<br>page,include,taglib<br>&lt;%@ 指令名称 属性1=”属性1” 属性2=”属性2”….. %&gt;<br>如<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> <span class="keyword">import</span>=<span class="string">"java.util.*"</span> pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br></pre></td></tr></table></figure></p>
+<h6 id="Page"><a href="#Page" class="headerlink" title="Page"></a>Page</h6><p>用于预定义jsp页面的个各种属性<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//导包</span></span><br><span class="line">    &lt;%@ page <span class="keyword">import</span>=<span class="string">"java.util.Date,java.util.List"</span>%&gt;</span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line">    &lt;%@ page <span class="keyword">import</span>=<span class="string">"java.util.Date"</span>%&gt;</span><br><span class="line">    &lt;%@ page <span class="keyword">import</span>=<span class="string">"java.util.List"</span>%&gt;</span><br></pre></td></tr></table></figure></p>
+<p>自动导好的有java.lang，javax.servlet.<em>，javax.servlet.http.</em>，javax.servlet.jsp.*;<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">属性：</span><br><span class="line">    session:[<span class="keyword">true</span>|<span class="keyword">false</span>]是否生成Session对象，默认是<span class="keyword">true</span></span><br><span class="line">    pageEncoding:告诉服务器用什么语言翻译（也自动生成一句话告诉浏览器用什么编码解码）</span><br><span class="line">    isELIgnored:是否忽略EL表达式，默认值是<span class="keyword">false</span></span><br><span class="line">    errorPage:url   处理错误的页面</span><br><span class="line">    iserrorPage:[<span class="keyword">true</span>|<span class="keyword">false</span>]这是不是一个处理错误的页面</span><br><span class="line">    简单的写page只有两个必须属性，一个是<span class="keyword">import</span>，一个是pageEncoding</span><br></pre></td></tr></table></figure></p>
+<h6 id="include"><a href="#include" class="headerlink" title="include"></a>include</h6><p>静态包含：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ include file=<span class="string">"url"</span>%&gt;</span><br></pre></td></tr></table></figure></p>
+<p>转译前就包含了，所以最后会生成一个servlet文件，如果url指向的资源改变，就会重新生成servlet文件<br>动态包含：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:include page="url"&gt;&lt;/jsp:include&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在编译完后再包含，所以生成的是两个servlet文件，代码执行时才包含。<br>开发原则：能静态就不要动态</p>
+<h6 id="taglib"><a href="#taglib" class="headerlink" title="taglib"></a>taglib</h6><p>在JSP页面中导入JSTL标签库，替换JSP中的java代码段<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="number">5</span>&gt;<span class="number">3</span>)&#123;</span><br><span class="line">    out.print(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line">&lt;%@ taglib url=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> prefix=<span class="string">"c"</span>%&gt;</span><br><span class="line">&lt;c:<span class="keyword">if</span> test=$&#123;<span class="number">5</span>&gt;<span class="number">3</span>&#125;&gt;</span><br><span class="line">&lt;/c:if&gt;</span><br></pre></td></tr></table></figure></p>
+<h6 id="5-6个动作-实际开发中用不上"><a href="#5-6个动作-实际开发中用不上" class="headerlink" title="5.6个动作(实际开发中用不上)"></a>5.6个动作(实际开发中用不上)</h6><p><jsp:include>动态包含</jsp:include></p>
+<p><jsp:forward>请求转发</jsp:forward></p>
+<p><jsp:param>设置请求参数</jsp:param></p>
+<p><jsp:usebean>创建一个对象</jsp:usebean></p>
+<p><jsp:setproperty>给指定的对象赋值</jsp:setproperty></p>
+<p><jsp:getproperty>取值指定对象的属性值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestDispatcher(<span class="string">"/demo2"</span>).forward(request,response);</span><br><span class="line">&lt;%</span><br><span class="line">    request.setParameter(<span class="string">"name"</span>,<span class="string">"tom"</span>);</span><br><span class="line">%&gt;</span><br><span class="line">等价于</span><br><span class="line">&lt;jsp:forward page=<span class="string">"/demo2"</span>&gt;</span><br><span class="line">&lt;jsp:param name=<span class="string">"name"</span> value=<span class="string">"jerry"</span>&gt;</span><br><span class="line"><span class="comment">//###</span></span><br><span class="line"><span class="comment">//###</span></span><br><span class="line"><span class="comment">//###</span></span><br><span class="line"><span class="comment">//###</span></span><br><span class="line">&lt;jsp:useBean id="stu" class="com.study.entity.Student"&gt;&lt;/jsp:useBean&gt;</span><br><span class="line">&lt;jsp:setProperty property=<span class="string">"name"</span> name=<span class="string">"stu"</span> value=<span class="string">"jerry"</span>&gt;</span><br><span class="line">&lt;jsp:getProperty property=<span class="string">"name"</span> name=<span class="string">"stu"</span>&gt;</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line">&lt;% </span><br><span class="line">    Student stu = <span class="keyword">new</span> Student();</span><br><span class="line">    stu.setName(<span class="string">"jerry"</span>);</span><br><span class="line">    out.print(stu.getName());</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure></jsp:getproperty></p>
+<h5 id="6-9个内置对象"><a href="#6-9个内置对象" class="headerlink" title="6.9个内置对象"></a>6.9个内置对象</h5><p>request(javax.servlet.http.HttpServletRequset)、response(javax.servlet.http.HttpServletResponse)、session((javax.servlet.http.HttpSession，由session=”boolean”确定)、application(javax.servlet.ServletContext)、exception(java.lang.Throwable，由isErrorPage=”boolean”确定)、page(java.lang.Object当前对象this，当前servlet实例)、config(javax.servlet.ServletConfig)、out(javax.servlet.jsp.JspWrite，字符输出，相当于printWrite)、pageContext(javax.servlet.jsp.PageContext)</p>
+<p>pageContext、request、response、application四大域对象</p>
+<h6 id="pageContext"><a href="#pageContext" class="headerlink" title="pageContext"></a>pageContext</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setAttribute</span><span class="params">(String name,Object o)</span></span>;</span><br><span class="line"><span class="function">Object <span class="title">getAttribute</span><span class="params">(String name)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeAttribute</span><span class="params">(String name)</span></span>;</span><br><span class="line"><span class="comment">//下面是操纵其他域对象</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setAttribute</span><span class="params">(String name,Object o,<span class="keyword">int</span> Scope)</span></span>;</span><br><span class="line"><span class="function">Object <span class="title">getAttribute</span><span class="params">(String name,<span class="keyword">int</span> Scope)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeAttribute</span><span class="params">(String name,<span class="keyword">int</span> Scope)</span></span>;</span><br><span class="line"><span class="function">Object <span class="title">findAttribute</span><span class="params">(String name)</span></span>;<span class="comment">//从page，request，session，application中依次查找，找到了就取值，结束查找</span></span><br><span class="line"><span class="comment">//Scope的值：</span></span><br><span class="line">PageContext.Page_Scope = <span class="number">1</span>;</span><br><span class="line">PageContext.Request_Scope = <span class="number">2</span>;</span><br><span class="line">PageContext.Session_Scope = <span class="number">3</span>;</span><br><span class="line">PageContext.Application_Scope = <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+<p>在普通类中可以通过pageContext获取其他的JSP隐式对象。<br>提供了简易方法：<br>pageContext.forward(“Demo2.jsp”);<br>pageContext.include(“Demo2.jsp”);</p>
+<h5 id="7-四大域对象"><a href="#7-四大域对象" class="headerlink" title="7.四大域对象"></a>7.四大域对象</h5><p>PageContext：pageContext 存放数据当前页面有效，开发使用较少。<br>ServletRequest：request 存放的数据在一次请求（转发）内有效，开发使用非常多。<br>HttpSession：session，存放的数据在一次会话中有效，开发使用较多。存放登录信息时候。<br>ServletContext：application，存放数据在整个应用范围内有效，因为范围太大，尽量少用</p>
+<h5 id="8-EL表达式"><a href="#8-EL表达式" class="headerlink" title="8.EL表达式"></a>8.EL表达式</h5><p>EL表达式可以：获取数据，运算，获取隐式对象<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$&#123;s&#125;</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line">out.print(pageContext.findAttribute(<span class="string">"s"</span>))</span><br><span class="line"><span class="comment">//###</span></span><br><span class="line"><span class="comment">//###</span></span><br><span class="line"><span class="comment">//###</span></span><br><span class="line">$&#123;s.name&#125;</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line">out.print(pageContext.findAttribute(<span class="string">"s"</span>).getName())</span><br><span class="line"><span class="comment">//这种语法叫属性导航</span></span><br></pre></td></tr></table></figure></p>
+<p>EL表达式里，.运算符相当于调用了getter方法，.后面跟的是属性名字<br>[]运算符：.能做的[]能做，[]能做的.不一定能做。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//empty:判断null，空字符串和没有元素的集合都返回true</span></span><br><span class="line">$&#123; empty str&#125;<span class="comment">//判断str是否为空</span></span><br><span class="line"><span class="comment">//也可以结合三目运算符</span></span><br><span class="line">$&#123; empty str ? <span class="string">"空"</span>:<span class="string">"非空"</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<h6 id="EL表达式中的11个隐式对象："><a href="#EL表达式中的11个隐式对象：" class="headerlink" title="EL表达式中的11个隐式对象："></a>EL表达式中的11个隐式对象：</h6><p>pageContext(javax.servlet.jsp.PageContext)、pageScope(java.util.Map<string>)、requestScope(java.util.Map<string,object>)、sessionScope(java.util.Map<string,object>)、applicationScope(java.util.Map<string,object>)、param(java.util.Map<string,string>)、paramValues(java.util.Map<string,string[]>)、header(java.util.Map<string,string>，一个请求消息头)、headerValue(java.util.Map<string,string[]>，同名请求消息头)、initParam(java.util.Map<string,string>，Web.xml中的全局参数)、cookie(java.util.Map<string,cookie>).</string,cookie></string,string></string,string[]></string,string></string,string[]></string,string></string,object></string,object></string,object></string></p>
+<h5 id="9-JSTL"><a href="#9-JSTL" class="headerlink" title="9.JSTL"></a>9.JSTL</h5><p>JSTL(JavaServerPage Standard Tag Library)JSP标准标签库<br>JSTL实现JSP中的逻辑处理(可以看作是对EL表达式的补充)。</p>
+<h6 id="核心标签库"><a href="#核心标签库" class="headerlink" title="核心标签库"></a>核心标签库</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> prefix=<span class="string">"c"</span> %&gt;</span><br><span class="line"><span class="comment">//引用core库</span></span><br></pre></td></tr></table></figure>
+<p>通用标签：set、out、remove<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置变量</span></span><br><span class="line">&lt;c:set var="num" value=$&#123;10+5&#125; scope="page"&gt;&lt;/c:set&gt;</span><br><span class="line"><span class="comment">//输出数据</span></span><br><span class="line">&lt;c:out value="$&#123;num&#125;"&gt;&lt;/c:out&gt;</span><br><span class="line"><span class="comment">//已出变更</span></span><br><span class="line">&lt;c:remove var="num"&gt;&lt;/c:remove&gt;</span><br><span class="line"><span class="comment">//移除后输出</span></span><br><span class="line">&lt;c:out value=$&#123;num&#125; defalut="aaa"&gt;&lt;/c:out&gt;</span><br></pre></td></tr></table></figure></p>
+<p>条件标签<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set var="num" value="5"&gt;&lt;/c:set&gt;</span><br><span class="line"><span class="comment">//if</span></span><br><span class="line">&lt;c:if test="$&#123;num&gt;3&#125;"&gt;结果为:true&lt;/c:if&gt;//没有else</span><br><span class="line">&lt;c:if test="$&#123;num&lt;=3&#125;"&gt;结果为:false&lt;/c:if&gt;//手动else</span><br><span class="line"><span class="comment">//switch</span></span><br><span class="line">&lt;c:choose&gt;</span><br><span class="line">    &lt;c:when test="$&#123;num==1&#125;"&gt;&lt;/c:when&gt;</span><br><span class="line">    &lt;c:when test="$&#123;num==2&#125;"&gt;&lt;/c:when&gt;</span><br><span class="line">    &lt;c:when test="$&#123;num==3&#125;"&gt;&lt;/c:when&gt;</span><br><span class="line">    <span class="comment">//default</span></span><br><span class="line">    &lt;c:otherwise&gt;&lt;/c:otherwise&gt;</span><br><span class="line"></span><br><span class="line">&lt;/c:choose&gt;</span><br></pre></td></tr></table></figure></p>
+<p>迭代标签<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//普通循环</span></span><br><span class="line">&lt;c:forEach var=<span class="string">"i"</span> begin=<span class="string">"1"</span> end=<span class="string">"10"</span> step=<span class="string">"1"</span>&gt;</span><br><span class="line">&lt;/c:forEach&gt;//变量名为i，从1开始，10截止，步长为1</span><br><span class="line"><span class="comment">//增强for循环</span></span><br><span class="line">&lt;c:forEach items=<span class="string">""</span> var=<span class="string">""</span> varStatus=<span class="string">""</span>&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br><span class="line"><span class="comment">//items为传入对象，var为值，varStatus自带属性index从0开始，count从1开始，first，last，分别是int，int，boolean，boolean类型。</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jathonkatu.github.io/2018/05/17/jsp复习阶段/" data-id="cjhez69ow000m7o74zovyomq2" class="article-share-link">Compartir</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/20/JavaWebMVC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          JavaWebMVC
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/13/Servlet学习过程/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">Servlet学习过程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Posts recientes</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/20/JavaWebMVC/">JavaWebMVC</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/17/jsp复习阶段/">jsp复习阶段</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/13/Servlet学习过程/">Servlet学习过程</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/">MyEclipse无法查看servlet源码的问题解决</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/21/记一个V2EX上看到的问题18-03-21/">记一个V2EX上看到的问题18-03-21</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archivos</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categorías</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Exchange/">Exchange</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 律_Ming<br>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
