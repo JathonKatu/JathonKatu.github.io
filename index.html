@@ -55,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jathonkatu.github.io"></form>
@@ -67,6 +67,63 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-DateBaseKnows" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/22/DateBaseKnows/" class="article-date">
+  <time datetime="2018-05-22T06:05:36.000Z" itemprop="datePublished">2018-05-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/22/DateBaseKnows/">DateBaseKnows</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h4><p>事务是指逻辑上的一组操作，组成这组操作的各个单元，要么全部成功，要么全部不成功。<br>start transaction | begin 开启事务<br>Rollback 回滚事务<br>Commit 提交事务</p>
+<h6 id="在提交之前，只是在内存进行操作。只有commit才会操作数据库"><a href="#在提交之前，只是在内存进行操作。只有commit才会操作数据库" class="headerlink" title="在提交之前，只是在内存进行操作。只有commit才会操作数据库"></a>在提交之前，只是在内存进行操作。只有commit才会操作数据库</h6><p>######JDBC控制事务<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DBUtils.getConnection();</span><br><span class="line">conn.setAutoCommit(<span class="keyword">false</span>);<span class="comment">//开启事务begin</span></span><br><span class="line">conn.commit();<span class="comment">//提交事务commit</span></span><br><span class="line">conn.rollback();<span class="comment">//回滚事务rollback();</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="事务的特征-ACID"><a href="#事务的特征-ACID" class="headerlink" title="事务的特征(ACID)"></a>事务的特征(ACID)</h4><p>原子性(Atomicity)：指事务是一个不可分割的工作单位，事务中的操作要么都发生，要么都不发生。<br>一致性(Consistency)：事务执行的结果必须是使数据库从一个一致性状态变到另一个一致性状态。（即转账前后总金额不变）<br>隔离性(Isolation)：事务的隔离性是多用户并发访问数据库时，数据库为每一个用户开启的事务，不能被其他事务的操作数据所干扰，多个并发事务之间要相互隔离。<br>持久性(Durability)：一个事务一旦被提交，它对数据库的改变是永久的，接下来即使数据库发生故障也不应该对其有任何影响。</p>
+<h4 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h4><p>赃读：指一个事务读取了另一个事务未提交的数据。<br>不可重复读：在一个事务内读取表中的某一行数据，多次读取结果不同。一个事务读取到了另一个事务提交后的数据。（update）<br>虚读（幻读）：是指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。(insert)</p>
+<p>数据库通过设置事务的隔离级别防止以上情况的发生：</p>
+<ul>
+<li>1、READ UNCOMMITTED: 赃读、不可重复读、虚读都有可能发生。</li>
+<li>2、READ COMMITTED: 避免赃读。不可重复读、虚读都有可能发生。（oracle默认的）</li>
+<li>4、REPEATABLE READ:避免赃读、不可重复读。虚读有可能发生。（mysql默认）</li>
+<li>8、SERIALIZABLE: 避免赃读、不可重复读、虚读。<br>（SERIALIZABLE实际开发根本用不到，一般用默认就可以了）<br>级别越高，性能越低，数据越安全<br>mysql中：<br>查看当前的事务隔离级别：SELECT @@TX_ISOLATION;<br>更改当前的事务隔离级别：SET TRANSACTION ISOLATION LEVEL 四个级别之一。（在事务开启前设置）<br>设置隔离级别必须在事务之前<h6 id="JDBC中控制事务的隔离级别"><a href="#JDBC中控制事务的隔离级别" class="headerlink" title="JDBC中控制事务的隔离级别"></a>JDBC中控制事务的隔离级别</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Connection接口有常量：</span></span><br><span class="line">    TRANSACTION_NONE = <span class="number">0</span></span><br><span class="line">    TRANSACTION_READ_UNCOMMITTED = <span class="number">1</span></span><br><span class="line">    TRANSACTION_READ_COMMITTED = <span class="number">2</span></span><br><span class="line">    TRANSACTION_READ_REPEATABLE_READ = <span class="number">4</span></span><br><span class="line">    TRANSACTION_READ_SERIALIZABLE = <span class="number">8</span></span><br><span class="line"><span class="comment">//可以在创建事务之前输入以下：</span></span><br><span class="line">conn.setTransactionIsolation(<span class="keyword">int</span>);<span class="comment">//参数就是上面的几个常量，或者直接写对应的数字</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h4><p>数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个；释放空闲时间超过最大空闲时间的数据库连接来避免因为没有释放数据库连接而引起的数据库连接遗漏。这项技术能明显提高对数据库操作的性能。</p>
+<h6 id="应用程序直接获取链接的缺点："><a href="#应用程序直接获取链接的缺点：" class="headerlink" title="应用程序直接获取链接的缺点："></a>应用程序直接获取链接的缺点：</h6><p>数据库创建链接通常需要消耗相对大的资源，创建时间也较长。而用户请求直接获取链接，用户访问几次就要创建几次，会造成极大的数据库资源浪费，并且极易造成数据库服务器内存溢出，宕机。</p>
+<h6 id="连接池的目的："><a href="#连接池的目的：" class="headerlink" title="连接池的目的："></a>连接池的目的：</h6><p>解决建立数据库链接耗费的资源和时间的问题，提高性能。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jathonkatu.github.io/2018/05/22/DateBaseKnows/" data-id="cjhig42vb00006c74ikzpmczo" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DateBase/">DateBase</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-JavaWebMVC" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -98,12 +155,12 @@
 <h5 id="JavaBean："><a href="#JavaBean：" class="headerlink" title="JavaBean："></a>JavaBean：</h5><p>普通类（实体类bean），包含三种标准：一个无参构造，私有属性，共有的getter和setter方法</p>
 <h4 id="1-Model1模式-已过时"><a href="#1-Model1模式-已过时" class="headerlink" title="1.Model1模式(已过时)"></a>1.Model1模式(已过时)</h4><p>JSP+JavaBean</p>
 <h4 id="2-Model2模式-模拟MVC模式"><a href="#2-Model2模式-模拟MVC模式" class="headerlink" title="2.Model2模式(模拟MVC模式)"></a>2.Model2模式(模拟MVC模式)</h4><p>JSP+Servlet+JavaBean<br>MVC：开发模式<br>M：Model模型 JavaBean|四种作用域<br>V：view视图 JSP<br>C：Controller 控制器 Servlet<br>相应的，web分为三层：<br>表示层，业务层，数据访问层<br>包名：<br>domain(就是entity,bean)实体类<br>dao(接口)<br>dao.impl(dao实现类)<br>service(接口)<br>service.impl(实现类)<br>utils(工具类)<br>exception(自定义异常)<br>servlet(或者Web.servlet)(Web层)</p>
-<h2 id="约定由于编码。列名，字段名，表单中的属性名一致"><a href="#约定由于编码。列名，字段名，表单中的属性名一致" class="headerlink" title="约定由于编码。列名，字段名，表单中的属性名一致"></a>约定由于编码。列名，字段名，表单中的属性名一致</h2><p>开发步骤：<br>1.建库建表<br>2.搭建开发环境（各种导入jar包）<br>3.</p>
+<h2 id="约定由于编码。列名，字段名，表单中的属性名一致"><a href="#约定由于编码。列名，字段名，表单中的属性名一致" class="headerlink" title="约定由于编码。列名，字段名，表单中的属性名一致"></a>约定由于编码。列名，字段名，表单中的属性名一致</h2><p>开发步骤：<br>一、开发框架技术选型<br>二、数据库表结构设计<br>三、UI界面设计和实现（前台）<br>四、后台业务代码实现、界面流转的编码实现（后台以及前后衔接）<br>五、完善、细化功能（界面细节、程序效率优化之类的）<br>六、集成测试</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/20/JavaWebMVC/" data-id="cjhez69my00007o74nppuw73f" class="article-share-link">Compartir</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/20/JavaWebMVC/" data-id="cjhig42yz00016c74fkmlcmwg" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -177,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/17/jsp复习阶段/" data-id="cjhez69ow000m7o74zovyomq2" class="article-share-link">Compartir</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/17/jsp复习阶段/" data-id="cjhig432h001c6c74vx2kp3f1" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -242,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/13/Servlet学习过程/" data-id="cjhez69on000e7o74nujrwi1g" class="article-share-link">Compartir</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/13/Servlet学习过程/" data-id="cjhig431g000n6c74p9q3usvd" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -289,7 +346,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/" data-id="cjhez69ok000a7o74xy31uhnm" class="article-share-link">Compartir</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/" data-id="cjhig42zl00046c749qsrq6t0" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -334,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/21/记一个V2EX上看到的问题18-03-21/" data-id="cjhez69pv001g7o74smchb0ml" class="article-share-link">Compartir</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/21/记一个V2EX上看到的问题18-03-21/" data-id="cjhig432r001m6c742q1ivs3i" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -423,7 +480,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/18/linux-unpack/" data-id="cjhez69pg00127o743k496vxx" class="article-share-link">Compartir</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/18/linux-unpack/" data-id="cjhig4320000y6c7485m7m0r3" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -475,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/记一次朋友问的sql问题/" data-id="cjhez69px001j7o74ry5eldhs" class="article-share-link">Compartir</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/15/记一次朋友问的sql问题/" data-id="cjhig4330001p6c74qlsxx3ri" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
@@ -517,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/单层感知器代码/" data-id="cjhez69pj00167o74ffyp5kbu" class="article-share-link">Compartir</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/15/单层感知器代码/" data-id="cjhig432o001i6c74s9xp79ax" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -573,121 +630,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/神经网络/" data-id="cjhez69ps001d7o746ddkp0bm" class="article-share-link">Compartir</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/15/神经网络/" data-id="cjhig432e00196c74d0aa5z5e" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/神经网络/">神经网络</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JupyterNotebook快捷键" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/15/JupyterNotebook快捷键/" class="article-date">
-  <time datetime="2018-03-15T02:28:03.000Z" itemprop="datePublished">2018-03-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/毕设/">毕设</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/15/JupyterNotebook快捷键/">JupyterNotebook快捷键</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="这里，最近在学习神经网络，python比较推荐的是用Anaconda的集成环境，比较全面，Jupyter是其中一个成员，用于单元测试，一个个代码模块的测试，比较于整个代码块的测试要方便快捷许多。"><a href="#这里，最近在学习神经网络，python比较推荐的是用Anaconda的集成环境，比较全面，Jupyter是其中一个成员，用于单元测试，一个个代码模块的测试，比较于整个代码块的测试要方便快捷许多。" class="headerlink" title="这里，最近在学习神经网络，python比较推荐的是用Anaconda的集成环境，比较全面，Jupyter是其中一个成员，用于单元测试，一个个代码模块的测试，比较于整个代码块的测试要方便快捷许多。"></a>这里，最近在学习神经网络，python比较推荐的是用Anaconda的集成环境，比较全面，Jupyter是其中一个成员，用于单元测试，一个个代码模块的测试，比较于整个代码块的测试要方便快捷许多。</h6><p>Jupyter Notebook 的快捷键<br>Jupyter Notebook 有两种键盘输入模式。编辑模式，允许你往单元中键入代码或文本；这时的单元框线是绿色的。命令模式，键盘输入运行程序命令；这时的单元框线是灰色。</p>
-<p>命令模式 (按键 Esc 开启)<br>Enter : 转入编辑模式</p>
-<p>Shift-Enter : 运行本单元，选中下个单元</p>
-<p>Ctrl-Enter : 运行本单元</p>
-<p>Alt-Enter : 运行本单元，在其下插入新单元</p>
-<p>Y : 单元转入代码状态</p>
-<p>M :单元转入markdown状态</p>
-<p>R : 单元转入raw状态</p>
-<p>1 : 设定 1 级标题</p>
-<p>2 : 设定 2 级标题</p>
-<p>3 : 设定 3 级标题</p>
-<p>4 : 设定 4 级标题</p>
-<p>5 : 设定 5 级标题</p>
-<p>6 : 设定 6 级标题</p>
-<p>Up : 选中上方单元</p>
-<p>K : 选中上方单元</p>
-<p>Down : 选中下方单元</p>
-<p>J : 选中下方单元</p>
-<p>Shift-K : 扩大选中上方单元</p>
-<p>Shift-J : 扩大选中下方单元</p>
-<p>A : 在上方插入新单元</p>
-<p>B : 在下方插入新单元</p>
-<p>X : 剪切选中的单元</p>
-<p>C : 复制选中的单元</p>
-<p>Shift-V : 粘贴到上方单元</p>
-<p>V : 粘贴到下方单元</p>
-<p>Z : 恢复删除的最后一个单元</p>
-<p>D,D : 删除选中的单元</p>
-<p>Shift-M : 合并选中的单元</p>
-<p>Ctrl-S : 文件存盘</p>
-<p>S : 文件存盘</p>
-<p>L : 转换行号</p>
-<p>O : 转换输出</p>
-<p>Shift-O : 转换输出滚动</p>
-<p>Esc : 关闭页面</p>
-<p>Q : 关闭页面</p>
-<p>H : 显示快捷键帮助</p>
-<p>I,I : 中断Notebook内核</p>
-<p>0,0 : 重启Notebook内核</p>
-<p>Shift : 忽略</p>
-<p>Shift-Space : 向上滚动</p>
-<p>Space : 向下滚动</p>
-<p>编辑模式 ( Enter 键启动)<br>Tab : 代码补全或缩进</p>
-<p>Shift-Tab : 提示</p>
-<p>Ctrl-] : 缩进</p>
-<p>Ctrl-[ : 解除缩进</p>
-<p>Ctrl-A : 全选</p>
-<p>Ctrl-Z : 复原</p>
-<p>Ctrl-Shift-Z : 再做</p>
-<p>Ctrl-Y : 再做</p>
-<p>Ctrl-Home : 跳到单元开头</p>
-<p>Ctrl-Up : 跳到单元开头</p>
-<p>Ctrl-End : 跳到单元末尾</p>
-<p>Ctrl-Down : 跳到单元末尾</p>
-<p>Ctrl-Left : 跳到左边一个字首</p>
-<p>Ctrl-Right : 跳到右边一个字首</p>
-<p>Ctrl-Backspace : 删除前面一个字</p>
-<p>Ctrl-Delete : 删除后面一个字</p>
-<p>Esc : 进入命令模式</p>
-<p>Ctrl-M : 进入命令模式</p>
-<p>Shift-Enter : 运行本单元，选中下一单元</p>
-<p>Ctrl-Enter : 运行本单元</p>
-<p>Alt-Enter : 运行本单元，在下面插入一单元</p>
-<p>Ctrl-Shift– : 分割单元</p>
-<p>Ctrl-Shift-Subtract : 分割单元</p>
-<p>Ctrl-S : 文件存盘</p>
-<p>Shift : 忽略</p>
-<p>Up : 光标上移或转入上一单元</p>
-<p>Down :光标下移或转入下一单元</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/JupyterNotebook快捷键/" data-id="cjhez69of00087o74mp0gtkee" class="article-share-link">Compartir</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
     </footer>
   </div>
@@ -700,7 +646,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Siguiente &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -709,9 +655,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Posts recientes</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/05/22/DateBaseKnows/">DateBaseKnows</a>
+          </li>
         
           <li>
             <a href="/2018/05/20/JavaWebMVC/">JavaWebMVC</a>
@@ -729,10 +679,6 @@
             <a href="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/">MyEclipse无法查看servlet源码的问题解决</a>
           </li>
         
-          <li>
-            <a href="/2018/03/21/记一个V2EX上看到的问题18-03-21/">记一个V2EX上看到的问题18-03-21</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -740,9 +686,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archivos</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
@@ -750,9 +696,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorías</h3>
+    <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Exchange/">Exchange</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">7</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Exchange/">Exchange</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -762,7 +708,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DateBase/">DateBase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -776,7 +722,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 律_Ming<br>
-      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

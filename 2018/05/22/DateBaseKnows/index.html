@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>DateBaseKnows | You&#39;s Tab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="事务事务是指逻辑上的一组操作，组成这组操作的各个单元，要么全部成功，要么全部不成功。start transaction | begin 开启事务Rollback 回滚事务Commit 提交事务 在提交之前，只是在内存进行操作。只有commit才会操作数据库######JDBC控制事务1234Connection conn = DBUtils.getConnection();conn.setAuto">
+<meta name="keywords" content="DateBaseKnows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DateBaseKnows">
+<meta property="og:url" content="https://jathonkatu.github.io/2018/05/22/DateBaseKnows/index.html">
+<meta property="og:site_name" content="You&#39;s Tab">
+<meta property="og:description" content="事务事务是指逻辑上的一组操作，组成这组操作的各个单元，要么全部成功，要么全部不成功。start transaction | begin 开启事务Rollback 回滚事务Commit 提交事务 在提交之前，只是在内存进行操作。只有commit才会操作数据库######JDBC控制事务1234Connection conn = DBUtils.getConnection();conn.setAuto">
+<meta property="og:updated_time" content="2018-05-22T07:01:41.032Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DateBaseKnows">
+<meta name="twitter:description" content="事务事务是指逻辑上的一组操作，组成这组操作的各个单元，要么全部成功，要么全部不成功。start transaction | begin 开启事务Rollback 回滚事务Commit 提交事务 在提交之前，只是在内存进行操作。只有commit才会操作数据库######JDBC控制事务1234Connection conn = DBUtils.getConnection();conn.setAuto">
+  
+    <link rel="alternate" href="/atom.xml" title="You&#39;s Tab" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">You&#39;s Tab</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Hobby and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jathonkatu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-DateBaseKnows" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/22/DateBaseKnows/" class="article-date">
+  <time datetime="2018-05-22T06:05:36.000Z" itemprop="datePublished">2018-05-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DateBaseKnows
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h4><p>事务是指逻辑上的一组操作，组成这组操作的各个单元，要么全部成功，要么全部不成功。<br>start transaction | begin 开启事务<br>Rollback 回滚事务<br>Commit 提交事务</p>
+<h6 id="在提交之前，只是在内存进行操作。只有commit才会操作数据库"><a href="#在提交之前，只是在内存进行操作。只有commit才会操作数据库" class="headerlink" title="在提交之前，只是在内存进行操作。只有commit才会操作数据库"></a>在提交之前，只是在内存进行操作。只有commit才会操作数据库</h6><p>######JDBC控制事务<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DBUtils.getConnection();</span><br><span class="line">conn.setAutoCommit(<span class="keyword">false</span>);<span class="comment">//开启事务begin</span></span><br><span class="line">conn.commit();<span class="comment">//提交事务commit</span></span><br><span class="line">conn.rollback();<span class="comment">//回滚事务rollback();</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="事务的特征-ACID"><a href="#事务的特征-ACID" class="headerlink" title="事务的特征(ACID)"></a>事务的特征(ACID)</h4><p>原子性(Atomicity)：指事务是一个不可分割的工作单位，事务中的操作要么都发生，要么都不发生。<br>一致性(Consistency)：事务执行的结果必须是使数据库从一个一致性状态变到另一个一致性状态。（即转账前后总金额不变）<br>隔离性(Isolation)：事务的隔离性是多用户并发访问数据库时，数据库为每一个用户开启的事务，不能被其他事务的操作数据所干扰，多个并发事务之间要相互隔离。<br>持久性(Durability)：一个事务一旦被提交，它对数据库的改变是永久的，接下来即使数据库发生故障也不应该对其有任何影响。</p>
+<h4 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h4><p>赃读：指一个事务读取了另一个事务未提交的数据。<br>不可重复读：在一个事务内读取表中的某一行数据，多次读取结果不同。一个事务读取到了另一个事务提交后的数据。（update）<br>虚读（幻读）：是指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。(insert)</p>
+<p>数据库通过设置事务的隔离级别防止以上情况的发生：</p>
+<ul>
+<li>1、READ UNCOMMITTED: 赃读、不可重复读、虚读都有可能发生。</li>
+<li>2、READ COMMITTED: 避免赃读。不可重复读、虚读都有可能发生。（oracle默认的）</li>
+<li>4、REPEATABLE READ:避免赃读、不可重复读。虚读有可能发生。（mysql默认）</li>
+<li>8、SERIALIZABLE: 避免赃读、不可重复读、虚读。<br>（SERIALIZABLE实际开发根本用不到，一般用默认就可以了）<br>级别越高，性能越低，数据越安全<br>mysql中：<br>查看当前的事务隔离级别：SELECT @@TX_ISOLATION;<br>更改当前的事务隔离级别：SET TRANSACTION ISOLATION LEVEL 四个级别之一。（在事务开启前设置）<br>设置隔离级别必须在事务之前<h6 id="JDBC中控制事务的隔离级别"><a href="#JDBC中控制事务的隔离级别" class="headerlink" title="JDBC中控制事务的隔离级别"></a>JDBC中控制事务的隔离级别</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Connection接口有常量：</span></span><br><span class="line">    TRANSACTION_NONE = <span class="number">0</span></span><br><span class="line">    TRANSACTION_READ_UNCOMMITTED = <span class="number">1</span></span><br><span class="line">    TRANSACTION_READ_COMMITTED = <span class="number">2</span></span><br><span class="line">    TRANSACTION_READ_REPEATABLE_READ = <span class="number">4</span></span><br><span class="line">    TRANSACTION_READ_SERIALIZABLE = <span class="number">8</span></span><br><span class="line"><span class="comment">//可以在创建事务之前输入以下：</span></span><br><span class="line">conn.setTransactionIsolation(<span class="keyword">int</span>);<span class="comment">//参数就是上面的几个常量，或者直接写对应的数字</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h4><p>数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个；释放空闲时间超过最大空闲时间的数据库连接来避免因为没有释放数据库连接而引起的数据库连接遗漏。这项技术能明显提高对数据库操作的性能。</p>
+<h6 id="应用程序直接获取链接的缺点："><a href="#应用程序直接获取链接的缺点：" class="headerlink" title="应用程序直接获取链接的缺点："></a>应用程序直接获取链接的缺点：</h6><p>数据库创建链接通常需要消耗相对大的资源，创建时间也较长。而用户请求直接获取链接，用户访问几次就要创建几次，会造成极大的数据库资源浪费，并且极易造成数据库服务器内存溢出，宕机。</p>
+<h6 id="连接池的目的："><a href="#连接池的目的：" class="headerlink" title="连接池的目的："></a>连接池的目的：</h6><p>解决建立数据库链接耗费的资源和时间的问题，提高性能。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jathonkatu.github.io/2018/05/22/DateBaseKnows/" data-id="cjhig42vb00006c74ikzpmczo" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DateBase/">DateBase</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/20/JavaWebMVC/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">JavaWebMVC</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/22/DateBaseKnows/">DateBaseKnows</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/JavaWebMVC/">JavaWebMVC</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/17/jsp复习阶段/">jsp复习阶段</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/13/Servlet学习过程/">Servlet学习过程</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/">MyEclipse无法查看servlet源码的问题解决</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Exchange/">Exchange</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DateBase/">DateBase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 律_Ming<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
