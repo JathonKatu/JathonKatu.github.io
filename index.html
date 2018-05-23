@@ -95,7 +95,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h4><p>事务是指逻辑上的一组操作，组成这组操作的各个单元，要么全部成功，要么全部不成功。<br>start transaction | begin 开启事务<br>Rollback 回滚事务<br>Commit 提交事务</p>
-<h6 id="在提交之前，只是在内存进行操作。只有commit才会操作数据库"><a href="#在提交之前，只是在内存进行操作。只有commit才会操作数据库" class="headerlink" title="在提交之前，只是在内存进行操作。只有commit才会操作数据库"></a>在提交之前，只是在内存进行操作。只有commit才会操作数据库</h6><p>######JDBC控制事务<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DBUtils.getConnection();</span><br><span class="line">conn.setAutoCommit(<span class="keyword">false</span>);<span class="comment">//开启事务begin</span></span><br><span class="line">conn.commit();<span class="comment">//提交事务commit</span></span><br><span class="line">conn.rollback();<span class="comment">//回滚事务rollback();</span></span><br></pre></td></tr></table></figure></p>
+<h6 id="在提交之前，只是在内存进行操作。只有commit才会操作数据库"><a href="#在提交之前，只是在内存进行操作。只有commit才会操作数据库" class="headerlink" title="在提交之前，只是在内存进行操作。只有commit才会操作数据库"></a>在提交之前，只是在内存进行操作。只有commit才会操作数据库</h6><p>######JDBC控制事务<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DBUtils.getConnection();</span><br><span class="line"><span class="keyword">void</span> conn.setAutoCommit(<span class="keyword">false</span>);<span class="comment">//开启事务begin</span></span><br><span class="line"><span class="keyword">void</span> conn.commit();<span class="comment">//提交事务commit</span></span><br><span class="line"><span class="keyword">void</span> conn.rollback();<span class="comment">//回滚事务rollback();</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="事务的特征-ACID"><a href="#事务的特征-ACID" class="headerlink" title="事务的特征(ACID)"></a>事务的特征(ACID)</h4><p>原子性(Atomicity)：指事务是一个不可分割的工作单位，事务中的操作要么都发生，要么都不发生。<br>一致性(Consistency)：事务执行的结果必须是使数据库从一个一致性状态变到另一个一致性状态。（即转账前后总金额不变）<br>隔离性(Isolation)：事务的隔离性是多用户并发访问数据库时，数据库为每一个用户开启的事务，不能被其他事务的操作数据所干扰，多个并发事务之间要相互隔离。<br>持久性(Durability)：一个事务一旦被提交，它对数据库的改变是永久的，接下来即使数据库发生故障也不应该对其有任何影响。</p>
 <h4 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h4><p>赃读：指一个事务读取了另一个事务未提交的数据。<br>不可重复读：在一个事务内读取表中的某一行数据，多次读取结果不同。一个事务读取到了另一个事务提交后的数据。（update）<br>虚读（幻读）：是指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。(insert)</p>
 <p>数据库通过设置事务的隔离级别防止以上情况的发生：</p>
@@ -113,7 +113,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/22/DateBaseKnows/" data-id="cjhig42vb00006c74ikzpmczo" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/22/DateBaseKnows/" data-id="cjhigkrob0000fk74jod7ynvk" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DateBase/">DateBase</a></li></ul>
@@ -160,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/20/JavaWebMVC/" data-id="cjhig42yz00016c74fkmlcmwg" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/20/JavaWebMVC/" data-id="cjhigkroo0004fk74j6refv52" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -234,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/17/jsp复习阶段/" data-id="cjhig432h001c6c74vx2kp3f1" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/17/jsp复习阶段/" data-id="cjhigkrpo000yfk747es954sp" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -299,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/13/Servlet学习过程/" data-id="cjhig431g000n6c74p9q3usvd" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/13/Servlet学习过程/" data-id="cjhigkrp9000jfk740sq0q5kn" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -346,7 +346,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/" data-id="cjhig42zl00046c749qsrq6t0" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/" data-id="cjhigkroy000afk74kdwkt9o5" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -391,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/21/记一个V2EX上看到的问题18-03-21/" data-id="cjhig432r001m6c742q1ivs3i" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/21/记一个V2EX上看到的问题18-03-21/" data-id="cjhigkrq7001lfk741zfqvy7y" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -480,7 +480,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/18/linux-unpack/" data-id="cjhig4320000y6c7485m7m0r3" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/18/linux-unpack/" data-id="cjhigkrpq0011fk74symsbovt" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -532,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/记一次朋友问的sql问题/" data-id="cjhig4330001p6c74qlsxx3ri" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/15/记一次朋友问的sql问题/" data-id="cjhigkrqa001ofk74xbde998y" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
@@ -574,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/单层感知器代码/" data-id="cjhig432o001i6c74s9xp79ax" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/15/单层感知器代码/" data-id="cjhigkrq2001efk74qztu9w4l" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -630,7 +630,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/神经网络/" data-id="cjhig432e00196c74d0aa5z5e" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/15/神经网络/" data-id="cjhigkrq4001hfk74j14usef9" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/神经网络/">神经网络</a></li></ul>
