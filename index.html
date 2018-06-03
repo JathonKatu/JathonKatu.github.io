@@ -57,7 +57,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://jathonkatu.github.io"></form>
@@ -67,6 +67,50 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-DesignPattern" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/02/DesignPattern/" class="article-date">
+  <time datetime="2018-06-02T04:52:50.000Z" itemprop="datePublished">2018-06-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/02/DesignPattern/">DesignPattern</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="装饰设计模式"><a href="#装饰设计模式" class="headerlink" title="装饰设计模式"></a>装饰设计模式</h3><p>目的：改写已存在的类的某个方法或某些方法，装饰设计模式（包装模式）<br>1、编写一个类，实现与被包装类相同的接口。(具备相同行为)<br>2、定义一个被包装类类型的变量<br>3、定义构造方法，把被包装类的对象注入，给被包装类变量赋值。<br>4、对于不需要改写的方法，调用原有方法。<br>5、对于需要改写的方法，写自己的代码。</p>
+<h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p>装饰设计模式的变体<br>只需要前四步就可以了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jathonkatu.github.io/2018/06/02/DesignPattern/" data-id="cjhyhltq200006074jbaya9bm" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-DateBaseKnows" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -95,7 +139,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h4><p>事务是指逻辑上的一组操作，组成这组操作的各个单元，要么全部成功，要么全部不成功。<br>start transaction | begin 开启事务<br>Rollback 回滚事务<br>Commit 提交事务</p>
-<h6 id="在提交之前，只是在内存进行操作。只有commit才会操作数据库"><a href="#在提交之前，只是在内存进行操作。只有commit才会操作数据库" class="headerlink" title="在提交之前，只是在内存进行操作。只有commit才会操作数据库"></a>在提交之前，只是在内存进行操作。只有commit才会操作数据库</h6><p>######JDBC控制事务<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DBUtils.getConnection();</span><br><span class="line"><span class="keyword">void</span> conn.setAutoCommit(<span class="keyword">false</span>);<span class="comment">//开启事务begin</span></span><br><span class="line"><span class="keyword">void</span> conn.commit();<span class="comment">//提交事务commit</span></span><br><span class="line"><span class="keyword">void</span> conn.rollback();<span class="comment">//回滚事务rollback();</span></span><br></pre></td></tr></table></figure></p>
+<h6 id="在提交之前，只是在内存进行操作。只有commit才会操作数据库"><a href="#在提交之前，只是在内存进行操作。只有commit才会操作数据库" class="headerlink" title="在提交之前，只是在内存进行操作。只有commit才会操作数据库"></a>在提交之前，只是在内存进行操作。只有commit才会操作数据库</h6><h6 id="JDBC控制事务"><a href="#JDBC控制事务" class="headerlink" title="JDBC控制事务"></a>JDBC控制事务</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DBUtils.getConnection();</span><br><span class="line"><span class="keyword">void</span> conn.setAutoCommit(<span class="keyword">false</span>);<span class="comment">//开启事务begin</span></span><br><span class="line"><span class="keyword">void</span> conn.commit();<span class="comment">//提交事务commit</span></span><br><span class="line"><span class="keyword">void</span> conn.rollback();<span class="comment">//回滚事务rollback();</span></span><br></pre></td></tr></table></figure>
 <h4 id="事务的特征-ACID"><a href="#事务的特征-ACID" class="headerlink" title="事务的特征(ACID)"></a>事务的特征(ACID)</h4><p>原子性(Atomicity)：指事务是一个不可分割的工作单位，事务中的操作要么都发生，要么都不发生。<br>一致性(Consistency)：事务执行的结果必须是使数据库从一个一致性状态变到另一个一致性状态。（即转账前后总金额不变）<br>隔离性(Isolation)：事务的隔离性是多用户并发访问数据库时，数据库为每一个用户开启的事务，不能被其他事务的操作数据所干扰，多个并发事务之间要相互隔离。<br>持久性(Durability)：一个事务一旦被提交，它对数据库的改变是永久的，接下来即使数据库发生故障也不应该对其有任何影响。</p>
 <h4 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h4><p>赃读：指一个事务读取了另一个事务未提交的数据。<br>不可重复读：在一个事务内读取表中的某一行数据，多次读取结果不同。一个事务读取到了另一个事务提交后的数据。（update）<br>虚读（幻读）：是指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。(insert)</p>
 <p>数据库通过设置事务的隔离级别防止以上情况的发生：</p>
@@ -109,11 +153,14 @@
 <h4 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h4><p>数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个；释放空闲时间超过最大空闲时间的数据库连接来避免因为没有释放数据库连接而引起的数据库连接遗漏。这项技术能明显提高对数据库操作的性能。</p>
 <h6 id="应用程序直接获取链接的缺点："><a href="#应用程序直接获取链接的缺点：" class="headerlink" title="应用程序直接获取链接的缺点："></a>应用程序直接获取链接的缺点：</h6><p>数据库创建链接通常需要消耗相对大的资源，创建时间也较长。而用户请求直接获取链接，用户访问几次就要创建几次，会造成极大的数据库资源浪费，并且极易造成数据库服务器内存溢出，宕机。</p>
 <h6 id="连接池的目的："><a href="#连接池的目的：" class="headerlink" title="连接池的目的："></a>连接池的目的：</h6><p>解决建立数据库链接耗费的资源和时间的问题，提高性能。</p>
+<h6 id="DBCP-DataBase-Connection-Pool"><a href="#DBCP-DataBase-Connection-Pool" class="headerlink" title="DBCP(DataBase Connection Pool)"></a>DBCP(DataBase Connection Pool)</h6><p>Apache推出的。<br>使用步骤：<br>添加jar包(commons-dbcp,commons-pool)-&gt;添加属性资源文件-&gt;编写数据源工具类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> DataSource ds = <span class="keyword">null</span>;</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		Properties prop = <span class="keyword">new</span> Properties();</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			prop.load(DBCPUtil.class.getClassLoader().getResourceAsStream(<span class="string">"dbcpconfig.properties"</span>));<span class="comment">//根据当前类的classes路径，加载配置文件</span></span><br><span class="line">			ds = BasicDataSourceFactory.createDataSource(prop);<span class="comment">//基础数据源的工厂类，通过配置文件获得一个数据源(连接池)</span></span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> ExceptionInInitializerError(<span class="string">"初始化异常，请检查配置文件"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> ds.getConnection();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"服务器繁忙。"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<h6 id="C3P0"><a href="#C3P0" class="headerlink" title="C3P0"></a>C3P0</h6><p>1、添加Jar包<br>2、编写配置文件<br>c3p0-config.xml或者用properties，放在classpath中，或者classes目录中<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//官方文档给出的：</span></span><br><span class="line">&lt;c3p0-config&gt;</span><br><span class="line">  &lt;<span class="keyword">default</span>-config&gt;</span><br><span class="line">    &lt;property name="automaticTestTable"&gt;con_test&lt;/property&gt;</span><br><span class="line">    &lt;property name="checkoutTimeout"&gt;30000&lt;/property&gt;</span><br><span class="line">    &lt;property name="idleConnectionTestPeriod"&gt;30&lt;/property&gt;</span><br><span class="line">    &lt;property name="initialPoolSize"&gt;10&lt;/property&gt;</span><br><span class="line">    &lt;property name="maxIdleTime"&gt;30&lt;/property&gt;</span><br><span class="line">    &lt;property name="maxPoolSize"&gt;100&lt;/property&gt;</span><br><span class="line">    &lt;property name="minPoolSize"&gt;10&lt;/property&gt;</span><br><span class="line">    &lt;property name="maxStatements"&gt;200&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;user-overrides user=<span class="string">"test-user"</span>&gt;</span><br><span class="line">      &lt;property name="maxPoolSize"&gt;10&lt;/property&gt;</span><br><span class="line">      &lt;property name="minPoolSize"&gt;1&lt;/property&gt;</span><br><span class="line">      &lt;property name="maxStatements"&gt;0&lt;/property&gt;</span><br><span class="line">    &lt;/user-overrides&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/default-config&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- This app is massive! --&gt;</span><br><span class="line">  &lt;named-config name=<span class="string">"intergalactoApp"</span>&gt; </span><br><span class="line">    &lt;property name="acquireIncrement"&gt;50&lt;/property&gt;</span><br><span class="line">    &lt;property name="initialPoolSize"&gt;100&lt;/property&gt;</span><br><span class="line">    &lt;property name="minPoolSize"&gt;50&lt;/property&gt;</span><br><span class="line">    &lt;property name="maxPoolSize"&gt;1000&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- intergalactoApp adopts a different approach to configuring statement caching --&gt;</span><br><span class="line">    &lt;property name="maxStatements"&gt;0&lt;/property&gt; </span><br><span class="line">    &lt;property name="maxStatementsPerConnection"&gt;5&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- he<span class="string">'s important, but there'</span>s only one of him --&gt;</span><br><span class="line">    &lt;user-overrides user=<span class="string">"master-of-the-universe"</span>&gt; </span><br><span class="line">      &lt;property name="acquireIncrement"&gt;1&lt;/property&gt;</span><br><span class="line">      &lt;property name="initialPoolSize"&gt;1&lt;/property&gt;</span><br><span class="line">      &lt;property name="minPoolSize"&gt;1&lt;/property&gt;</span><br><span class="line">      &lt;property name="maxPoolSize"&gt;5&lt;/property&gt;</span><br><span class="line">      &lt;property name="maxStatementsPerConnection"&gt;50&lt;/property&gt;</span><br><span class="line">    &lt;/user-overrides&gt;</span><br><span class="line">  &lt;/named-config&gt;</span><br><span class="line">&lt;/c3p0-config&gt;</span><br></pre></td></tr></table></figure></p>
+<p>3、编写工具类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C3P0Util</span> </span>&#123;</span><br><span class="line">	<span class="comment">//得到一个数据源</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> DataSource dataSource = <span class="keyword">new</span> ComboPooledDataSource();</span><br><span class="line">	<span class="comment">//从数据源中得到一个连接对象</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> dataSource.getConnection();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"创建数据库连接失败"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/22/DateBaseKnows/" data-id="cjhu4oesy0000b074ruih7ynm" class="article-share-link">Share</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/22/DateBaseKnows/" data-id="cjhyhltqp00066074h0ncf8ta" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DateBase/">DateBase</a></li></ul>
@@ -160,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/20/JavaWebMVC/" data-id="cjhu4oeug0006b074fcgvzr2z" class="article-share-link">Share</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/20/JavaWebMVC/" data-id="cjhyhltqk00046074kgbmtovt" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -234,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/17/jsp复习阶段/" data-id="cjhu4oey10025b074bj632pb2" class="article-share-link">Share</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/17/jsp复习阶段/" data-id="cjhyhltrx00126074qaquvc9n" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -299,7 +346,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/13/Servlet学习过程/" data-id="cjhu4oevb000pb074pgvz1ckq" class="article-share-link">Share</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/13/Servlet学习过程/" data-id="cjhyhltr5000k6074z1ljghyv" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -346,7 +393,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/" data-id="cjhu4oeug0005b0748dc9ccbi" class="article-share-link">Share</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/" data-id="cjhyhltqu000a6074ou9md4tx" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -391,7 +438,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/21/记一个V2EX上看到的问题18-03-21/" data-id="cjhu4oewi001jb074p2gme15g" class="article-share-link">Share</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/21/记一个V2EX上看到的问题18-03-21/" data-id="cjhyhltsj001p6074jazgah5d" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -480,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/18/linux-unpack/" data-id="cjhu4oewa001db074gofnxmjb" class="article-share-link">Share</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/18/linux-unpack/" data-id="cjhyhlts7001c6074waonqd25" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -532,7 +579,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/记一次朋友问的sql问题/" data-id="cjhu4oewd001gb0742ltui0nc" class="article-share-link">Share</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/15/记一次朋友问的sql问题/" data-id="cjhyhltsd001i6074a5lb1a7x" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
@@ -574,66 +621,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/单层感知器代码/" data-id="cjhu4oevq0016b074o5z1ax1j" class="article-share-link">Share</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/15/单层感知器代码/" data-id="cjhyhltsg001l60745k08l6vh" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-神经网络" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/15/神经网络/" class="article-date">
-  <time datetime="2018-03-15T06:17:09.000Z" itemprop="datePublished">2018-03-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/毕设/">毕设</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/15/神经网络/">神经网络</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="人工智能、机器学习、深度学习"><a href="#人工智能、机器学习、深度学习" class="headerlink" title="人工智能、机器学习、深度学习"></a>人工智能、机器学习、深度学习</h3><p>机器学习是实现人工智能的主要方式：人类基于机器学习和海量数据，逐步实现人工智能，其中深度学习是机器学习的一个分支。<br><img src="/2018/03/15/神经网络/../神经网络/rgjqsd.png" alt="人工智能、机器学习、深度学习"><br>人在一秒钟内做的决定，都可以由机器实现。而机器在一秒钟内，可以做成千上万个人在同时间内做的决定。</p>
-<p>神经网络是将我们所知的一种特征，转换成另一种代表特征(计算机能识别的)，再转换成一种特征。<br>将数据传入到黑盒中，处理成计算机能识别的特征，再经过处理，转换成人类需要的特征。<br><img src="/2018/03/15/神经网络/../神经网络/szwlhh.png" alt="神经网络黑盒图"></p>
-<h6 id="机器学习的一个通用过程：1-准备数据-gt-2-构造模型（设置求解目标函数）-gt-3-求解模型"><a href="#机器学习的一个通用过程：1-准备数据-gt-2-构造模型（设置求解目标函数）-gt-3-求解模型" class="headerlink" title="机器学习的一个通用过程：1.准备数据 -&gt; 2.构造模型（设置求解目标函数） -&gt; 3.求解模型"></a>机器学习的一个通用过程：1.准备数据 -&gt; 2.构造模型（设置求解目标函数） -&gt; 3.求解模型</h6><h3 id="神经网络发展路线"><a href="#神经网络发展路线" class="headerlink" title="神经网络发展路线:"></a>神经网络发展路线:</h3><p>单层感知器–&gt;BP神经网络–&gt;卷积神经网络(CNN图像识别领域)–&gt;残差神经网络<br>单层感知器–&gt;BP神经网络–&gt;递归神经网络(RNN)–&gt;LSTM网络<br>单层感知器–&gt;BP神经网络–&gt;深度置信网络<br>单层感知器–&gt;Hopfield神经网络–&gt;玻尔兹曼机–&gt;受限玻尔兹曼机–&gt;深度置信网络<br><img src="/2018/03/15/神经网络/../神经网络/sjwllx.png" alt="神经网络发展路线图"></p>
-<h3 id="一、机器学习"><a href="#一、机器学习" class="headerlink" title="一、机器学习"></a>一、机器学习</h3><h5 id="算法分类一："><a href="#算法分类一：" class="headerlink" title="算法分类一："></a>算法分类一：</h5><h6 id="1-有监督学习（给出了Y）"><a href="#1-有监督学习（给出了Y）" class="headerlink" title="1.有监督学习（给出了Y）"></a>1.有监督学习（给出了Y）</h6><p><img src="/2018/03/15/神经网络/../神经网络/yjdxx.png" alt="有监督学习图"></p>
-<h6 id="2-无监督学习（聚类）"><a href="#2-无监督学习（聚类）" class="headerlink" title="2.无监督学习（聚类）"></a>2.无监督学习（聚类）</h6><h6 id="3-半监督学习（根据数据量加强学习精确程度）"><a href="#3-半监督学习（根据数据量加强学习精确程度）" class="headerlink" title="3.半监督学习（根据数据量加强学习精确程度）"></a>3.半监督学习（根据数据量加强学习精确程度）</h6><h6 id="4-强化学习"><a href="#4-强化学习" class="headerlink" title="4.强化学习"></a>4.强化学习</h6><h6 id="5-遗传算法"><a href="#5-遗传算法" class="headerlink" title="5.遗传算法"></a>5.遗传算法</h6><h5 id="算法分类二："><a href="#算法分类二：" class="headerlink" title="算法分类二："></a>算法分类二：</h5><h6 id="1-分类与回归"><a href="#1-分类与回归" class="headerlink" title="1.分类与回归"></a>1.分类与回归</h6><h6 id="2-聚类"><a href="#2-聚类" class="headerlink" title="2.聚类"></a>2.聚类</h6><h6 id="3-标注"><a href="#3-标注" class="headerlink" title="3.标注"></a>3.标注</h6><h5 id="算法分类三："><a href="#算法分类三：" class="headerlink" title="算法分类三："></a>算法分类三：</h5><h6 id="1-生成模型"><a href="#1-生成模型" class="headerlink" title="1.生成模型"></a>1.生成模型</h6><h6 id="2-判别模型"><a href="#2-判别模型" class="headerlink" title="2.判别模型"></a>2.判别模型</h6><h5 id="训练模型："><a href="#训练模型：" class="headerlink" title="训练模型："></a>训练模型：</h5><h6 id="定义模型"><a href="#定义模型" class="headerlink" title="定义模型"></a>定义模型</h6><h6 id="定义损失函数"><a href="#定义损失函数" class="headerlink" title="定义损失函数"></a>定义损失函数</h6><h6 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h6><h5 id="模型评估："><a href="#模型评估：" class="headerlink" title="模型评估："></a>模型评估：</h5><h6 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h6><h6 id="效果评估"><a href="#效果评估" class="headerlink" title="效果评估"></a>效果评估</h6><h1 id="神经网络相关知识的学习路线"><a href="#神经网络相关知识的学习路线" class="headerlink" title="神经网络相关知识的学习路线"></a>神经网络相关知识的学习路线</h1><p><img src="/2018/03/15/神经网络/../神经网络/sjwlxxlx.jpg" alt="神经网络学习路线图"><br>这里，完成毕设我们只要完成Tensorflow的文本分类模块即可</p>
-<h6 id="模型收敛的判断"><a href="#模型收敛的判断" class="headerlink" title="模型收敛的判断"></a>模型收敛的判断</h6><p>误差小于一定值的时候，认为模型收敛<br>权值的改变量比较小的时候，认为模型收敛<br>循环次数达到一定情况，认为模型收敛</p>
-<h3 id="单层神经网络："><a href="#单层神经网络：" class="headerlink" title="单层神经网络："></a>单层神经网络：</h3><h6 id="单层感知器原理"><a href="#单层感知器原理" class="headerlink" title="单层感知器原理"></a>单层感知器原理</h6><p><img src="/2018/03/15/神经网络/../神经网络/dcgzqylt.png" alt="单层感知器原理图"><br><img src="/2018/03/15/神经网络/../神经网络/dcgzqylpzt.png" alt="单层感知器原理图-偏置"><br><img src="/2018/03/15/神经网络/../神经网络/dcgzqhst.png" alt="单层感知器函数图"><br><img src="/2018/03/15/神经网络/../神经网络/dcgzqhs.png" alt="单层感知器函数解析"></p>
-<h6 id="这里单层感知器不能解决异或问题或者一些更加复杂的问题，这里可以用以下的方法解决："><a href="#这里单层感知器不能解决异或问题或者一些更加复杂的问题，这里可以用以下的方法解决：" class="headerlink" title="这里单层感知器不能解决异或问题或者一些更加复杂的问题，这里可以用以下的方法解决："></a>这里单层感知器不能解决异或问题或者一些更加复杂的问题，这里可以用以下的方法解决：</h6><p>1)Madaline可以用多个神经元对区域进行划分，然后对各个神经元的输出做逻辑运算。（可以用两条直线实现异或逻辑）（也就是两个神经元）<br><img src="/2018/03/15/神经网络/../神经网络/Madaline.png" alt="Madaline"><br>2)线性神经网络解决线性不可分问题的另一个解决方法是，对神经元添加非线性输入，从而引入非线性成分，这样做会使等效的输入维度变大(下图的input有：x0 , x1 , x1 <em> x1 , x1 </em> x2 , x2 * x2 , x2)<br><img src="/2018/03/15/神经网络/../神经网络/fxxsr.png" alt="非线性输入"></p>
-<h5 id="δ（delta）学习规则也称连续感知器学习规则。是一种利用梯度下降法的一般性的学习规则。"><a href="#δ（delta）学习规则也称连续感知器学习规则。是一种利用梯度下降法的一般性的学习规则。" class="headerlink" title="δ（delta）学习规则也称连续感知器学习规则。是一种利用梯度下降法的一般性的学习规则。"></a>δ（delta）学习规则也称连续感知器学习规则。是一种利用梯度下降法的一般性的学习规则。</h5><h6 id="代价函数-目标函数-损失函数-Cost-function-Lost-Function"><a href="#代价函数-目标函数-损失函数-Cost-function-Lost-Function" class="headerlink" title="代价函数(目标函数/损失函数)(Cost function/Lost Function):"></a>代价函数(目标函数/损失函数)(Cost function/Lost Function):</h6><p>E = 1/2 * (期望输出 - 实际输出)^2<br><img src="/2018/03/15/神经网络/../神经网络/djhs.png" alt="代价函数"></p>
-<h6 id="线性神经网络与感知器的主要区别在于，感知器的激活函数只能输出两种可能的值，而现行神经网络的输出可以取任意值，其激活函数是线性函数。线性神经网络采用Widrow-Hoff学习规则，即LMS-Least-Mean-Square-算法来调整网络的权值和偏置。"><a href="#线性神经网络与感知器的主要区别在于，感知器的激活函数只能输出两种可能的值，而现行神经网络的输出可以取任意值，其激活函数是线性函数。线性神经网络采用Widrow-Hoff学习规则，即LMS-Least-Mean-Square-算法来调整网络的权值和偏置。" class="headerlink" title="线性神经网络与感知器的主要区别在于，感知器的激活函数只能输出两种可能的值，而现行神经网络的输出可以取任意值，其激活函数是线性函数。线性神经网络采用Widrow-Hoff学习规则，即LMS(Least Mean Square)算法来调整网络的权值和偏置。"></a>线性神经网络与感知器的主要区别在于，感知器的激活函数只能输出两种可能的值，而现行神经网络的输出可以取任意值，其激活函数是线性函数。线性神经网络采用Widrow-Hoff学习规则，即LMS(Least Mean Square)算法来调整网络的权值和偏置。</h6><p><img src="/2018/03/15/神经网络/../神经网络/lmsxxgz.png" alt="LMS学习规则"></p>
-<h6 id="线性神经网络在结构上与感知器非常相似，只是神经元激活函数不同。在模型训练时把原来的sign函数改为了purelin函数-y-x"><a href="#线性神经网络在结构上与感知器非常相似，只是神经元激活函数不同。在模型训练时把原来的sign函数改为了purelin函数-y-x" class="headerlink" title="线性神经网络在结构上与感知器非常相似，只是神经元激活函数不同。在模型训练时把原来的sign函数改为了purelin函数(y=x)"></a>线性神经网络在结构上与感知器非常相似，只是神经元激活函数不同。在模型训练时把原来的sign函数改为了purelin函数(y=x)</h6><p><img src="/2018/03/15/神经网络/../神经网络/xxsjwl.png" alt="线性神经网络"><br>这里有两个激活函数：purelin和sign，是因为训练模型的时候我们用线性激活函数来训练，结果会更好，但输出的时候还是用sign比较好。</p>
-<p>梯度下降法的问题：<br>Cost = (Wx+b-Y)^2<br>误差 = (权重*自变量+偏移量-真实值)的平方<br>这里最极端化的情况：<br>Cost = W^2<br>所以，Cost最小的时候，切线斜率为0(斜率为0有可能是某个位置的极小值–局部最优解，也可能是最小值–全局最优解)<br>1) 学习率难以选取，太大会产生振荡，太小会收敛缓慢<br>2) 容易陷入局部最优解<br>1)的解决方法：<br>在前期的学习率大一点，靠近最小值的时候用小一点的学习率</p>
-<h3 id="多层神经网络："><a href="#多层神经网络：" class="headerlink" title="多层神经网络："></a>多层神经网络：</h3><p>BP神经网络是整个人工神经网络体系中的精华，广泛应用于分类识别，逼近，回归，压缩等领域。在实际应用中，大约80%的神经网络模型采取了BP神经网络或BP网络的变化形式。</p>
-<h6 id="特征标准化："><a href="#特征标准化：" class="headerlink" title="特征标准化："></a>特征标准化：</h6><p>minmax normalization：特征缩放到0~1 或者-1~1区间内<br>std normalization：特征缩放到平均值(mean)为0,方差(std)为1</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/神经网络/" data-id="cjhu4oew50019b074au0a8dj2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/神经网络/">神经网络</a></li></ul>
 
     </footer>
   </div>
@@ -646,7 +637,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -655,9 +646,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/06/02/DesignPattern/">DesignPattern</a>
+          </li>
         
           <li>
             <a href="/2018/05/22/DateBaseKnows/">DateBaseKnows</a>
@@ -675,10 +670,6 @@
             <a href="/2018/05/13/Servlet学习过程/">Servlet学习过程</a>
           </li>
         
-          <li>
-            <a href="/2018/05/07/MyEclipse无法查看servlet源码的问题解决/">MyEclipse无法查看servlet源码的问题解决</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -686,9 +677,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
@@ -696,9 +687,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Exchange/">Exchange</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">7</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Exchange/">Exchange</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/毕设/">毕设</a><span class="category-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -708,7 +699,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DateBase/">DateBase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS/">CS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DateBase/">DateBase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali/">kali</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/入侵检测/">入侵检测</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神经网络/">神经网络</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
