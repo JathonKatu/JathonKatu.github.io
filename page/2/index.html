@@ -68,6 +68,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-记一个V2EX上看到的问题18-03-21" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/21/记一个V2EX上看到的问题18-03-21/" class="article-date">
+  <time datetime="2018-03-21T01:04:41.000Z" itemprop="datePublished">2018-03-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Exchange/">Exchange</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/21/记一个V2EX上看到的问题18-03-21/">记一个V2EX上看到的问题18-03-21</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在刷V2EX的时候看到了一个初学者可能会想不明白的问题（当然我自己也算是个初学者）<br>觉得，是一个不错的例子，所以这里列出来，供大家交流（其实是给自己记录一下思路）<br><a href="https://www.v2ex.com/t/200476" target="_blank" rel="noopener">原例子</a><br>这里，题目是：</p>
+<h4 id="Python-列表操作-a-10-x-for-x-in-range-100-实际上发生了什么？后面的-90-个元素怎么处理的？"><a href="#Python-列表操作-a-10-x-for-x-in-range-100-实际上发生了什么？后面的-90-个元素怎么处理的？" class="headerlink" title="Python 列表操作 a[:10] = [x for x in range(100)] 实际上发生了什么？后面的 90 个元素怎么处理的？"></a>Python 列表操作 a[:10] = [x for x in range(100)] 实际上发生了什么？后面的 90 个元素怎么处理的？</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = list() </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [chr(_) <span class="keyword">for</span> _ <span class="keyword">in</span> range(ord(<span class="string">'a'</span>), ord(<span class="string">'z'</span>)+<span class="number">1</span>)] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a </span><br><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>, <span class="string">'h'</span>, <span class="string">'i'</span>, <span class="string">'j'</span>, <span class="string">'k'</span>, <span class="string">'l'</span>, <span class="string">'m'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>, <span class="string">'p'</span>, <span class="string">'q'</span>, <span class="string">'r'</span>, <span class="string">'s'</span>, <span class="string">'t'</span>, <span class="string">'u'</span>, <span class="string">'v'</span>, <span class="string">'w'</span>, <span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[:<span class="number">10</span>] = [x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">100</span>)] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a </span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>, <span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">24</span>, <span class="number">25</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">28</span>, <span class="number">29</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">32</span>, <span class="number">33</span>, <span class="number">34</span>, <span class="number">35</span>, <span class="number">36</span>, <span class="number">37</span>, <span class="number">38</span>, <span class="number">39</span>, <span class="number">40</span>, <span class="number">41</span>, <span class="number">42</span>, <span class="number">43</span>, <span class="number">44</span>, <span class="number">45</span>, <span class="number">46</span>, <span class="number">47</span>, <span class="number">48</span>, <span class="number">49</span>, <span class="number">50</span>, <span class="number">51</span>, <span class="number">52</span>, <span class="number">53</span>, <span class="number">54</span>, <span class="number">55</span>, <span class="number">56</span>, <span class="number">57</span>, <span class="number">58</span>, <span class="number">59</span>, <span class="number">60</span>, <span class="number">61</span>, <span class="number">62</span>, <span class="number">63</span>, <span class="number">64</span>, <span class="number">65</span>, <span class="number">66</span>, <span class="number">67</span>, <span class="number">68</span>, <span class="number">69</span>, <span class="number">70</span>, <span class="number">71</span>, <span class="number">72</span>, <span class="number">73</span>, <span class="number">74</span>, <span class="number">75</span>, <span class="number">76</span>, <span class="number">77</span>, <span class="number">78</span>, <span class="number">79</span>, <span class="number">80</span>, <span class="number">81</span>, <span class="number">82</span>, <span class="number">83</span>, <span class="number">84</span>, <span class="number">85</span>, <span class="number">86</span>, <span class="number">87</span>, <span class="number">88</span>, <span class="number">89</span>, <span class="number">90</span>, <span class="number">91</span>, <span class="number">92</span>, <span class="number">93</span>, <span class="number">94</span>, <span class="number">95</span>, <span class="number">96</span>, <span class="number">97</span>, <span class="number">98</span>, <span class="number">99</span>, <span class="string">'k'</span>, <span class="string">'l'</span>, <span class="string">'m'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>, <span class="string">'p'</span>, <span class="string">'q'</span>, <span class="string">'r'</span>, <span class="string">'s'</span>, <span class="string">'t'</span>, <span class="string">'u'</span>, <span class="string">'v'</span>, <span class="string">'w'</span>, <span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>]</span><br></pre></td></tr></table></figure>
+<p>这里，如果用过matlab的同学就很好理解了。<br>那么，我们来分析，他做了什么。：<br>    首先，创建一个a列表<br>    接着将[a~z]赋值给a<br>    输出a ## 可以看出此时的a是二十六个英文字母的列表<br>    这时候，a[:10] = [x for x in range(100)]，我们先分析右半部分，返回的是一个[0~99]的列表。那么困扰我们的问题就出在右半部分了。a[:10]是matlab和python中都出现过的切片(<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431756919644a792ee4ead724ef7afab3f7f771b04f5000" target="_blank" rel="noopener">这里插播廖雪峰的切片教程</a>)，可以看出，意思是对a列表的第一个元素到第十个元素的操作，这里是将前十个元素进行了删除，[然后再在列表的头部插入100个元素]|[或者是新建一个列表，将100个元素插入，然后再append进alist，最后将这个列表命名为a。]|[或者是将新列表copy进去的同时，a原有元素后移（链表思路）]<br>    这个问题，交给以后将python内存机制搞清楚的我吧，但大体思路逃不过这三个了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jathonkatu.github.io/2018/03/21/记一个V2EX上看到的问题18-03-21/" data-id="cjnsjcdxz0020yc7466pk1l3p" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-linux-unpack" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/18/linux-unpack/" class="article-date">
@@ -145,7 +190,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/18/linux-unpack/" data-id="cjnsauryy001edg74c91cybd0" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/18/linux-unpack/" data-id="cjnsjcdxg001eyc74v26x4jut" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -197,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/记一次朋友问的sql问题/" data-id="cjnsaus1h002idg74sf19hvgh" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/15/记一次朋友问的sql问题/" data-id="cjnsjcdy30023yc74szqp0o1e" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
@@ -239,7 +284,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/单层感知器代码/" data-id="cjnsaurz7001pdg741qzp7u62" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/15/单层感知器代码/" data-id="cjnsjcdxu001uyc74ghokqbep" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -295,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/神经网络/" data-id="cjnsaurzi0021dg74obg6oxrk" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/15/神经网络/" data-id="cjnsjcdxw001xyc74cma66tl9" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/神经网络/">神经网络</a></li></ul>
@@ -406,7 +451,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/15/JupyterNotebook快捷键/" data-id="cjnsaurya000ndg74dsik9daj" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/15/JupyterNotebook快捷键/" data-id="cjnsjcdwc000gyc74lfs3ryt2" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -473,7 +518,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/06/Python基础(二)/" data-id="cjnsauryw001bdg74spqv3emz" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/03/06/Python基础(二)/" data-id="cjnsjcdwt000ryc74lwp13fe9" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -544,7 +589,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/02/22/PythonClassLibrary/" data-id="cjnsauryi000wdg748em54cok" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/02/22/PythonClassLibrary/" data-id="cjnsjcdwq000oyc745u1qkwgz" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -608,7 +653,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/25/sqlmap手册/" data-id="cjnsaurz1001idg74sewp4uxk" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/25/sqlmap手册/" data-id="cjnsjcdxl001lyc74f2p881wf" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kali/">kali</a></li></ul>
@@ -731,65 +776,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/24/Python基础/" data-id="cjnsauryg000tdg74udoxm5is" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/01/24/Python基础/" data-id="cjnsjcdww000vyc7495bq96xy" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-TCP协议" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/22/TCP协议/" class="article-date">
-  <time datetime="2018-01-22T04:10:11.000Z" itemprop="datePublished">2018-01-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Study/">Study</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/22/TCP协议/">TCP协议的三次握手四次挥手</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>阅读<a href="http://blog.csdn.net/whuslei/article/details/6667471" target="_blank" rel="noopener">whuslei</a>的博客有感<br>简单来说个人理解的TCP就是：<br>三次握手：<br>Client端：“嘿，老哥，我想跟你说个事”<br>Server端：“行，我兜着，你说吧。”<br>Client端：“那我就说了啊。”<br>Client端向Server端吐槽省略一万字。。。。</p>
-<p>四次挥手：<br>Client端：“哎呀，老哥，跟你讲话太开心了，但今天兄弟有点事，下次再聊可以吗。”<br>Server端：“行呀，随时欢迎呀，但是你后面有几条短讯还卡在路上，你先别关机行吗，等我接完。”<br>……过了一段时间，所有短讯都收到后……<br>Server端：“老哥，你说的话我都看完了啊，你可以去办事了，改天聊。”<br>Client端：“行，我下了啊，改天聊。”</p>
-<p>三次是保证双方互相明确对方能收能发的最低值。<br>理论上讲不论握手多少次都不能确认一条信道是“可靠”的，但通过3次握手可以至少确认它是“可用”的，再往上加握手次数不过是提高“它是可用的”这个结论的可信程度。</p>
-<p>以下是我阅读：<a href="http://blog.csdn.net/whuslei/article/details/6667471" target="_blank" rel="noopener">whuslei</a>的博客原文<br>建立TCP需要三次握手才能建立，而断开连接则需要四次握手。整个过程如下图所示：<br><img src="/2018/01/22/TCP协议/../TCP协议/1.gif" alt="TCP协议过程"></p>
-<p>首先Client端发送连接请求报文，Server段接受连接后回复ACK报文，并为这次连接分配资源。Client端接收到ACK报文后也向Server段发生ACK报文，并分配资源，这样TCP连接就建立了。</p>
-<p>那如何断开连接呢？简单的过程如下：<br><img src="/2018/01/22/TCP协议/../TCP协议/2.png" alt="如何断开连接"><br>【注意】中断连接端可以是Client端，也可以是Server端。</p>
-<p>假设Client端发起中断连接请求，也就是发送FIN报文。Server端接到FIN报文后，意思是说”我Client端没有数据要发给你了”，但是如果你还有数据没有发送完成，则不必急着关闭Socket，可以继续发送数据。所以你先发送ACK，”告诉Client端，你的请求我收到了，但是我还没准备好，请继续你等我的消息”。这个时候Client端就进入FIN_WAIT状态，继续等待Server端的FIN报文。当Server端确定数据已发送完成，则向Client端发送FIN报文，”告诉Client端，好了，我这边数据发完了，准备好关闭连接了”。Client端收到FIN报文后，”就知道可以关闭连接了，但是他还是不相信网络，怕Server端不知道要关闭，所以发送ACK后进入TIME_WAIT状态，如果Server端没有收到ACK则可以重传。“，Server端收到ACK后，”就知道可以断开连接了”。Client端等待了2MSL后依然没有收到回复，则证明Server端已正常关闭，那好，我Client端也可以关闭连接了。Ok，TCP连接就这样关闭了！</p>
-<p>整个过程Client端所经历的状态如下：<br><img src="/2018/01/22/TCP协议/../TCP协议/3.gif" alt="Client端所经历"></p>
-<p>而Server端所经历的过程如下：<br><img src="/2018/01/22/TCP协议/../TCP协议/4.gif" alt="Server端所经历"></p>
-<p>【注意】 在TIME_WAIT状态中，如果TCP client端最后一次发送的ACK丢失了，它将重新发送。TIME_WAIT状态中所需要的时间是依赖于实现方法的。典型的值为30秒、1分钟和2分钟。等待之后连接正式关闭，并且所有的资源(包括端口号)都被释放。</p>
-<p>【问题1】为什么连接的时候是三次握手，关闭的时候却是四次握手？<br>答：因为当Server端收到Client端的SYN连接请求报文后，可以直接发送SYN+ACK报文。其中ACK报文是用来应答的，SYN报文是用来同步的。但是关闭连接时，当Server端收到FIN报文时，很可能并不会立即关闭SOCKET，所以只能先回复一个ACK报文，告诉Client端，”你发的FIN报文我收到了”。只有等到我Server端所有的报文都发送完了，我才能发送FIN报文，因此不能一起发送。故需要四步握手。</p>
-<p>【问题2】为什么TIME_WAIT状态需要经过2MSL(最大报文段生存时间)才能返回到CLOSE状态？</p>
-<p>答：虽然按道理，四个报文都发送完毕，我们可以直接进入CLOSE状态了，但是我们必须假象网络是不可靠的，有可以最后一个ACK丢失。所以TIME_WAIT状态就是用来重发可能丢失的ACK报文。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/01/22/TCP协议/" data-id="cjnsaurzd001wdg74vhgt4esx" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS/">CS</a></li></ul>
 
     </footer>
   </div>
@@ -816,7 +806,11 @@
       <ul>
         
           <li>
-            <a href="/2018/10/28/git指令/">git指令</a>
+            <a href="/2018/10/28/mybatis细节/">mybatis细节</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/28/git指令/">Git常用命令</a>
           </li>
         
           <li>
@@ -831,10 +825,6 @@
             <a href="/2018/06/02/DesignPattern/">DesignPattern</a>
           </li>
         
-          <li>
-            <a href="/2018/05/22/DateBaseKnows/">DateBaseKnows</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -844,7 +834,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 

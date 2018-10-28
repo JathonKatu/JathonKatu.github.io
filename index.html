@@ -68,6 +68,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-mybatis细节" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/28/mybatis细节/" class="article-date">
+  <time datetime="2018-10-28T07:04:09.000Z" itemprop="datePublished">2018-10-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/28/mybatis细节/">mybatis细节</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="resultMap-amp-resultType"><a href="#resultMap-amp-resultType" class="headerlink" title="resultMap &amp; resultType"></a>resultMap &amp; resultType</h3><p>两者都是表示查询结果集与java对象之间的一种关系，处理查询结果集，映射到java对象。</p>
+<p>resultMap表示将查询结果集中的列一一映射到bean对象的各个属性。映射的查询结果集中的列标签可以根据需要灵活变化，并且，在映射关系中，还可以通过typeHandler设置实现查询结果值的类型转换，比如布尔型与0/1的类型转换。</p>
+<p>例如：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;resultMaptype=<span class="string">"hdu.terence.bean.Message"</span>id=<span class="string">"MessageResult"</span>&gt; </span><br><span class="line">    &lt;!--存放Dao值--&gt;&lt;!--type是和数据库对应的bean类名Message--&gt;</span><br><span class="line">    &lt;idcolumn=<span class="string">"id"</span>jdbcType=<span class="string">"INTEGER"</span>property=<span class="string">"id"</span>/&gt;&lt;!--主键标签--&gt;</span><br><span class="line">    &lt;resultcolumn=<span class="string">"COMMAND"</span>jdbcType=<span class="string">"VARCHAR"</span>property=<span class="string">"command"</span>/&gt;</span><br><span class="line">    &lt;resultcolumn=<span class="string">"DESCRIPTION"</span>jdbcType=<span class="string">"VARCHAR"</span>property=<span class="string">"description"</span>/&gt;</span><br><span class="line">    &lt;resultcolumn=<span class="string">"CONTENT"</span>jdbcType=<span class="string">"VARCHAR"</span>property=<span class="string">"content"</span>/&gt;</span><br><span class="line">  &lt;/resultMap&gt;</span><br><span class="line">    </span><br><span class="line">  &lt;selectid=<span class="string">"queryMessageList"</span>parameterType=<span class="string">"hdu.terence.bean.Message"</span>resultMap=<span class="string">"MessageResult"</span>&gt;</span><br><span class="line">    SELECTID,COMMAND,DESCRIPTION,CONTENT FROM message WHERE <span class="number">1</span>=<span class="number">1</span>      </span><br><span class="line">    &lt;iftest=<span class="string">"command!=null and!&amp;quot;&amp;quot;.equals(command.trim())"</span>&gt;</span><br><span class="line">    andCOMMAND=#&#123;command&#125;</span><br><span class="line">    &lt;/if&gt;</span><br><span class="line">    &lt;iftest=<span class="string">"description!=null and!&amp;quot;&amp;quot;.equals(description.trim())"</span>&gt;</span><br><span class="line">    andDESCRIPTION like '%' #&#123;description&#125; '%'</span><br><span class="line">    &lt;/if&gt; </span><br><span class="line">  &lt;/select&gt;</span><br></pre></td></tr></table></figure></p>
+<p>resultType 表示的是bean中的对象类，此时可以省略掉resultMap标签的映射，但是必须保证查询结果集中的属性 和 bean对象类中的属性是一一对应的，此时大小写不敏感，但是有限制。</p>
+<p>以下是resultType的写法，将其值设置成对应的java类上即可。不需要上述resultMap的映射关系。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;selectid=<span class="string">"queryMessageList"</span>parameterType=<span class="string">"hdu.terence.bean.Message"</span>   resultType=<span class="string">" hdu.terence.bean.Message "</span>&gt;</span><br><span class="line">    SELECTID,COMMAND,DESCRIPTION,CONTENT FROM message WHERE <span class="number">1</span>=<span class="number">1</span>      </span><br><span class="line">    &lt;iftest=<span class="string">"command!=null and!&amp;quot;&amp;quot;.equals(command.trim())"</span>&gt;</span><br><span class="line">    andCOMMAND=#&#123;command&#125;</span><br><span class="line">    &lt;/if&gt;</span><br><span class="line">    &lt;iftest=<span class="string">"description!=null and!&amp;quot;&amp;quot;.equals(description.trim())"</span>&gt;</span><br><span class="line">    andDESCRIPTION like '%' #&#123;description&#125; '%'</span><br><span class="line">    &lt;/if&gt; </span><br><span class="line">  &lt;/select&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="ParameterMap-不推荐-amp-parameterType"><a href="#ParameterMap-不推荐-amp-parameterType" class="headerlink" title="ParameterMap(不推荐) &amp; parameterType"></a>ParameterMap(不推荐) &amp; parameterType</h3><p>ParameterMap和resultMap类似，表示将查询结果集中列值的类型一一映射到java对象属性的类型上，在开发过程中不推荐这种方式。</p>
+<p>一般使用parameterType直接将查询结果列值类型自动对应到java对象属性类型上，不再配置映射关系一一对应，例如上述代码中下划线部分表示将查询结果类型自动对应到hdu.terence.bean.Message的Bean对象属性类型。</p>
+<h3 id="Mybatis家族历史"><a href="#Mybatis家族历史" class="headerlink" title="Mybatis家族历史"></a>Mybatis家族历史</h3><p>Mybatis出生于GoogleCode，使用的这两个名字叫做resultType和parameterType。</p>
+<p>以前的版本叫做iBatis，出生于Apache，以前这两个配置叫做resultClass和parrameterClass，根据这种命名也应该知道这种映射都和java类有关。</p>
+<h3 id="和-的使用"><a href="#和-的使用" class="headerlink" title="#{}和${}的使用"></a>#{}和${}的使用</h3><p>resultMap和ParameterMap书写拼写要使用#{}，resultType 和parameterType类型使用${}，使用例子如下：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> <span class="keyword">ID</span>，COMMAND <span class="keyword">from</span> Message <span class="keyword">where</span> COMMAND=#&#123;command&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Select</span> <span class="keyword">ID</span>，COMMAND <span class="keyword">from</span> Message <span class="keyword">where</span> COMMAND=‘$&#123;command&#125;’</span><br></pre></td></tr></table></figure></p>
+<p>前者解析为：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> <span class="keyword">ID</span>，COMMAND <span class="keyword">from</span> Message <span class="keyword">where</span> COMMAND=？具有预编译效果</span><br></pre></td></tr></table></figure></p>
+<p>后者解析为：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> <span class="keyword">ID</span>，COMMAND <span class="keyword">from</span> Message <span class="keyword">where</span> COMMAND=段子   不具有预编译效果</span><br></pre></td></tr></table></figure></p>
+<p>但是，例如当页面向后台传递一个列名（属性名）的时候，是不希望被预编译出一个？的，此时要用到$格式；</p>
+<p>如：加上 order by${param} ，此时param是一个列名。</p>
+<h3 id="和-ognl表达式"><a href="#和-ognl表达式" class="headerlink" title="#{}和 ognl表达式"></a>#{}和 ognl表达式</h3><pre><code>一般参数的拼写还是保证统一风格为好，便于人读。
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://jathonkatu.github.io/2018/10/28/mybatis细节/" data-id="cjnsjcdxi001hyc74enxhqu31" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-git指令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/28/git指令/" class="article-date">
@@ -86,7 +137,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/28/git指令/">git指令</a>
+      <a class="article-title" href="/2018/10/28/git指令/">Git常用命令</a>
     </h1>
   
 
@@ -94,11 +145,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="1、创建仓库（公开）"><a href="#1、创建仓库（公开）" class="headerlink" title="1、创建仓库（公开）"></a>1、创建仓库（公开）</h3><p>　　点击github右上角的+里面的new repository<br>　　在repository name栏中输入仓库的名称<br>　　description 栏中可以设置仓库的说明<br>　　piblic（公开）通用 private（非公开）收费<br>　　勾选Initialize this repository with a README ，如果想向GitHub添加手中已有的Git仓库，建议不要勾选<br>　　Add.gitignore 下拉框中选择要使用的框架<br>　　Add a license选择添加许可协议文件<br>　　点击create repository按钮，完成仓库的创建</p>
+<h3 id="2、克隆之前首先要选择克隆文件的位置（cd）"><a href="#2、克隆之前首先要选择克隆文件的位置（cd）" class="headerlink" title="2、克隆之前首先要选择克隆文件的位置（cd）"></a>2、克隆之前首先要选择克隆文件的位置（cd）</h3><p>　　clone已有仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　git clone git@github.com:XXX/yyyy.git //XXX为github的用户名，yyy为仓库名</span><br></pre></td></tr></table></figure></p>
+<h3 id="3、在对应的文件夹中添加新有项"><a href="#3、在对应的文件夹中添加新有项" class="headerlink" title="3、在对应的文件夹中添加新有项"></a>3、在对应的文件夹中添加新有项</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　git status</span><br></pre></td></tr></table></figure>
+<h3 id="4、提交"><a href="#4、提交" class="headerlink" title="4、提交"></a>4、提交</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　git add mmm.sss //mmm为文件名称，sss为文件拓展名（常用git add .）</span><br><span class="line">　　git commit -m &quot;hhh&quot; //hhh为git commit 提交信息，是对这个提交的概述</span><br><span class="line"></span><br><span class="line">　　git log//用于查看提交日志</span><br><span class="line">　　git push //更新GitHub上的仓库</span><br></pre></td></tr></table></figure>
+<p>　　5、用git创建仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">　　mkdir nnn //仓库名</span><br><span class="line"></span><br><span class="line">　　cd hhh</span><br><span class="line"></span><br><span class="line">　　git init //初始化仓库</span><br><span class="line"></span><br><span class="line">　　git status //查看仓库状态</span><br><span class="line"></span><br><span class="line">　　touch README.md //创建READEME.md文件</span><br><span class="line"></span><br><span class="line">　　git add ERADME.md //添加ERADME.md至暂存区</span><br><span class="line"></span><br><span class="line">　　git commit -m &quot;hhh&quot; //如果想要提交信息记录的更详细，请不要加 -m</span><br><span class="line"></span><br><span class="line">　　git log --pretty=short //加--pretty=short 只显示提交信息的第一行</span><br><span class="line"></span><br><span class="line">　　git log ggg //ggg是指指定的文件或目录，用于查看指定的目录、文件的日志</span><br><span class="line"></span><br><span class="line">　　git log -p //查看提交所带来的改动</span><br><span class="line"></span><br><span class="line">　　git log -p ggg //查看指定文件的改动</span><br><span class="line"></span><br><span class="line">　　git diff //可以查看工作树，暂存区，最新提交之间的差别</span><br><span class="line"></span><br><span class="line">　　git diff HEAD //查看工作树与最新提交的差别</span><br></pre></td></tr></table></figure></p>
+<h3 id="6、分支操作"><a href="#6、分支操作" class="headerlink" title="6、分支操作"></a>6、分支操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">　　git branch //显示分支一览表，同时确认当前所在的分支</span><br><span class="line"></span><br><span class="line">　　git checkout -b aaa //创建名为aaa的分支，并且切换到aaa分支</span><br><span class="line">　　（git branch aaa //创建名为aaa的分支</span><br><span class="line">　　git checkout aaa // 切换到aaa分支</span><br><span class="line">　　）能和git branch -b aaa 得到同样的效果</span><br><span class="line"></span><br><span class="line">　　git checkout - //切换到上一分支</span><br></pre></td></tr></table></figure>
+<h3 id="7、合并分支"><a href="#7、合并分支" class="headerlink" title="7、合并分支"></a>7、合并分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　git checkout master //切换到master分支</span><br><span class="line"></span><br><span class="line">　　git marge --no--ff aaa // 加--no--ff 参数可以在历史记录中明确地记录本次分支的合并</span><br><span class="line"></span><br><span class="line">　　git log --graph //以图表形式查看分支</span><br></pre></td></tr></table></figure>
+<h3 id="8、更改提交的操作"><a href="#8、更改提交的操作" class="headerlink" title="8、更改提交的操作"></a>8、更改提交的操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　git reset //回溯历史版本</span><br><span class="line"></span><br><span class="line">　　git reset --hrad //回溯到指定状态，只要提供目标时间点的哈希值</span><br></pre></td></tr></table></figure>
+<h3 id="9、推进历史"><a href="#9、推进历史" class="headerlink" title="9、推进历史"></a>9、推进历史</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　git reflog //查看仓库的操作日志，找到要推历史的哈希值</span><br><span class="line"></span><br><span class="line">　　git checkout master</span><br><span class="line"></span><br><span class="line">　　git reset --hrad ddd //ddd为要推进历史的哈希值</span><br></pre></td></tr></table></figure>
+<h3 id="10、修改提交信息-git-commit-–amend"><a href="#10、修改提交信息-git-commit-–amend" class="headerlink" title="10、修改提交信息 git commit –amend"></a>10、修改提交信息 git commit –amend</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">　　压缩历史 git rebase -i 错字漏字等失误称作typo</span><br><span class="line"></span><br><span class="line">　　根据以前的步骤在GitHub上创建仓库，应于本地的仓库名相同 GitHub上面创建的仓库的路径为git@github.com: 用户名/仓库名.git</span><br><span class="line"></span><br><span class="line">　　git remote add eee git@github.com: 用户名/仓库名.git //添加远程仓库，并将git@github.com: 用户名/仓库名.git远程仓库的名称改为eee</span><br><span class="line"></span><br><span class="line">　　git push -u eee master //推送至远程仓库 master分支下 -u 参数可以在推送的同时，将eee仓库的master分支设置为本地仓库的当前分</span><br><span class="line">　　支的的upstream（上游）。添加这个参数，将来运行git pull命令从远程仓库获取内容时，本地仓库的这个分支就可以直接从eee的master</span><br><span class="line">分支中获取内容</span><br><span class="line"></span><br><span class="line">　　git checkout -b feature d eee/feature d //获取远程的feature d分支到本地仓库，-b参数后面是本地仓库中新建的仓库的名称</span><br><span class="line"></span><br><span class="line">　　git pull eee feature d //将本地的feature d分支更新为最新状态</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">　　在GitHub上面查看两个分支之间的差别，只需要在地址栏中输入http://github.com/用户名/仓库名/分支1...分支2</span><br></pre></td></tr></table></figure>
+<h3 id="11、查看master分支在最近七天内的差别"><a href="#11、查看master分支在最近七天内的差别" class="headerlink" title="11、查看master分支在最近七天内的差别"></a>11、查看master分支在最近七天内的差别</h3><p>　　<a href="http://github.com/用户名/仓库名/master@{7.day.ago}...master" target="_blank" rel="noopener">http://github.com/用户名/仓库名/master@{7.day.ago}...master</a> （同样，day，week，month，year都是可以哒）</p>
+<h3 id="12、查看与指定日期之间的差别"><a href="#12、查看与指定日期之间的差别" class="headerlink" title="12、查看与指定日期之间的差别"></a>12、查看与指定日期之间的差别</h3><p>　　<a href="http://github.com/用户名/仓库名/master@{xxxx-xx-xx}...master" target="_blank" rel="noopener">http://github.com/用户名/仓库名/master@{xxxx-xx-xx}...master</a> （xxxx-xx-xx代表年月日）</p>
+<p>　　到这里，git相关的命令已经全部介绍完成，剩下的就靠大家自己学习了。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/10/28/git指令/" data-id="cjnsauryk000zdg74ouy5gjuz" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/10/28/git指令/" data-id="cjnsjcdx50014yc7485mnvbpv" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
@@ -186,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/07/13/Java面经/" data-id="cjnsaury2000idg74sczruftz" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/07/13/Java面经/" data-id="cjnsjcdw5000byc745cyn5spj" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -253,7 +317,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/07/12/JAVA设计模式/" data-id="cjnsaurwv0005dg74kvj1g96b" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/07/12/JAVA设计模式/" data-id="cjnsjcdvr0005yc74uamw2h2m" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -297,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/06/02/DesignPattern/" data-id="cjnsaurwj0001dg74h12fsztw" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/06/02/DesignPattern/" data-id="cjnsjcdvb0001yc74dgy7a86n" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -363,7 +427,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/22/DateBaseKnows/" data-id="cjnsaury6000ldg74to6p7vr6" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/22/DateBaseKnows/" data-id="cjnsjcdv20000yc74pudrbyqt" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DateBase/">DateBase</a></li></ul>
@@ -410,7 +474,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/20/JavaWebMVC/" data-id="cjnsaury4000jdg74fg3b6sww" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/20/JavaWebMVC/" data-id="cjnsjcdvu0006yc74polq9g5e" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -484,7 +548,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/17/jsp复习阶段/" data-id="cjnsauryt0017dg747m5k4nqs" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/17/jsp复习阶段/" data-id="cjnsjcdxc001byc7445469ggf" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -549,7 +613,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/13/Servlet学习过程/" data-id="cjnsauryn0012dg74g7tz4916" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/13/Servlet学习过程/" data-id="cjnsjcdwz000yyc743cykse04" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -596,55 +660,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/" data-id="cjnsauryd000qdg74o6fmp7mq" class="article-share-link">Teilen</a>
+      <a data-url="https://jathonkatu.github.io/2018/05/07/MyEclipse无法查看servlet源码的问题解决/" data-id="cjnsjcdwj000jyc74s6i7q5m8" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-记一个V2EX上看到的问题18-03-21" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/21/记一个V2EX上看到的问题18-03-21/" class="article-date">
-  <time datetime="2018-03-21T01:04:41.000Z" itemprop="datePublished">2018-03-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Exchange/">Exchange</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/21/记一个V2EX上看到的问题18-03-21/">记一个V2EX上看到的问题18-03-21</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在刷V2EX的时候看到了一个初学者可能会想不明白的问题（当然我自己也算是个初学者）<br>觉得，是一个不错的例子，所以这里列出来，供大家交流（其实是给自己记录一下思路）<br><a href="https://www.v2ex.com/t/200476" target="_blank" rel="noopener">原例子</a><br>这里，题目是：</p>
-<h4 id="Python-列表操作-a-10-x-for-x-in-range-100-实际上发生了什么？后面的-90-个元素怎么处理的？"><a href="#Python-列表操作-a-10-x-for-x-in-range-100-实际上发生了什么？后面的-90-个元素怎么处理的？" class="headerlink" title="Python 列表操作 a[:10] = [x for x in range(100)] 实际上发生了什么？后面的 90 个元素怎么处理的？"></a>Python 列表操作 a[:10] = [x for x in range(100)] 实际上发生了什么？后面的 90 个元素怎么处理的？</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = list() </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [chr(_) <span class="keyword">for</span> _ <span class="keyword">in</span> range(ord(<span class="string">'a'</span>), ord(<span class="string">'z'</span>)+<span class="number">1</span>)] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a </span><br><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>, <span class="string">'h'</span>, <span class="string">'i'</span>, <span class="string">'j'</span>, <span class="string">'k'</span>, <span class="string">'l'</span>, <span class="string">'m'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>, <span class="string">'p'</span>, <span class="string">'q'</span>, <span class="string">'r'</span>, <span class="string">'s'</span>, <span class="string">'t'</span>, <span class="string">'u'</span>, <span class="string">'v'</span>, <span class="string">'w'</span>, <span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[:<span class="number">10</span>] = [x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">100</span>)] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a </span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>, <span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">24</span>, <span class="number">25</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">28</span>, <span class="number">29</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">32</span>, <span class="number">33</span>, <span class="number">34</span>, <span class="number">35</span>, <span class="number">36</span>, <span class="number">37</span>, <span class="number">38</span>, <span class="number">39</span>, <span class="number">40</span>, <span class="number">41</span>, <span class="number">42</span>, <span class="number">43</span>, <span class="number">44</span>, <span class="number">45</span>, <span class="number">46</span>, <span class="number">47</span>, <span class="number">48</span>, <span class="number">49</span>, <span class="number">50</span>, <span class="number">51</span>, <span class="number">52</span>, <span class="number">53</span>, <span class="number">54</span>, <span class="number">55</span>, <span class="number">56</span>, <span class="number">57</span>, <span class="number">58</span>, <span class="number">59</span>, <span class="number">60</span>, <span class="number">61</span>, <span class="number">62</span>, <span class="number">63</span>, <span class="number">64</span>, <span class="number">65</span>, <span class="number">66</span>, <span class="number">67</span>, <span class="number">68</span>, <span class="number">69</span>, <span class="number">70</span>, <span class="number">71</span>, <span class="number">72</span>, <span class="number">73</span>, <span class="number">74</span>, <span class="number">75</span>, <span class="number">76</span>, <span class="number">77</span>, <span class="number">78</span>, <span class="number">79</span>, <span class="number">80</span>, <span class="number">81</span>, <span class="number">82</span>, <span class="number">83</span>, <span class="number">84</span>, <span class="number">85</span>, <span class="number">86</span>, <span class="number">87</span>, <span class="number">88</span>, <span class="number">89</span>, <span class="number">90</span>, <span class="number">91</span>, <span class="number">92</span>, <span class="number">93</span>, <span class="number">94</span>, <span class="number">95</span>, <span class="number">96</span>, <span class="number">97</span>, <span class="number">98</span>, <span class="number">99</span>, <span class="string">'k'</span>, <span class="string">'l'</span>, <span class="string">'m'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>, <span class="string">'p'</span>, <span class="string">'q'</span>, <span class="string">'r'</span>, <span class="string">'s'</span>, <span class="string">'t'</span>, <span class="string">'u'</span>, <span class="string">'v'</span>, <span class="string">'w'</span>, <span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>]</span><br></pre></td></tr></table></figure>
-<p>这里，如果用过matlab的同学就很好理解了。<br>那么，我们来分析，他做了什么。：<br>    首先，创建一个a列表<br>    接着将[a~z]赋值给a<br>    输出a ## 可以看出此时的a是二十六个英文字母的列表<br>    这时候，a[:10] = [x for x in range(100)]，我们先分析右半部分，返回的是一个[0~99]的列表。那么困扰我们的问题就出在右半部分了。a[:10]是matlab和python中都出现过的切片(<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431756919644a792ee4ead724ef7afab3f7f771b04f5000" target="_blank" rel="noopener">这里插播廖雪峰的切片教程</a>)，可以看出，意思是对a列表的第一个元素到第十个元素的操作，这里是将前十个元素进行了删除，[然后再在列表的头部插入100个元素]|[或者是新建一个列表，将100个元素插入，然后再append进alist，最后将这个列表命名为a。]|[或者是将新列表copy进去的同时，a原有元素后移（链表思路）]<br>    这个问题，交给以后将python内存机制搞清楚的我吧，但大体思路逃不过这三个了。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://jathonkatu.github.io/2018/03/21/记一个V2EX上看到的问题18-03-21/" data-id="cjnsaurzg001zdg74aig1tr3c" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
     </footer>
   </div>
@@ -671,7 +690,11 @@
       <ul>
         
           <li>
-            <a href="/2018/10/28/git指令/">git指令</a>
+            <a href="/2018/10/28/mybatis细节/">mybatis细节</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/28/git指令/">Git常用命令</a>
           </li>
         
           <li>
@@ -686,10 +709,6 @@
             <a href="/2018/06/02/DesignPattern/">DesignPattern</a>
           </li>
         
-          <li>
-            <a href="/2018/05/22/DateBaseKnows/">DateBaseKnows</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -699,7 +718,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
