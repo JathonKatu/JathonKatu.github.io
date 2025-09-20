@@ -1,0 +1,41 @@
+#name: Deploy Hexo to GitHub Pages
+#
+#on:
+#  push:
+#    branches: [ master ] # 当推送到 master 分支时触发构建
+#  workflow_dispatch: # 允许手动触发工作流
+#
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      # 1. 检出仓库代码
+#      - name: Checkout repository
+#        uses: actions/checkout@v4
+#        with:
+#          submodules: 'recursive' # 如果主题是子模块，确保递归检出
+#          fetch-depth: 0
+#
+#      # 2. 设置 Node.js 环境
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: '22' # 请使用 Hexo 兼容的 Node.js 版本，如 18.x 或 20.x
+#          cache: 'npm'
+#
+#      # 3. 安装依赖并构建
+#      - name: Install and Build
+#        run: |
+#        # 可选：为 node_modules 下的可执行文件添加执行权限，预防权限问题
+#          chmod -R +x node_modules/.bin/
+#          npm install -g hexo-cli
+#          npm install
+#          npm run build # 或者使用 hexo generate
+#
+#      # 4. 部署到 GitHub Pages
+#      - name: Deploy to GitHub Pages
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          publish_dir: ./public # Hexo 默认的生成输出目录
