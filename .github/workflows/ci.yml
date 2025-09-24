@@ -1,32 +1,32 @@
-#name: Deploy Hexo Blog
-#
-#on:
-#  push:
-#    branches: [ master ]  # 监听 master 分支推送
-#
-#jobs:
-#  deploy:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v4
-#
-#      - name: Setup Node.js
-#        uses: actions/setup-node@v4
-#        with:
-#          node-version: '22'
-#          cache: 'npm'
-#
-#      - name: Install dependencies
-#        run: |
-#          npm install
-#
-#      - name: Generate static files
-#        run: npm run build  # 等价于 hexo generate
-#
-#      - name: Deploy to GitHub Pages
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}
-#          publish_dir: ./public
-#          publish_branch: gh-pages   # 部署回 master 分支（覆盖 public 内容）
+name: Deploy Hexo Blog
+
+on:
+  push:
+    branches: [ master ]  # 监听 master 分支推送
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Generate static files
+        run: npm run build  # 等价于 hexo generate
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages   # 部署回 master 分支（覆盖 public 内容）
