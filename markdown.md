@@ -403,3 +403,8 @@ tags = ["标签1", "标签2", "标签3"]
 **注意**: 不同Markdown渲染器（GitHub, GitLab, VS Code, 各种博客平台等）可能支持不同的扩展语法，请根据实际使用环境进行调整。
 
 **参考标准**: [CommonMark](https://commonmark.org/) | [GitHub Flavored Markdown](https://github.github.com/gfm/)
+
+
+
+
+// "postinstall": "powershell -Command \"if (!(Test-Path -Path 'themes\\landscape' )) { New-Item -ItemType Directory -Path 'themes\\landscape' -Force }; Copy-Item -Recurse -Path 'node_modules\\hexo-theme-landscape\\*' -Destination 'themes\\landscape'\""
