@@ -9,7 +9,8 @@
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
-    "postinstall": "powershell -Command \"if (!(Test-Path -Path 'themes\\landscape' )) { New-Item -ItemType Directory -Path 'themes\\landscape' -Force }; Copy-Item -Recurse -Path 'node_modules\\hexo-theme-landscape\\*' -Destination 'themes\\landscape'\""
+    "postinstall": "mkdir -p themes/landscape && cp -R node_modules/hexo-theme-landscape/* themes/landscape/"
+
   },
   "hexo": {
     "version": "7.3.0"

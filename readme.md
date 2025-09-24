@@ -268,3 +268,6 @@ hexo deploy
 ---
 
 **Happy Blogging! 🎉**
+
+ // "postinstall": "powershell -Command \"if (!(Test-Path -Path 'themes\\landscape' )) { New-Item -ItemType Directory -Path 'themes\\landscape' -Force }; Copy-Item -Recurse -Path 'node_modules\\hexo-theme-landscape\\*' -Destination 'themes\\landscape'\""
+ // "postinstall": "powershell -Command \"if (!(Test-Path -Path 'themes\\landscape' )) { New-Item -ItemType Directory -Path 'themes\\landscape' -Force }; Copy-Item -Recurse -Path 'node_modules\\hexo-theme-landscape\\*' -Destination 'themes\\landscape'\""
